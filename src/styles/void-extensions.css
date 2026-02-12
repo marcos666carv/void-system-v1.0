@@ -1,0 +1,51 @@
+@layer base {
+    :root {
+        /* Brand Colors - Void System */
+        --void-deep-blue: #001A2C;
+        --void-vibrant-blue: #0066FF;
+        --void-soft-blue: #EBF2FF;
+        --void-slate: #4A5568;
+        --void-ice: #F5F7FA;
+        --void-white: #FFFFFF;
+        --void-black: #0A0A0A;
+        --void-success: #10B981;
+        --void-error: #EF4444;
+        --void-obsidian: #020617;
+
+        /* Semantic Keys (Legacy & Bridges) */
+        --background: var(--void-ice);
+        --foreground: var(--void-deep-blue);
+        --primary: var(--void-vibrant-blue);
+        --secondary: var(--void-slate);
+        --accent: var(--void-success);
+        --surface: var(--void-white);
+        --border: rgba(0, 0, 0, 0.08);
+
+        /* Glassmorphism */
+        --glass-bg: rgba(255, 255, 255, 0.7);
+        --glass-blur: blur(12px);
+        --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    [data-theme='dark'] {
+        --background: var(--void-deep-blue);
+        --foreground: var(--void-ice);
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.1);
+        --glass-bg: rgba(0, 26, 44, 0.7);
+        --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+@theme {
+    /* Tailwind v4 Utility Exposure */
+    --color-void-deep-blue: var(--void-deep-blue);
+    --color-void-vibrant-blue: var(--void-vibrant-blue);
+    --color-void-soft-blue: var(--void-soft-blue);
+    --color-void-obsidian: var(--void-obsidian);
+
+    --color-surface: var(--surface);
+    --color-border: var(--border);
+    --color-foreground: var(--foreground);
+    /* Map 'background' to tailwind 'bg-background' if needed, mostly handled by bg-bg-primary in Untitled */
+}

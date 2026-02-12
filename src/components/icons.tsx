@@ -1,0 +1,48 @@
+import {
+    AlertCircle,
+    Check,
+    ChevronDown,
+    ChevronLeft,
+    ChevronRight,
+    ChevronUp,
+    CircleHelp as HelpCircle,
+    Info as InfoCircle,
+    X,
+    Search,
+    UploadCloud,
+    Trash2,
+    Plus,
+    Settings,
+    LogOut,
+    User,
+    BarChart2,
+    Home,
+    Layers,
+    MoreVertical as DotsVertical,
+    Users
+} from 'lucide-react';
+
+// Export renamed icons to match Untitled UI imports
+export {
+    AlertCircle,
+    Check,
+    ChevronDown,
+    ChevronLeft,
+    ChevronRight,
+    ChevronUp,
+    HelpCircle,
+    InfoCircle,
+    X,
+    Search,
+    UploadCloud,
+    Trash2,
+    Plus,
+    Settings,
+    LogOut,
+    User,
+    BarChart2,
+    Home,
+    Layers,
+    DotsVertical,
+    Users
+};

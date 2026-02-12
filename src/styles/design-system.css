@@ -1,0 +1,247 @@
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_Rg.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_RgIt.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_Lg.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_Bd.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_Sb.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'dT Jakob';
+  src: url('/fonts/dTJakob_Th.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+body {
+  text-transform: lowercase;
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+:root {
+  /* Brand Colors - Sophisticated Fintech Palette */
+  --void-deep-blue: #001A2C;
+  --void-vibrant-blue: #0066FF;
+  --void-soft-blue: #EBF2FF;
+  --void-slate: #4A5568;
+  --void-ice: #F5F7FA;
+  --void-white: #FFFFFF;
+  --void-black: #0A0A0A;
+  --void-success: #10B981;
+  --void-success: #10B981;
+  --void-error: #EF4444;
+  --void-obsidian: #020617;
+  /* Deepest Void */
+
+  /* Semantic Colors */
+  --background: var(--void-ice);
+  --foreground: var(--void-deep-blue);
+  --primary: var(--void-vibrant-blue);
+  --secondary: var(--void-slate);
+  --accent: var(--void-success);
+  --surface: var(--void-white);
+  --border: rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: 'dT Jakob', system-ui, sans-serif;
+  --font-primary: 'dT Jakob', system-ui, sans-serif;
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3rem;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 600;
+  /* Redefined bold to semibold as requested */
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Glassmorphism (Light Refinement) */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-blur: blur(12px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+
+  /* Transitions */
+  --ease-antigravity: cubic-bezier(0.23, 1, 0.32, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.6s;
+
+  /* Golden Ratio Spacing Scale (φ ≈ 1.618) */
+  --space-1: 0.25rem;
+  /* 4px - base unit */
+  --space-2: 0.5rem;
+  /* 8px */
+  --space-3: 0.75rem;
+  /* 12px */
+  --space-4: 1rem;
+  /* 16px - φ⁰ */
+  --space-5: 1.618rem;
+  /* 25.888px - φ¹ */
+  --space-6: 2.618rem;
+  /* 41.888px - φ² */
+  --space-7: 4.236rem;
+  /* 67.776px - φ³ */
+  --space-8: 6.854rem;
+  /* 109.664px - φ⁴ */
+  --space-9: 11.09rem;
+  /* 177.44px - φ⁵ */
+  --space-10: 17.944rem;
+  /* 287.104px - φ⁶ */
+  --space-12: 29.034rem;
+  /* 464.544px - φ⁷ */
+}
+
+@keyframes float-bg {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-2%, 2%);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.subtleBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 30%, var(--void-soft-blue) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, #f0f7ff 0%, transparent 40%);
+  animation: float-bg 20s infinite ease-in-out;
+  opacity: 0.5;
+}
+
+
+[data-theme='dark'] {
+  --background: var(--void-deep-blue);
+  --foreground: var(--void-ice);
+  --surface: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(0, 26, 44, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Z-Index Governance ─── */
+:root {
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}
+
+/* ─── Focus Visible ─── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ─── Skip to Content ─── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--primary);
+  color: white;
+  z-index: var(--z-toast);
+  transition: top var(--duration-fast) var(--ease-antigravity);
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Skeleton Loading ─── */
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.skeleton {
+  background: var(--border);
+  border-radius: var(--radius-lg);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}

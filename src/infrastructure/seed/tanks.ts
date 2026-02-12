@@ -1,0 +1,103 @@
+import { TankProps } from '@/domain/entities/Tank';
+
+const now = new Date();
+
+export const seedTanks: TankProps[] = [
+    {
+        id: 'tank_01',
+        name: 'Tank Zero-01',
+        locationId: 'loc_curitiba',
+        status: 'ready',
+        temperature: 35.5,
+        saltConcentration: 550,
+        phLevel: 7.2,
+        uvLightOn: true,
+        filtrationOn: true,
+        maintenanceMode: false,
+        active: true,
+        installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 365), // 1 year ago
+        totalSessions: 1420,
+        totalUsageHours: 1840,
+        totalIdleHours: 240,
+        energyConsumedKwh: 340,
+        revenueGenerated: 355000,
+        parts: [
+            { id: 'PUMP-01', name: 'Bomba de Circulação Magnética', serialNumber: 'SN-99887766', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 120) },
+        ],
+        sessionHistory: [
+            { id: 'h1', clientName: 'Mariana Costa', clientCpf: '***.456.789-**', date: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 1), duration: 60, isGift: true }
+        ],
+        createdAt: now,
+        updatedAt: now,
+    },
+    {
+        id: 'tank_02',
+        name: 'Tank Zero-02',
+        locationId: 'loc_curitiba',
+        status: 'in_use',
+        temperature: 35.2,
+        saltConcentration: 545,
+        phLevel: 7.1,
+        uvLightOn: false,
+        filtrationOn: false,
+        maintenanceMode: false,
+        sessionTimeRemaining: 42,
+        currentClient: {
+            name: 'Rafael Lima',
+            photoUrl: 'https://i.pravatar.cc/150?u=rafael',
+            cpf: '034.***.***-88',
+            email: 'rafael.lima@email.com',
+            phone: '(41) 99876-5432',
+            isGift: true
+        },
+        active: true,
+        installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 180), // 6 months ago
+        totalSessions: 850,
+        totalUsageHours: 980,
+        totalIdleHours: 120,
+        energyConsumedKwh: 210,
+        revenueGenerated: 212500,
+        parts: [
+            { id: 'HEAT-02', name: 'Aquecedor de Titânio', serialNumber: 'HT-55443322', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 60) },
+        ],
+        sessionHistory: [
+            { id: 'h2', clientName: 'João Silva', clientCpf: '***.123.456-**', date: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 2), duration: 90 },
+            { id: 'h3', clientName: 'Ana Souza', clientCpf: '***.789.012-**', date: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 5), duration: 60, isGift: true }
+        ],
+        createdAt: now,
+        updatedAt: now,
+    },
+    {
+        id: 'tank_03',
+        name: 'Tank Zero-03',
+        locationId: 'loc_campo_largo',
+        status: 'cleaning',
+        temperature: 35.0,
+        saltConcentration: 540,
+        phLevel: 7.3,
+        uvLightOn: true,
+        filtrationOn: true,
+        maintenanceMode: false,
+        cleaningTimeRemaining: 12,
+        active: true,
+        installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 90), // 3 months ago
+        createdAt: now,
+        updatedAt: now,
+    },
+    {
+        id: 'tank_04',
+        name: 'Tank Zero-04',
+        locationId: 'loc_curitiba',
+        status: 'ready',
+        temperature: 35.4,
+        saltConcentration: 548,
+        phLevel: 7.0,
+        uvLightOn: true,
+        filtrationOn: true,
+        maintenanceMode: false,
+        active: true,
+        installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 60), // 2 months ago
+        createdAt: now,
+        updatedAt: now,
+    },
+];

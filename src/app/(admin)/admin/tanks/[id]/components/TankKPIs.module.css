@@ -1,0 +1,104 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.card {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow var(--duration-fast);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    height: 100%;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-2);
+}
+
+.iconWrapper {
+    padding: 8px;
+    border-radius: var(--radius-md);
+}
+
+.trendBadge {
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    color: #059669;
+    background-color: #D1FAE5;
+    padding: 2px 6px;
+    border-radius: 9999px;
+}
+
+.value {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+    line-height: 1.2;
+}
+
+.label {
+    font-size: var(--font-size-xs);
+    color: var(--foreground-muted);
+    font-weight: var(--font-weight-medium);
+    margin-top: 4px;
+}
+
+/* Colors for dynamic injection or utility classes helper */
+.textEmerald {
+    color: #10B981;
+}
+
+.bgEmerald {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.textBlue {
+    color: #3B82F6;
+}
+
+.bgBlue {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.textSlate {
+    color: #64748B;
+}
+
+.bgSlate {
+    background-color: rgba(100, 116, 139, 0.1);
+}
+
+.textYellow {
+    color: #EAB308;
+}
+
+.bgYellow {
+    background-color: rgba(234, 179, 8, 0.1);
+}
+
+.textPurple {
+    color: #A855F7;
+}
+
+.bgPurple {
+    background-color: rgba(168, 85, 247, 0.1);
+}

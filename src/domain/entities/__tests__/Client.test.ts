@@ -11,6 +11,11 @@ describe('Client', () => {
         membershipTier: 'void_club' as const,
         createdAt: new Date('2025-01-01'),
         updatedAt: new Date('2025-01-01'),
+        xp: 0,
+        level: 'iniciado' as const,
+        totalSpent: 0,
+        totalSessions: 0,
+        preferences: {},
     };
 
     it('creates from valid props', () => {

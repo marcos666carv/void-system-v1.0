@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui';
 import { Button } from '@/components/ui';
-import { Modal } from '@/components/ui-legacy/Modal';
+import { Modal, Dialog } from '@/components/ui-legacy/Modal';
 import { TankProps, TankStatus } from '@/domain/entities/Tank';
 import { LocationProps } from '@/domain/entities/Location';
 import { TankCard } from './TankCard';
@@ -203,36 +203,39 @@ export default function TanksPage() {
             </div>
 
             {/* Session Dialog */}
-            <Modal isOpen={!!sessionDialog} onClose={() => setSessionDialog(null)} title="configurar sessão">
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                    {[
-                        { label: 'duração (min)', value: config.duration, key: 'duration' as const, min: 30, max: 120, step: 15 },
-                        { label: 'música (min)', value: config.musicDuration, key: 'musicDuration' as const, min: 0, max: 30, step: 5 },
-                        { label: 'volume (%)', value: config.volume, key: 'volume' as const, min: 0, max: 100, step: 5 },
-                        { label: 'atraso início (min)', value: config.delayStart, key: 'delayStart' as const, min: 0, max: 15, step: 1 },
-                    ].map(field => (
-                        <div key={field.key}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                                <label style={{ fontSize: '0.75rem', fontWeight: 600 }}>{field.label}</label>
-                                <span style={{ fontSize: '0.875rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{field.value}</span>
+            <Modal isOpen={!!sessionDialog} onOpenChange={(open) => !open && setSessionDialog(null)}>
+                <Dialog className="outline-none">
+                    <h2 className="text-xl font-bold mb-4">configurar sessão</h2>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+                        {[
+                            { label: 'duração (min)', value: config.duration, key: 'duration' as const, min: 30, max: 120, step: 15 },
+                            { label: 'música (min)', value: config.musicDuration, key: 'musicDuration' as const, min: 0, max: 30, step: 5 },
+                            { label: 'volume (%)', value: config.volume, key: 'volume' as const, min: 0, max: 100, step: 5 },
+                            { label: 'atraso início (min)', value: config.delayStart, key: 'delayStart' as const, min: 0, max: 15, step: 1 },
+                        ].map(field => (
+                            <div key={field.key}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                    <label style={{ fontSize: '0.75rem', fontWeight: 600 }}>{field.label}</label>
+                                    <span style={{ fontSize: '0.875rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{field.value}</span>
+                                </div>
+                                <input
+                                    type="range"
+                                    min={field.min}
+                                    max={field.max}
+                                    step={field.step}
+                                    value={field.value}
+                                    onChange={e => setConfig(prev => ({ ...prev, [field.key]: Number(e.target.value) }))}
+                                    style={{ width: '100%', accentColor: 'var(--primary)' }}
+                                />
                             </div>
-                            <input
-                                type="range"
-                                min={field.min}
-                                max={field.max}
-                                step={field.step}
-                                value={field.value}
-                                onChange={e => setConfig(prev => ({ ...prev, [field.key]: Number(e.target.value) }))}
-                                style={{ width: '100%', accentColor: 'var(--primary)' }}
-                            />
+                        ))}
+                        <div style={{ marginTop: 'var(--space-2)' }}>
+                            <Button color="primary" className="w-full" onClick={() => sessionDialog && handleStartSession(sessionDialog)}>
+                                iniciar sessão
+                            </Button>
                         </div>
-                    ))}
-                    <div style={{ marginTop: 'var(--space-2)' }}>
-                        <Button color="primary" fullWidth onClick={() => sessionDialog && handleStartSession(sessionDialog)}>
-                            iniciar sessão
-                        </Button>
                     </div>
-                </div>
+                </Dialog>
             </Modal>
         </div>
     );

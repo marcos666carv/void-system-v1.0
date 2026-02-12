@@ -56,7 +56,7 @@ export default function ProfilePage() {
             </div>
 
             {/* Avatar Section */}
-            <Card  padding="lg" style={{ textAlign: 'center', marginBottom: 'var(--space-5)' }}>
+            <Card padding="lg" style={{ textAlign: 'center', marginBottom: 'var(--space-5)' }}>
                 <div style={{
                     width: '80px', height: '80px', borderRadius: 'var(--radius-full)',
                     backgroundColor: `${config.color}15`,
@@ -118,7 +118,7 @@ export default function ProfilePage() {
             </Card>
 
             {/* Contact Info */}
-            <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+            <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                 <h3 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-5)', opacity: 0.6 }}>
                     dados de contato
                 </h3>
@@ -130,7 +130,7 @@ export default function ProfilePage() {
             </Card>
 
             {/* Float Preferences */}
-            <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+            <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-5)' }}>
                     <h3 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', opacity: 0.6 }}>
                         preferências de flutuação
@@ -202,14 +202,14 @@ export default function ProfilePage() {
                         <Input
                             label="notas de claustrofobia"
                             defaultValue={prefs.claustrophobiaNotes}
-                            onChange={e => setPrefs({ ...prefs, claustrophobiaNotes: e.target.value })}
+                            onChange={val => setPrefs({ ...prefs, claustrophobiaNotes: val })}
                         />
                         <Input
                             label="notas de dor física"
                             defaultValue={prefs.physicalPainNotes}
-                            onChange={e => setPrefs({ ...prefs, physicalPainNotes: e.target.value })}
+                            onChange={val => setPrefs({ ...prefs, physicalPainNotes: val })}
                         />
-                        <Button color="primary" size="md" fullWidth onClick={() => setEditingPrefs(false)}>
+                        <Button color="primary" size="md" className="w-full" onClick={() => setEditingPrefs(false)}>
                             salvar preferências
                         </Button>
                     </div>

@@ -1,0 +1,700 @@
+src/app/(admin)/admin/customers/components/ClientDetailPanel.tsx(187,49): error TS2358: The left-hand side of an 'instanceof' expression must be of type 'any', an object type or a type parameter.
+src/app/(admin)/admin/locations/page.tsx(68,25): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(77,189): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(77,206): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(78,191): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(78,208): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(79,199): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(79,216): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(82,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(101,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(102,65): error TS2322: Type '{ children: string; color: "secondary"; size: "sm"; fullWidth: true; onClick: () => Promise<void>; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankActiveSession.tsx(105,45): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void; className: string; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankMaintenance.tsx(58,41): error TS2322: Type '{ children: string; variant: string; size: "sm"; onClick: () => void; style: { height: string; fontSize: string; }; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/page.tsx(165,17): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(206,45): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(231,49): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void | "" | null; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(client)/dashboard/page.tsx(94,59): error TS2322: Type '{ children: string; color: "primary"; size: "md"; fullWidth: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(client)/profile/page.tsx(205,88): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(client)/profile/page.tsx(210,86): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(client)/profile/page.tsx(212,59): error TS2322: Type '{ children: string; color: "primary"; size: "md"; fullWidth: true; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/checkout/page.tsx(199,139): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(200,147): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(201,147): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(292,59): error TS2322: Type '{ children: string; color: "primary"; size: "lg"; fullWidth: true; onClick: () => false | void | ""; disabled: boolean; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/checkout/page.tsx(296,59): error TS2322: Type '{ children: (string | undefined)[]; color: "primary"; size: "lg"; fullWidth: true; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(60,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(93,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(114,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(122,17): error TS2322: Type '{ children: "" | Element | null; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(public)/schedule/page.tsx(150,59): error TS2322: Type '{ children: string; color: "primary"; size: "lg"; fullWidth: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/api/tanks/route.ts(25,55): error TS2345: Argument of type '{ name: string; locationId: string; status: "offline" | "ready" | "in_use" | "maintenance"; active: boolean; temperature?: number | undefined; }' is not assignable to parameter of type 'Omit<TankProps, "id" | "createdAt" | "updatedAt">'.
+  Type '{ name: string; locationId: string; status: "offline" | "ready" | "in_use" | "maintenance"; active: boolean; temperature?: number | undefined; }' is missing the following properties from type 'Omit<TankProps, "id" | "createdAt" | "updatedAt">': ledsOn, musicOn, heaterOn, pumpOn
+src/components/application/app-navigation/base-components/mobile-header.tsx(4,40): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/mobile-header.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/mobile-header.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(6,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(10,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(11,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(12,33): error TS2307: Cannot find module '@/components/base/radio-buttons/radio-buttons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(13,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item-button.tsx(5,25): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item-button.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(4,38): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(6,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(7,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-list.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(4,58): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(6,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(7,30): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(8,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(9,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(5,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(7,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(8,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(3,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(4,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(5,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-sections-subheadings.tsx(3,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(4,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(5,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(6,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(5,50): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(8,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(9,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(11,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(13,37): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo-minimal' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/carousel/carousel-base.tsx(5,61): error TS2307: Cannot find module 'embla-carousel-react' or its corresponding type declarations.
+src/components/application/carousel/carousel-base.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(3,35): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(4,50): error TS2307: Cannot find module 'recharts/types/component/DefaultLegendContent' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(5,42): error TS2307: Cannot find module 'recharts/types/component/DefaultTooltipContent' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(6,40): error TS2307: Cannot find module 'recharts/types/shape/Dot' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(61,28): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+src/components/application/charts/charts-base.tsx(61,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/application/charts/charts-base.tsx(80,39): error TS2339: Property 'active' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(80,90): error TS2339: Property 'formatter' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(80,101): error TS2339: Property 'labelFormatter' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(127,34): error TS2339: Property 'cx' does not exist on type 'ChartActiveDotProps'.
+src/components/application/charts/charts-base.tsx(127,42): error TS2339: Property 'cy' does not exist on type 'ChartActiveDotProps'.
+src/components/application/date-picker/calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/calendar.tsx(20,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/cell.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-input.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(5,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(6,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(20,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/date-picker/range-preset.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(5,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(6,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(7,50): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(8,45): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(9,35): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(10,47): error TS2307: Cannot find module '@/components/shared-assets/illustrations' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/file-upload/draggable.tsx(4,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(5,31): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(6,42): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(7,62): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(10,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(11,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/loading-indicator/loading-indicator.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/modals/modal.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination-dot.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination-line.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(3,39): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(4,46): error TS2307: Cannot find module '@/components/base/button-group/button-group' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(5,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(6,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/slideout-menus/slideout-menu.tsx(10,29): error TS2307: Cannot find module '@/components/base/buttons/close-button' or its corresponding type declarations.
+src/components/application/slideout-menus/slideout-menu.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/table/table.tsx(5,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/table/table.tsx(24,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/table/table.tsx(25,26): error TS2307: Cannot find module '@/components/base/checkbox/checkbox' or its corresponding type declarations.
+src/components/application/table/table.tsx(26,26): error TS2307: Cannot find module '@/components/base/dropdown/dropdown' or its corresponding type declarations.
+src/components/application/table/table.tsx(27,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+src/components/application/table/table.tsx(28,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(7,34): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(8,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/features/calendar/BookingForm.tsx(117,76): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/calendar/BookingForm.tsx(118,21): error TS2322: Type '{ type: "datetime-local"; value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(43,21): error TS2322: Type '{ type: "text"; required: true; value: string; onChange: (e: string) => void; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(45,71): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/club/ClubRegistrationModal.tsx(54,21): error TS2322: Type '{ type: "email"; required: true; value: string; onChange: (e: string) => void; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(56,72): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/club/ClubRegistrationModal.tsx(66,72): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/ui-legacy/Input.tsx(9,25): error TS2307: Cannot find module '@/components/ui/Tooltip' or its corresponding type declarations.
+src/components/ui/badges/badge-groups.tsx(5,10): error TS2305: Module '"@/components/icons"' has no exported member 'ArrowRight'.
+src/components/ui/form/hook-form.tsx(4,90): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/ui/form/hook-form.tsx(5,61): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/ui/input/input-payment.tsx(8,80): error TS2307: Cannot find module '@/components/foundations/payment-icons' or its corresponding type declarations.
+src/components/ui/select/combobox.tsx(5,10): error TS2724: '"@/components/icons"' has no exported member named 'SearchLg'. Did you mean 'Search'?
+src/components/ui/select/combobox.tsx(12,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+src/components/ui/select/multi-select.tsx(5,10): error TS2724: '"@/components/icons"' has no exported member named 'SearchLg'. Did you mean 'Search'?
+src/components/ui/select/multi-select.tsx(18,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+src/domain/entities/__tests__/Client.test.ts(17,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(24,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(29,38): error TS2345: Argument of type '{ membershipTier: "vip"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ membershipTier: "vip"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(34,38): error TS2345: Argument of type '{ membershipTier: "standard"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ membershipTier: "standard"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(39,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(48,38): error TS2345: Argument of type '{ cpf: string; profession: string; id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ cpf: string; profession: string; id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/infrastructure/database/repositories/DrizzleClientRepository.ts(94,9): error TS2322: Type '{ createdAt: Date; updatedAt: Date; lastSurveyDate: Date | undefined; firstVisit: Date | undefined; lastVisit: Date | undefined; role: any; membershipTier: any; ... 22 more ...; preferredWeekDays: string[] | null; }' is not assignable to type 'ClientProps'.
+  Types of property 'phone' are incompatible.
+    Type 'string | null' is not assignable to type 'string | undefined'.
+      Type 'null' is not assignable to type 'string | undefined'.
+src/infrastructure/seed/tanks.ts(25,13): error TS2739: Type '{ id: string; name: string; serialNumber: string; lastReplacedAt: Date; }' is missing the following properties from type 'TankPart': lifespanHours, currentHours, status
+src/infrastructure/seed/tanks.ts(61,13): error TS2739: Type '{ id: string; name: string; serialNumber: string; lastReplacedAt: Date; }' is missing the following properties from type 'TankPart': lifespanHours, currentHours, status
+src/infrastructure/seed/tanks.ts(70,5): error TS2739: Type '{ id: string; name: string; locationId: string; status: "cleaning"; temperature: number; saltConcentration: number; phLevel: number; uvLightOn: true; filtrationOn: true; maintenanceMode: false; ... 4 more ...; updatedAt: Date; }' is missing the following properties from type 'TankProps': ledsOn, musicOn, heaterOn, pumpOn
+src/infrastructure/seed/tanks.ts(87,5): error TS2739: Type '{ id: string; name: string; locationId: string; status: "ready"; temperature: number; saltConcentration: number; phLevel: number; uvLightOn: true; filtrationOn: true; maintenanceMode: false; active: true; installedAt: Date; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'TankProps': ledsOn, musicOn, heaterOn, pumpOn
+temp_untitled/components/application/app-navigation/base-components/featured-cards.demo.tsx(4,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/featured-cards.demo.tsx(5,29): error TS2307: Cannot find module '@/components/base/buttons/close-button' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/featured-cards.demo.tsx(6,35): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-circles' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/featured-cards.demo.tsx(7,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/featured-cards.demo.tsx(8,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/featured-cards.story.tsx(3,34): error TS2307: Cannot find module '@/components/internal/decorators' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/mobile-header.tsx(4,40): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/mobile-header.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/mobile-header.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(6,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(10,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(11,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(12,33): error TS2307: Cannot find module '@/components/base/radio-buttons/radio-buttons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(13,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-account-card.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-item-button.tsx(5,25): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-item-button.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-item.tsx(4,38): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-item.tsx(6,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-item.tsx(7,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/base-components/nav-list.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.demo.tsx(3,21): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.demo.tsx(5,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.story.tsx(1,34): error TS2307: Cannot find module '@/components/internal/decorators' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.story.tsx(6,36): error TS7006: Parameter 'Story' implicitly has an 'any' type.
+temp_untitled/components/application/app-navigation/header-navigation.story.tsx(6,43): error TS7006: Parameter 'context' implicitly has an 'any' type.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(4,58): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(6,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(7,30): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(8,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(9,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/header-navigation.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.demo.tsx(33,8): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.demo.tsx(34,69): error TS2307: Cannot find module '@/components/application/app-navigation/base-components/featured-cards.demo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.demo.tsx(41,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.demo.tsx(42,37): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.story.tsx(1,34): error TS2307: Cannot find module '@/components/internal/decorators' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation.story.tsx(6,36): error TS7006: Parameter 'Story' implicitly has an 'any' type.
+temp_untitled/components/application/app-navigation/sidebar-navigation.story.tsx(6,43): error TS7006: Parameter 'context' implicitly has an 'any' type.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(5,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(7,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(8,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(3,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(4,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(5,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-sections-subheadings.tsx(3,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(4,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(5,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(6,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(5,50): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(8,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(9,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(11,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(13,37): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo-minimal' or its corresponding type declarations.
+temp_untitled/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/carousel/carousel-base.tsx(5,61): error TS2307: Cannot find module 'embla-carousel-react' or its corresponding type declarations.
+temp_untitled/components/application/carousel/carousel-base.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/carousel/carousel.demo.tsx(3,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/charts/activity-gauges.demo.tsx(3,97): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/activity-gauges.demo.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(3,146): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(5,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(121,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(131,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(145,33): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(146,38): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(273,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(284,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(298,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(300,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(433,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(444,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(458,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/bar-charts.demo.tsx(460,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/charts-base.tsx(3,35): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/charts-base.tsx(4,50): error TS2307: Cannot find module 'recharts/types/component/DefaultLegendContent' or its corresponding type declarations.
+temp_untitled/components/application/charts/charts-base.tsx(5,42): error TS2307: Cannot find module 'recharts/types/component/DefaultTooltipContent' or its corresponding type declarations.
+temp_untitled/components/application/charts/charts-base.tsx(6,40): error TS2307: Cannot find module 'recharts/types/shape/Dot' or its corresponding type declarations.
+temp_untitled/components/application/charts/charts-base.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/charts/charts-base.tsx(61,28): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+temp_untitled/components/application/charts/charts-base.tsx(61,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+temp_untitled/components/application/charts/charts-base.tsx(80,39): error TS2339: Property 'active' does not exist on type 'ChartTooltipContentProps'.
+temp_untitled/components/application/charts/charts-base.tsx(80,90): error TS2339: Property 'formatter' does not exist on type 'ChartTooltipContentProps'.
+temp_untitled/components/application/charts/charts-base.tsx(80,101): error TS2339: Property 'labelFormatter' does not exist on type 'ChartTooltipContentProps'.
+temp_untitled/components/application/charts/charts-base.tsx(127,34): error TS2339: Property 'cx' does not exist on type 'ChartActiveDotProps'.
+temp_untitled/components/application/charts/charts-base.tsx(127,42): error TS2339: Property 'cy' does not exist on type 'ChartActiveDotProps'.
+temp_untitled/components/application/charts/line-charts.demo.tsx(3,107): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/line-charts.demo.tsx(5,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+temp_untitled/components/application/charts/line-charts.demo.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/charts/line-charts.demo.tsx(127,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(142,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(156,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(157,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(255,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(270,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(284,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(285,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(394,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(408,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(422,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(423,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(522,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(537,41): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(551,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/line-charts.demo.tsx(552,42): error TS7006: Parameter 'value' implicitly has an 'any' type.
+temp_untitled/components/application/charts/pie-charts.demo.tsx(3,89): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/progress-circles.demo.tsx(3,80): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/progress-circles.demo.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(4,139): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(44,17): error TS2322: Type 'string' is not assignable to type '"inherit" | "end" | "start" | "middle" | undefined'.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(130,30): error TS7031: Binding element 'x' implicitly has an 'any' type.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(130,33): error TS7031: Binding element 'y' implicitly has an 'any' type.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(130,36): error TS7031: Binding element 'textAnchor' implicitly has an 'any' type.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(130,48): error TS7031: Binding element 'index' implicitly has an 'any' type.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(130,55): error TS7031: Binding element 'payload' implicitly has an 'any' type.
+temp_untitled/components/application/charts/radar-charts.demo.tsx(146,61): error TS7006: Parameter 'props' implicitly has an 'any' type.
+temp_untitled/components/application/date-picker/calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/calendar.tsx(20,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/cell.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-input.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-picker.demo.tsx(7,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-picker.tsx(5,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-picker.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-picker.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-range-picker.tsx(6,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-range-picker.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/date-range-picker.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/range-calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/range-calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/range-calendar.tsx(20,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+temp_untitled/components/application/date-picker/range-preset.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(5,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(6,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(7,50): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(8,45): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(9,35): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(10,47): error TS2307: Cannot find module '@/components/shared-assets/illustrations' or its corresponding type declarations.
+temp_untitled/components/application/empty-state/empty-state.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/draggable.tsx(4,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(5,31): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(6,42): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(7,62): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(10,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(11,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+temp_untitled/components/application/file-upload/file-upload-base.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/loading-indicator/loading-indicator.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/modals/modal.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination-dot.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination-line.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination.tsx(3,39): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination.tsx(4,46): error TS2307: Cannot find module '@/components/base/button-group/button-group' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination.tsx(5,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination.tsx(6,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+temp_untitled/components/application/pagination/pagination.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/slideout-menus/slideout-menu.tsx(10,29): error TS2307: Cannot find module '@/components/base/buttons/close-button' or its corresponding type declarations.
+temp_untitled/components/application/slideout-menus/slideout-menu.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(4,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(5,113): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(14,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(15,33): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(16,69): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(17,46): error TS2307: Cannot find module '@/components/base/button-group/button-group' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(18,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(19,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(20,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/application/table/table.demo.tsx(21,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+temp_untitled/components/application/table/table.story.tsx(3,34): error TS2307: Cannot find module '@/components/internal/decorators' or its corresponding type declarations.
+temp_untitled/components/application/table/table.story.tsx(9,27): error TS7006: Parameter 'Story' implicitly has an 'any' type.
+temp_untitled/components/application/table/table.tsx(5,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/application/table/table.tsx(24,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/table/table.tsx(25,26): error TS2307: Cannot find module '@/components/base/checkbox/checkbox' or its corresponding type declarations.
+temp_untitled/components/application/table/table.tsx(26,26): error TS2307: Cannot find module '@/components/base/dropdown/dropdown' or its corresponding type declarations.
+temp_untitled/components/application/table/table.tsx(27,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/application/table/table.tsx(28,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/application/tabs/tabs.demo.tsx(6,30): error TS2307: Cannot find module '@/components/base/select/select-native' or its corresponding type declarations.
+temp_untitled/components/application/tabs/tabs.demo.tsx(26,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(47,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(68,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(89,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(110,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(131,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(152,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(173,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(194,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(215,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.demo.tsx(241,32): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/application/tabs/tabs.tsx(7,34): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+temp_untitled/components/application/tabs/tabs.tsx(8,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/application/tabs/tabs.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar-label-group.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar-profile-photo.tsx(4,24): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar-profile-photo.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.demo.tsx(3,24): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.demo.tsx(4,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.demo.tsx(5,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.demo.tsx(6,36): error TS2307: Cannot find module '@/components/base/avatar/avatar-profile-photo' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.demo.tsx(7,52): error TS2307: Cannot find module '@/components/base/avatar/base-components' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.story.tsx(2,25): error TS2307: Cannot find module '@/components/base/avatar/avatar.demo' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.tsx(4,24): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/avatar/avatar.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/avatar-add-button.tsx(3,22): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/avatar-add-button.tsx(5,78): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/avatar-add-button.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/avatar-company-icon.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/avatar-online-indicator.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/avatar/base-components/verified-tick.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.demo.tsx(3,28): error TS2307: Cannot find module '@/components/base/badges/badge-groups' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.story.tsx(2,29): error TS2307: Cannot find module '@/components/base/badges/badge-groups.demo' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.tsx(5,28): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.tsx(6,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.tsx(7,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/badges/badge-groups.tsx(155,57): error TS2604: JSX element type 'IconTrailing' does not have any construct or call signatures.
+temp_untitled/components/base/badges/badge-groups.tsx(155,57): error TS2786: 'IconTrailing' cannot be used as a JSX component.
+  Its type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | FC<...> | null' is not a valid JSX element type.
+    Type 'null' is not assignable to type 'ElementType'.
+temp_untitled/components/base/badges/badge-groups.tsx(172,49): error TS2604: JSX element type 'IconTrailing' does not have any construct or call signatures.
+temp_untitled/components/base/badges/badge-groups.tsx(172,49): error TS2786: 'IconTrailing' cannot be used as a JSX component.
+  Its type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | FC<...> | null' is not a valid JSX element type.
+    Type 'null' is not assignable to type 'ElementType'.
+temp_untitled/components/base/badges/badges.demo.tsx(3,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/badges/badges.demo.tsx(4,34): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+temp_untitled/components/base/badges/badges.demo.tsx(5,125): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+temp_untitled/components/base/badges/badges.story.tsx(2,25): error TS2307: Cannot find module '@/components/base/badges/badges.demo' or its corresponding type declarations.
+temp_untitled/components/base/badges/badges.tsx(4,29): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/badges/badges.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.demo.tsx(4,84): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.demo.tsx(6,46): error TS2307: Cannot find module '@/components/base/button-group/button-group' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.story.tsx(2,30): error TS2307: Cannot find module '@/components/base/button-group/button-group.demo' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.tsx(10,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.tsx(11,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/button-group/button-group.tsx(78,48): error TS2604: JSX element type 'IconLeading' does not have any construct or call signatures.
+temp_untitled/components/base/button-group/button-group.tsx(78,48): error TS2786: 'IconLeading' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/button-group/button-group.tsx(83,49): error TS2604: JSX element type 'IconTrailing' does not have any construct or call signatures.
+temp_untitled/components/base/button-group/button-group.tsx(83,49): error TS2786: 'IconTrailing' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/buttons/app-store-buttons-outline.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/app-store-buttons.demo.tsx(3,87): error TS2307: Cannot find module '@/components/base/buttons/app-store-buttons' or its corresponding type declarations.
+temp_untitled/components/base/buttons/app-store-buttons.demo.tsx(9,8): error TS2307: Cannot find module '@/components/base/buttons/app-store-buttons-outline' or its corresponding type declarations.
+temp_untitled/components/base/buttons/app-store-buttons.story.tsx(1,26): error TS2307: Cannot find module '@/components/base/buttons/app-store-buttons.demo' or its corresponding type declarations.
+temp_untitled/components/base/buttons/app-store-buttons.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button-utility.tsx(8,25): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button-utility.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button-utility.tsx(10,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button-utility.tsx(105,41): error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
+temp_untitled/components/base/buttons/button-utility.tsx(105,41): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/buttons/button.tsx(7,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button.tsx(8,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/buttons/button.tsx(193,81): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+temp_untitled/components/base/buttons/button.tsx(233,48): error TS2604: JSX element type 'IconLeading' does not have any construct or call signatures.
+temp_untitled/components/base/buttons/button.tsx(233,48): error TS2786: 'IconLeading' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/buttons/button.tsx(266,49): error TS2604: JSX element type 'IconTrailing' does not have any construct or call signatures.
+temp_untitled/components/base/buttons/button.tsx(266,49): error TS2786: 'IconTrailing' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/buttons/buttons.demo.tsx(4,95): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/buttons/buttons.demo.tsx(5,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/base/buttons/buttons.demo.tsx(6,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+temp_untitled/components/base/buttons/buttons.demo.tsx(7,29): error TS2307: Cannot find module '@/components/base/buttons/close-button' or its corresponding type declarations.
+temp_untitled/components/base/buttons/buttons.demo.tsx(8,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/buttons.story.tsx(2,26): error TS2307: Cannot find module '@/components/base/buttons/buttons.demo' or its corresponding type declarations.
+temp_untitled/components/base/buttons/close-button.tsx(3,32): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/buttons/close-button.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/social-button.tsx(6,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/buttons/social-buttons.demo.tsx(3,30): error TS2307: Cannot find module '@/components/base/buttons/social-button' or its corresponding type declarations.
+temp_untitled/components/base/checkbox/checkbox.demo.tsx(3,26): error TS2307: Cannot find module '@/components/base/checkbox/checkbox' or its corresponding type declarations.
+temp_untitled/components/base/checkbox/checkbox.story.tsx(2,27): error TS2307: Cannot find module '@/components/base/checkbox/checkbox.demo' or its corresponding type declarations.
+temp_untitled/components/base/checkbox/checkbox.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(3,95): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(5,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(6,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(7,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(8,26): error TS2307: Cannot find module '@/components/base/dropdown/dropdown' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.demo.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.story.tsx(2,28): error TS2307: Cannot find module '@/components/base/dropdown/dropdown.demo' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.tsx(4,30): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/dropdown/dropdown.tsx(22,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/form/hook-form.tsx(4,90): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+temp_untitled/components/base/form/hook-form.tsx(5,61): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+temp_untitled/components/base/input/hint-text.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(4,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(5,37): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(6,27): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(7,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(8,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/input/input-group.tsx(95,17): error TS7031: Binding element 'isDisabled' implicitly has an 'any' type.
+temp_untitled/components/base/input/input-group.tsx(95,29): error TS7031: Binding element 'isInvalid' implicitly has an 'any' type.
+temp_untitled/components/base/input/input-group.tsx(95,40): error TS7031: Binding element 'isRequired' implicitly has an 'any' type.
+temp_untitled/components/base/input/input-payment.tsx(4,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/input/input-payment.tsx(5,37): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/base/input/input-payment.tsx(6,38): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/base/input/input-payment.tsx(7,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/input/input-payment.tsx(8,80): error TS2307: Cannot find module '@/components/foundations/payment-icons' or its corresponding type declarations.
+temp_untitled/components/base/input/input-payment.tsx(103,17): error TS7031: Binding element 'isDisabled' implicitly has an 'any' type.
+temp_untitled/components/base/input/input-payment.tsx(103,29): error TS7031: Binding element 'isInvalid' implicitly has an 'any' type.
+temp_untitled/components/base/input/input-payment.tsx(103,40): error TS7031: Binding element 'isRequired' implicitly has an 'any' type.
+temp_untitled/components/base/input/input.tsx(4,40): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/input/input.tsx(7,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/input/input.tsx(8,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/input/input.tsx(9,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/base/input/input.tsx(10,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(5,39): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(6,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(7,34): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(8,28): error TS2307: Cannot find module '@/components/base/input/input-group' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(9,30): error TS2307: Cannot find module '@/components/base/input/input-payment' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(10,30): error TS2307: Cannot find module '@/components/base/select/select-native' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.demo.tsx(11,30): error TS2307: Cannot find module '@/hooks/use-clipboard' or its corresponding type declarations.
+temp_untitled/components/base/input/inputs.story.tsx(2,25): error TS2307: Cannot find module '@/components/base/input/inputs.demo' or its corresponding type declarations.
+temp_untitled/components/base/input/label.tsx(4,28): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/input/label.tsx(7,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/base/input/label.tsx(8,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/pin-input/pin-input.demo.tsx(3,26): error TS2307: Cannot find module '@/components/base/pin-input/pin-input' or its corresponding type declarations.
+temp_untitled/components/base/pin-input/pin-input.story.tsx(2,28): error TS2307: Cannot find module '@/components/base/pin-input/pin-input.demo' or its corresponding type declarations.
+temp_untitled/components/base/pin-input/pin-input.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/progress-indicators/progress-circles.tsx(3,35): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/progress-indicators/progress-indicators.demo.tsx(3,58): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-circles' or its corresponding type declarations.
+temp_untitled/components/base/progress-indicators/progress-indicators.demo.tsx(4,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+temp_untitled/components/base/progress-indicators/progress-indicators.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/radio-buttons/radio-buttons.demo.tsx(3,41): error TS2307: Cannot find module '@/components/base/radio-buttons/radio-buttons' or its corresponding type declarations.
+temp_untitled/components/base/radio-buttons/radio-buttons.story.tsx(2,24): error TS2307: Cannot find module '@/components/base/radio-buttons/radio-buttons.demo' or its corresponding type declarations.
+temp_untitled/components/base/radio-buttons/radio-buttons.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(5,40): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(8,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(9,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(10,25): error TS2307: Cannot find module '@/components/base/select/popover' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(11,77): error TS2307: Cannot find module '@/components/base/select/select' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(12,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/combobox.tsx(98,28): error TS2339: Property 'placeholder' does not exist on type 'ComboBoxProps'.
+temp_untitled/components/base/select/combobox.tsx(98,69): error TS2339: Property 'size' does not exist on type 'ComboBoxProps'.
+temp_untitled/components/base/select/combobox.tsx(122,37): error TS2339: Property 'label' does not exist on type '{ popoverClassName?: string | undefined; id?: string | undefined; className?: ClassNameOrFunction<ComboBoxRenderProps> | undefined; ... 106 more ...; key?: Key | ... 1 more ... | undefined; }'.
+temp_untitled/components/base/select/combobox.tsx(123,86): error TS2339: Property 'tooltip' does not exist on type '{ popoverClassName?: string | undefined; id?: string | undefined; className?: ClassNameOrFunction<ComboBoxRenderProps> | undefined; ... 106 more ...; key?: Key | ... 1 more ... | undefined; }'.
+temp_untitled/components/base/select/combobox.tsx(124,45): error TS2339: Property 'label' does not exist on type '{ popoverClassName?: string | undefined; id?: string | undefined; className?: ClassNameOrFunction<ComboBoxRenderProps> | undefined; ... 106 more ...; key?: Key | ... 1 more ... | undefined; }'.
+temp_untitled/components/base/select/combobox.tsx(146,37): error TS2339: Property 'hint' does not exist on type '{ popoverClassName?: string | undefined; id?: string | undefined; className?: ClassNameOrFunction<ComboBoxRenderProps> | undefined; ... 106 more ...; key?: Key | ... 1 more ... | undefined; }'.
+temp_untitled/components/base/select/combobox.tsx(146,95): error TS2339: Property 'hint' does not exist on type '{ popoverClassName?: string | undefined; id?: string | undefined; className?: ClassNameOrFunction<ComboBoxRenderProps> | undefined; ... 106 more ...; key?: Key | ... 1 more ... | undefined; }'.
+temp_untitled/components/base/select/multi-select.tsx(5,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(11,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(12,40): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(13,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(14,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(15,25): error TS2307: Cannot find module '@/components/base/select/popover' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(16,44): error TS2307: Cannot find module '@/components/base/select/select' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(17,27): error TS2307: Cannot find module '@/components/base/tags/base-components/tag-close-x' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(18,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(19,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/multi-select.tsx(280,41): error TS7006: Parameter 'event' implicitly has an 'any' type.
+temp_untitled/components/base/select/popover.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/select-item.tsx(4,23): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/select-item.tsx(7,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/select/select-item.tsx(8,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/select-item.tsx(9,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/select/select-item.tsx(63,26): error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
+temp_untitled/components/base/select/select-item.tsx(63,26): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'ReactNode | FC' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/select/select-native.tsx(4,29): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/select-native.tsx(5,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/select/select-native.tsx(6,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/select/select-native.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/select.demo.tsx(3,24): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/select.demo.tsx(5,29): error TS2307: Cannot find module '@/components/base/select/multi-select' or its corresponding type declarations.
+temp_untitled/components/base/select/select.demo.tsx(6,45): error TS2307: Cannot find module '@/components/base/select/select' or its corresponding type declarations.
+temp_untitled/components/base/select/select.demo.tsx(7,30): error TS2307: Cannot find module '@/components/base/select/select-native' or its corresponding type declarations.
+temp_untitled/components/base/select/select.demo.tsx(72,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(105,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(140,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(157,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(191,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(270,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(353,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(378,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(431,15): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(471,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(486,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(503,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(519,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(542,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(558,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(576,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(593,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(615,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(631,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(649,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(666,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(691,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(710,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(731,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(751,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(772,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(787,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(804,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(820,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(848,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(872,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(897,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.demo.tsx(921,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/select/select.story.tsx(2,26): error TS2307: Cannot find module '@/components/base/select/select.demo' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(5,29): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(8,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(9,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(10,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(12,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/base/select/select.tsx(83,34): error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
+temp_untitled/components/base/select/select.tsx(83,34): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<...> | FC | null | undefined' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/base/slider/slider.demo.tsx(3,24): error TS2307: Cannot find module '@/components/base/slider/slider' or its corresponding type declarations.
+temp_untitled/components/base/slider/slider.story.tsx(2,26): error TS2307: Cannot find module '@/components/base/slider/slider.demo' or its corresponding type declarations.
+temp_untitled/components/base/slider/slider.tsx(11,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/tags/base-components/tag-checkbox.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/tags/base-components/tag-close-x.tsx(4,24): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/tags/base-components/tag-close-x.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/tags/tags.demo.tsx(5,54): error TS2307: Cannot find module '@/components/base/tags/tags' or its corresponding type declarations.
+temp_untitled/components/base/tags/tags.demo.tsx(32,24): error TS7006: Parameter 'keys' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(37,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(99,24): error TS7006: Parameter 'keys' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(104,19): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(181,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(186,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(191,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(210,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(215,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(220,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(239,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(244,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(249,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(268,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(273,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(278,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(297,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(302,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(307,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(326,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(331,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.demo.tsx(336,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+temp_untitled/components/base/tags/tags.story.tsx(2,23): error TS2307: Cannot find module '@/components/base/tags/tags.demo' or its corresponding type declarations.
+temp_untitled/components/base/tags/tags.tsx(11,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+temp_untitled/components/base/tags/tags.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/textarea/textarea.demo.tsx(3,26): error TS2307: Cannot find module '@/components/base/textarea/textarea' or its corresponding type declarations.
+temp_untitled/components/base/textarea/textarea.story.tsx(2,28): error TS2307: Cannot find module '@/components/base/textarea/textarea.demo' or its corresponding type declarations.
+temp_untitled/components/base/textarea/textarea.tsx(7,26): error TS2307: Cannot find module '@/components/base/input/hint-text' or its corresponding type declarations.
+temp_untitled/components/base/textarea/textarea.tsx(8,23): error TS2307: Cannot find module '@/components/base/input/label' or its corresponding type declarations.
+temp_untitled/components/base/textarea/textarea.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/toggle/toggle.demo.tsx(3,24): error TS2307: Cannot find module '@/components/base/toggle/toggle' or its corresponding type declarations.
+temp_untitled/components/base/toggle/toggle.story.tsx(2,35): error TS2307: Cannot find module '@/components/base/toggle/toggle.demo' or its corresponding type declarations.
+temp_untitled/components/base/toggle/toggle.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/base/tooltip/tooltip.demo.tsx(4,28): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/base/tooltip/tooltip.demo.tsx(5,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+temp_untitled/components/base/tooltip/tooltip.story.tsx(2,27): error TS2307: Cannot find module '@/components/base/tooltip/tooltip.demo' or its corresponding type declarations.
+temp_untitled/components/base/tooltip/tooltip.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/featured-icon/featured-icon.demo.tsx(3,29): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/foundations/featured-icon/featured-icon.demo.tsx(4,30): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+temp_untitled/components/foundations/featured-icon/featured-icon.tsx(3,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/featured-icon/featured-icon.tsx(4,34): error TS2307: Cannot find module '@/utils/is-react-component' or its corresponding type declarations.
+temp_untitled/components/foundations/featured-icon/featured-icon.tsx(148,41): error TS2604: JSX element type 'Icon' does not have any construct or call signatures.
+temp_untitled/components/foundations/featured-icon/featured-icon.tsx(148,41): error TS2786: 'Icon' cannot be used as a JSX component.
+  Its type 'ReactNode | FC<{ className?: string | undefined; }>' is not a valid JSX element type.
+    Type 'undefined' is not assignable to type 'ElementType'.
+temp_untitled/components/foundations/logo/untitledui-logo-minimal.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/logo/untitledui-logo.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/play-button-icon.tsx(2,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/rating-badge.tsx(4,29): error TS2307: Cannot find module '@/components/foundations/rating-stars' or its corresponding type declarations.
+temp_untitled/components/foundations/rating-badge.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/foundations/rating-stars.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/internal/decorators.tsx(2,44): error TS2307: Cannot find module '@storybook/nextjs' or its corresponding type declarations.
+temp_untitled/components/internal/decorators.tsx(3,28): error TS2307: Cannot find module 'storybook/preview-api' or its corresponding type declarations.
+temp_untitled/components/shared-assets/background-patterns/circle.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/background-patterns/grid.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/background-patterns/index.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/background-patterns/square.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/credit-card/credit-card.tsx(4,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/box.tsx(4,31): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/box.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/cloud.tsx(4,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/cloud.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/credit-card.tsx(4,29): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/credit-card.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/documents.tsx(4,31): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/components/shared-assets/illustrations/documents.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/iphone-mockup.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/qr-code.tsx(5,69): error TS2307: Cannot find module 'qr-code-styling' or its corresponding type declarations.
+temp_untitled/components/shared-assets/qr-code.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/components/shared-assets/section-divider.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+temp_untitled/utils/countries.tsx(4,37): error TS2307: Cannot find module '@/components/base/select/select' or its corresponding type declarations.
+temp_untitled/utils/timezones.tsx(3,23): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+temp_untitled/utils/timezones.tsx(4,37): error TS2307: Cannot find module '@/components/base/select/select' or its corresponding type declarations.
+temp_untitled/vite.config.mts(1,25): error TS2307: Cannot find module '@tailwindcss/vite' or its corresponding type declarations.
+temp_untitled/vite.config.mts(2,19): error TS2307: Cannot find module '@vitejs/plugin-react' or its corresponding type declarations.

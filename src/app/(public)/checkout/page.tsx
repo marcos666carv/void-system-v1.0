@@ -102,7 +102,7 @@ export default function CheckoutPage() {
                             return (
                                 <Card
                                     key={svc.id}
-                                    
+
                                     padding="lg"
                                     onClick={() => setSelectedService(svc.id)}
                                     style={{
@@ -194,11 +194,11 @@ export default function CheckoutPage() {
             {step === 3 && (
                 <div>
                     <h2 style={{ fontSize: 'var(--font-size-xl)', fontWeight: 600, marginBottom: 'var(--space-6)' }}>suas informações</h2>
-                    <Card  padding="lg">
+                    <Card padding="lg">
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                            <Input label="nome completo" value={contactForm.name} onChange={e => setContactForm({ ...contactForm, name: e.target.value })} />
-                            <Input label="telefone" type="tel" value={contactForm.phone} onChange={e => setContactForm({ ...contactForm, phone: e.target.value })} />
-                            <Input label="e-mail" type="email" value={contactForm.email} onChange={e => setContactForm({ ...contactForm, email: e.target.value })} />
+                            <Input label="nome completo" value={contactForm.name} onChange={val => setContactForm({ ...contactForm, name: val })} />
+                            <Input label="telefone" type="tel" value={contactForm.phone} onChange={val => setContactForm({ ...contactForm, phone: val })} />
+                            <Input label="e-mail" type="email" value={contactForm.email} onChange={val => setContactForm({ ...contactForm, email: val })} />
                         </div>
                     </Card>
                 </div>
@@ -210,7 +210,7 @@ export default function CheckoutPage() {
                     <h2 style={{ fontSize: 'var(--font-size-xl)', fontWeight: 600, marginBottom: 'var(--space-6)' }}>pagamento</h2>
 
                     {/* Order Summary */}
-                    <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+                    <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                         <h4 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', opacity: 0.5, letterSpacing: '0.08em', marginBottom: 'var(--space-4)' }}>resumo</h4>
                         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 'var(--font-size-sm)', marginBottom: 'var(--space-3)' }}>
                             <span>{service.name}</span>
@@ -251,7 +251,7 @@ export default function CheckoutPage() {
                     </div>
 
                     {paymentMethod === 'pix' && (
-                        <Card  padding="lg" style={{ textAlign: 'center' }}>
+                        <Card padding="lg" style={{ textAlign: 'center' }}>
                             <div style={{
                                 width: '160px', height: '160px',
                                 backgroundColor: 'var(--surface)',
@@ -268,7 +268,7 @@ export default function CheckoutPage() {
                     )}
 
                     {paymentMethod === 'credit_card' && (
-                        <Card  padding="lg">
+                        <Card padding="lg">
                             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
                                 <Input label="número do cartão" placeholder="0000 0000 0000 0000" />
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
@@ -289,11 +289,11 @@ export default function CheckoutPage() {
                 )}
                 <div style={{ flex: 1 }}>
                     {step < 4 ? (
-                        <Button color="primary" size="lg" fullWidth onClick={() => canProceed() && setStep(step + 1)} disabled={!canProceed()}>
+                        <Button color="primary" size="lg" className="w-full" onClick={() => canProceed() && setStep(step + 1)} isDisabled={!canProceed()}>
                             continuar
                         </Button>
                     ) : (
-                        <Button color="primary" size="lg" fullWidth onClick={() => alert('Pagamento confirmado!')}>
+                        <Button color="primary" size="lg" className="w-full" onClick={() => alert('Pagamento confirmado!')}>
                             confirmar pagamento — {service && formatCurrency(service.price)}
                         </Button>
                     )}

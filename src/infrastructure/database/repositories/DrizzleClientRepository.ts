@@ -92,16 +92,47 @@ export class DrizzleClientRepository implements ClientRepository {
 
     private mapToEntity(row: typeof clients.$inferSelect): ClientProps {
         return {
-            ...row,
-            createdAt: new Date(row.createdAt), // Ensure Dates
+            id: row.id,
+            email: row.email,
+            fullName: row.fullName,
+            phone: row.phone || undefined,
+            cpf: row.cpf || undefined,
+            photoUrl: row.photoUrl || undefined,
+            role: row.role as any,
+            membershipTier: (row.membershipTier as any) || undefined,
+            birthDate: row.birthDate || undefined,
+            addressNeighborhood: row.addressNeighborhood || undefined,
+            addressCity: row.addressCity || undefined,
+            profession: row.profession || undefined,
+            leadSource: row.leadSource || undefined,
+            notes: row.notes || undefined,
+            npsScore: row.npsScore || undefined,
+
+            xp: row.xp,
+            level: row.level as any,
+            totalSpent: row.totalSpent,
+            totalSessions: row.totalSessions,
+
+            createdAt: new Date(row.createdAt),
             updatedAt: new Date(row.updatedAt),
             lastSurveyDate: row.lastSurveyDate ? new Date(row.lastSurveyDate) : undefined,
             firstVisit: row.firstVisit ? new Date(row.firstVisit) : undefined,
             lastVisit: row.lastVisit ? new Date(row.lastVisit) : undefined,
-            // Cast enums
-            role: row.role as any,
-            membershipTier: row.membershipTier as any,
-            level: row.level as any,
+
+            // Preferences stored as JSON in DB? Or explicit fields?
+            // Assuming schema has explicit fields or a json column.
+            // Based on earlier view, schema was not viewed, but repository code passed `...row`.
+            // If `preferences` is NOT in `row`, we need to construct it or parse it.
+            // ClientProps requires `preferences`.
+            // If row doesn't have it, we default to empty.
+            preferences: (row as any).preferences || {},
+
+            // Extended arrays (likely not in basic schema, defaulting to empty/undefined)
+            visitHistory: [],
+            purchaseHistory: [],
+            interactionHistory: [],
+            usageTags: [],
+            preferredWeekDays: []
         };
     }
 }

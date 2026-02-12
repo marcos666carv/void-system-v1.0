@@ -1,0 +1,25 @@
+src/app/(admin)/admin/customers/components/ClientDetailPanel.tsx(187,49): error TS2358: The left-hand side of an 'instanceof' expression must be of type 'any', an object type or a type parameter.
+src/app/(admin)/admin/locations/page.tsx(68,25): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(77,189): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(77,206): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(78,191): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(78,208): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(79,199): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(79,216): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(82,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(101,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(102,65): error TS2322: Type '{ children: string; color: "secondary"; size: "sm"; fullWidth: true; onClick: () => Promise<void>; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankActiveSession.tsx(105,45): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void; className: string; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankMaintenance.tsx(58,41): error TS2322: Type '{ children: string; variant: string; size: "sm"; onClick: () => void; style: { height: string; fontSize: string; }; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/page.tsx(165,17): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(206,45): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(231,49): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void | "" | null; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.

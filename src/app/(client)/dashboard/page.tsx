@@ -57,7 +57,7 @@ export default function DashboardPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-5)', marginBottom: 'var(--space-6)' }}>
                 {/* XP & Level */}
-                <Card  padding="lg">
+                <Card padding="lg">
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-5)' }}>
                         <div style={{ width: '10px', height: '10px', borderRadius: 'var(--radius-full)', backgroundColor: config.color }} />
                         <span style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, color: config.color, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -80,7 +80,7 @@ export default function DashboardPage() {
                 </Card>
 
                 {/* Credits */}
-                <Card  padding="lg">
+                <Card padding="lg">
                     <span style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', opacity: 0.5, letterSpacing: '0.08em' }}>
                         créditos disponíveis
                     </span>
@@ -91,13 +91,13 @@ export default function DashboardPage() {
                         <span style={{ opacity: 0.5, fontSize: 'var(--font-size-sm)' }}>{data.creditType}</span>
                     </div>
                     <Link href="/schedule" style={{ marginTop: 'var(--space-5)', display: 'block' }}>
-                        <Button color="primary" size="md" fullWidth>agendar sessão</Button>
+                        <Button color="primary" size="md" className="w-full">agendar sessão</Button>
                     </Link>
                 </Card>
             </div>
 
             {/* Upcoming Bookings */}
-            <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+            <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                 <h3 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-5)', opacity: 0.6 }}>
                     próximas sessões
                 </h3>
@@ -139,7 +139,7 @@ export default function DashboardPage() {
             </Card>
 
             {/* Recent History */}
-            <Card  padding="lg">
+            <Card padding="lg">
                 <h3 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-5)', opacity: 0.6 }}>
                     histórico recente
                 </h3>

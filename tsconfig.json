@@ -38,6 +38,8 @@
   ],
   "exclude": [
     "node_modules",
-    "loveable"
+    "loveable",
+    "temp_untitled_ui",
+    "temp_untitled"
   ]
 }

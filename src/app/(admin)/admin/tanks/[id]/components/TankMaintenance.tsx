@@ -55,7 +55,7 @@ export const TankMaintenance: React.FC<TankMaintenanceProps> = ({ parts, onInter
 
                                 <div className={s.actionBtn}>
                                     <Button
-                                        variant="outline"
+                                        color="secondary"
                                         size="sm"
                                         onClick={() => onIntervene(part.id)}
                                         style={{ height: '32px', fontSize: '0.75rem' }}

@@ -1,0 +1,191 @@
+src/app/(admin)/admin/customers/components/ClientDetailPanel.tsx(187,49): error TS2358: The left-hand side of an 'instanceof' expression must be of type 'any', an object type or a type parameter.
+src/app/(admin)/admin/locations/page.tsx(68,25): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(77,189): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(77,206): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(78,191): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(78,208): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(79,199): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(admin)/admin/locations/page.tsx(79,216): error TS2322: Type '{ value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/app/(admin)/admin/locations/page.tsx(82,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(101,37): error TS2322: Type '"success"' is not assignable to type '"primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "primary-destructive" | "secondary-destructive" | "tertiary-destructive" | "link-destructive" | undefined'.
+src/app/(admin)/admin/locations/page.tsx(102,65): error TS2322: Type '{ children: string; color: "secondary"; size: "sm"; fullWidth: true; onClick: () => Promise<void>; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankActiveSession.tsx(105,45): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void; className: string; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/components/TankMaintenance.tsx(58,41): error TS2322: Type '{ children: string; variant: string; size: "sm"; onClick: () => void; style: { height: string; fontSize: string; }; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(admin)/admin/tanks/[id]/page.tsx(165,17): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(206,45): error TS2322: Type '{ children: Element; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(admin)/admin/tanks/page.tsx(231,49): error TS2322: Type '{ children: string; color: "primary"; fullWidth: true; onClick: () => void | "" | null; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(client)/dashboard/page.tsx(94,59): error TS2322: Type '{ children: string; color: "primary"; size: "md"; fullWidth: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(client)/profile/page.tsx(205,88): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(client)/profile/page.tsx(210,86): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(client)/profile/page.tsx(212,59): error TS2322: Type '{ children: string; color: "primary"; size: "md"; fullWidth: true; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/checkout/page.tsx(199,139): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(200,147): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(201,147): error TS2339: Property 'target' does not exist on type 'string'.
+src/app/(public)/checkout/page.tsx(292,59): error TS2322: Type '{ children: string; color: "primary"; size: "lg"; fullWidth: true; onClick: () => false | void | ""; disabled: boolean; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/checkout/page.tsx(296,59): error TS2322: Type '{ children: (string | undefined)[]; color: "primary"; size: "lg"; fullWidth: true; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(60,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(93,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(114,37): error TS2322: Type '{ children: string; fullWidth: true; variant: string; onClick: () => void; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/(public)/club/page.tsx(122,17): error TS2322: Type '{ children: "" | Element | null; isOpen: boolean; onClose: () => void; title: string; }' is not assignable to type 'IntrinsicAttributes & ModalOverlayProps'.
+  Property 'onClose' does not exist on type 'IntrinsicAttributes & ModalOverlayProps'.
+src/app/(public)/schedule/page.tsx(150,59): error TS2322: Type '{ children: string; color: "primary"; size: "lg"; fullWidth: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
+  Property 'fullWidth' does not exist on type 'IntrinsicAttributes & Props'.
+src/app/api/tanks/route.ts(25,55): error TS2345: Argument of type '{ name: string; locationId: string; status: "offline" | "ready" | "in_use" | "maintenance"; active: boolean; temperature?: number | undefined; }' is not assignable to parameter of type 'Omit<TankProps, "id" | "createdAt" | "updatedAt">'.
+  Type '{ name: string; locationId: string; status: "offline" | "ready" | "in_use" | "maintenance"; active: boolean; temperature?: number | undefined; }' is missing the following properties from type 'Omit<TankProps, "id" | "createdAt" | "updatedAt">': ledsOn, musicOn, heaterOn, pumpOn
+src/components/application/app-navigation/base-components/mobile-header.tsx(4,40): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/mobile-header.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/mobile-header.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(6,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(10,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(11,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(12,33): error TS2307: Cannot find module '@/components/base/radio-buttons/radio-buttons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(13,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-account-card.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item-button.tsx(5,25): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item-button.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(4,38): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(6,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-item.tsx(7,28): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/base-components/nav-list.tsx(4,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(4,58): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(6,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(7,30): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(8,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(9,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/header-navigation.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(5,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(7,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(8,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-dual-tier.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(3,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(4,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-section-dividers.tsx(5,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-sections-subheadings.tsx(3,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(4,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(5,23): error TS2307: Cannot find module '@/components/base/input/input' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(6,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-simple.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(5,50): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(8,24): error TS2307: Cannot find module '@/components/base/avatar/avatar' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(9,34): error TS2307: Cannot find module '@/components/base/avatar/avatar-label-group' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(11,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(13,37): error TS2307: Cannot find module '@/components/foundations/logo/untitledui-logo-minimal' or its corresponding type declarations.
+src/components/application/app-navigation/sidebar-navigation/sidebar-slim.tsx(14,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/carousel/carousel-base.tsx(5,61): error TS2307: Cannot find module 'embla-carousel-react' or its corresponding type declarations.
+src/components/application/carousel/carousel-base.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(3,35): error TS2307: Cannot find module 'recharts' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(4,50): error TS2307: Cannot find module 'recharts/types/component/DefaultLegendContent' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(5,42): error TS2307: Cannot find module 'recharts/types/component/DefaultTooltipContent' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(6,40): error TS2307: Cannot find module 'recharts/types/shape/Dot' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/charts/charts-base.tsx(61,28): error TS7006: Parameter 'entry' implicitly has an 'any' type.
+src/components/application/charts/charts-base.tsx(61,35): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/components/application/charts/charts-base.tsx(80,39): error TS2339: Property 'active' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(80,90): error TS2339: Property 'formatter' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(80,101): error TS2339: Property 'labelFormatter' does not exist on type 'ChartTooltipContentProps'.
+src/components/application/charts/charts-base.tsx(127,34): error TS2339: Property 'cx' does not exist on type 'ChartActiveDotProps'.
+src/components/application/charts/charts-base.tsx(127,42): error TS2339: Property 'cy' does not exist on type 'ChartActiveDotProps'.
+src/components/application/date-picker/calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/calendar.tsx(20,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/cell.tsx(6,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-input.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(5,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/date-picker.tsx(10,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(6,42): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(10,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/date-range-picker.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(6,43): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(19,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/date-picker/range-calendar.tsx(20,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/date-picker/range-preset.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(5,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(6,26): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(7,50): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(8,45): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(9,35): error TS2307: Cannot find module '@/components/shared-assets/background-patterns' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(10,47): error TS2307: Cannot find module '@/components/shared-assets/illustrations' or its corresponding type declarations.
+src/components/application/empty-state/empty-state.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/file-upload/draggable.tsx(4,26): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(5,31): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(6,42): error TS2307: Cannot find module '@untitledui/file-icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(7,62): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(9,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(10,31): error TS2307: Cannot find module '@/components/base/buttons/button-utility' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(11,29): error TS2307: Cannot find module '@/components/base/progress-indicators/progress-indicators' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(12,30): error TS2307: Cannot find module '@/components/foundations/featured-icon/featured-icon' or its corresponding type declarations.
+src/components/application/file-upload/file-upload-base.tsx(13,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/loading-indicator/loading-indicator.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/modals/modal.tsx(5,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination-dot.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination-line.tsx(3,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(3,39): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(4,46): error TS2307: Cannot find module '@/components/base/button-group/button-group' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(5,24): error TS2307: Cannot find module '@/components/base/buttons/button' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(6,31): error TS2307: Cannot find module '@/hooks/use-breakpoint' or its corresponding type declarations.
+src/components/application/pagination/pagination.tsx(7,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/slideout-menus/slideout-menu.tsx(10,29): error TS2307: Cannot find module '@/components/base/buttons/close-button' or its corresponding type declarations.
+src/components/application/slideout-menus/slideout-menu.tsx(11,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/table/table.tsx(5,89): error TS2307: Cannot find module '@untitledui/icons' or its corresponding type declarations.
+src/components/application/table/table.tsx(24,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/table/table.tsx(25,26): error TS2307: Cannot find module '@/components/base/checkbox/checkbox' or its corresponding type declarations.
+src/components/application/table/table.tsx(26,26): error TS2307: Cannot find module '@/components/base/dropdown/dropdown' or its corresponding type declarations.
+src/components/application/table/table.tsx(27,41): error TS2307: Cannot find module '@/components/base/tooltip/tooltip' or its corresponding type declarations.
+src/components/application/table/table.tsx(28,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(7,34): error TS2307: Cannot find module '@/components/base/badges/badge-types' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(8,23): error TS2307: Cannot find module '@/components/base/badges/badges' or its corresponding type declarations.
+src/components/application/tabs/tabs.tsx(9,20): error TS2307: Cannot find module '@/utils/cx' or its corresponding type declarations.
+src/components/features/calendar/BookingForm.tsx(117,76): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/calendar/BookingForm.tsx(118,21): error TS2322: Type '{ type: "datetime-local"; value: string; onChange: (e: string) => void; required: true; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(43,21): error TS2322: Type '{ type: "text"; required: true; value: string; onChange: (e: string) => void; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(45,71): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/club/ClubRegistrationModal.tsx(54,21): error TS2322: Type '{ type: "email"; required: true; value: string; onChange: (e: string) => void; placeholder: string; }' is not assignable to type 'IntrinsicAttributes & InputProps'.
+  Property 'required' does not exist on type 'IntrinsicAttributes & InputProps'. Did you mean 'isRequired'?
+src/components/features/club/ClubRegistrationModal.tsx(56,72): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/features/club/ClubRegistrationModal.tsx(66,72): error TS2339: Property 'target' does not exist on type 'string'.
+src/components/ui-legacy/Input.tsx(9,25): error TS2307: Cannot find module '@/components/ui/Tooltip' or its corresponding type declarations.
+src/components/ui/badges/badge-groups.tsx(5,10): error TS2305: Module '"@/components/icons"' has no exported member 'ArrowRight'.
+src/components/ui/form/hook-form.tsx(4,90): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/ui/form/hook-form.tsx(5,61): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/ui/input/input-payment.tsx(8,80): error TS2307: Cannot find module '@/components/foundations/payment-icons' or its corresponding type declarations.
+src/components/ui/select/combobox.tsx(5,10): error TS2724: '"@/components/icons"' has no exported member named 'SearchLg'. Did you mean 'Search'?
+src/components/ui/select/combobox.tsx(12,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+src/components/ui/select/multi-select.tsx(5,10): error TS2724: '"@/components/icons"' has no exported member named 'SearchLg'. Did you mean 'Search'?
+src/components/ui/select/multi-select.tsx(18,35): error TS2307: Cannot find module '@/hooks/use-resize-observer' or its corresponding type declarations.
+src/domain/entities/__tests__/Client.test.ts(17,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(24,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(29,38): error TS2345: Argument of type '{ membershipTier: "vip"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ membershipTier: "vip"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(34,38): error TS2345: Argument of type '{ membershipTier: "standard"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ membershipTier: "standard"; id: string; fullName: string; email: string; phone: string; role: "client"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(39,38): error TS2345: Argument of type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/domain/entities/__tests__/Client.test.ts(48,38): error TS2345: Argument of type '{ cpf: string; profession: string; id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is not assignable to parameter of type 'ClientProps'.
+  Type '{ cpf: string; profession: string; id: string; fullName: string; email: string; phone: string; role: "client"; membershipTier: "void_club"; createdAt: Date; updatedAt: Date; }' is missing the following properties from type 'ClientProps': xp, level, totalSpent, totalSessions, preferences
+src/infrastructure/database/repositories/DrizzleClientRepository.ts(94,9): error TS2322: Type '{ createdAt: Date; updatedAt: Date; lastSurveyDate: Date | undefined; firstVisit: Date | undefined; lastVisit: Date | undefined; role: any; membershipTier: any; ... 22 more ...; preferredWeekDays: string[] | null; }' is not assignable to type 'ClientProps'.
+  Types of property 'phone' are incompatible.
+    Type 'string | null' is not assignable to type 'string | undefined'.
+      Type 'null' is not assignable to type 'string | undefined'.

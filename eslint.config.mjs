@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "temp_untitled/**",
+    "temp_untitled_ui/**",
+    ".gemini/**"
   ]),
 ]);
 

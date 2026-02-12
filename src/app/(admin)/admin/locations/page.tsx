@@ -65,21 +65,21 @@ export default function LocationsPage() {
                     <h1 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', fontWeight: 900, textTransform: 'uppercase' }}>Locais</h1>
                     <p style={{ opacity: 0.5 }}>Filiais Void Float e suas configurações.</p>
                 </div>
-                <Button color="success" size="md" onClick={() => { resetForm(); setShowForm(true); }}>+ Nova Filial</Button>
+                <Button color="primary" size="md" onClick={() => { resetForm(); setShowForm(true); }}>+ Nova Filial</Button>
             </div>
 
             {showForm && (
-                <Card  padding="lg" style={{ marginBottom: '2rem' }}>
+                <Card padding="lg" style={{ marginBottom: '2rem' }}>
                     <h3 style={{ fontSize: '1rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '1.5rem', letterSpacing: '0.1em' }}>
                         {editingLocation ? 'Editar Filial' : 'Nova Filial'}
                     </h3>
                     <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Nome</label><Input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required /></div>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Cidade</label><Input value={form.city} onChange={e => setForm({ ...form, city: e.target.value })} required /></div>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Endereço</label><Input value={form.address} onChange={e => setForm({ ...form, address: e.target.value })} required /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Nome</label><Input value={form.name} onChange={val => setForm({ ...form, name: val })} isRequired /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Cidade</label><Input value={form.city} onChange={val => setForm({ ...form, city: val })} isRequired /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Endereço</label><Input value={form.address} onChange={val => setForm({ ...form, address: val })} isRequired /></div>
                         <div style={{ gridColumn: '1 / -1', display: 'flex', gap: '1rem', justifyContent: 'flex-end', marginTop: '1rem' }}>
                             <Button color="secondary" size="md" type="button" onClick={resetForm}>Cancelar</Button>
-                            <Button color="success" size="md" type="submit">{editingLocation ? 'Salvar' : 'Criar'}</Button>
+                            <Button color="primary" size="md" type="submit">{editingLocation ? 'Salvar' : 'Criar'}</Button>
                         </div>
                     </form>
                 </Card>
@@ -87,7 +87,7 @@ export default function LocationsPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
                 {locations.map(loc => (
-                    <Card key={loc.id}  padding="lg">
+                    <Card key={loc.id} padding="lg">
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
                             <div>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800 }}>{loc.name}</h3>
@@ -98,8 +98,8 @@ export default function LocationsPage() {
                             </span>
                         </div>
                         <div style={{ display: 'flex', gap: '1rem' }}>
-                            <Button color="success" size="sm" fullWidth onClick={() => openEdit(loc)}>Editar</Button>
-                            <Button color="secondary" size="sm" fullWidth onClick={() => handleDelete(loc.id)}>Remover</Button>
+                            <Button color="primary" size="sm" className="w-full" onClick={() => openEdit(loc)}>Editar</Button>
+                            <Button color="secondary" size="sm" className="w-full" onClick={() => handleDelete(loc.id)}>Remover</Button>
                         </div>
                     </Card>
                 ))}

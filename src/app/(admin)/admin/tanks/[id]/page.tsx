@@ -5,7 +5,7 @@ import s from './AdminTankDetail.module.css';
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui';
-import { Modal } from '@/components/ui-legacy/Modal';
+import { Modal, Dialog } from '@/components/ui-legacy/Modal';
 import { TankProps, TankStatus } from '@/domain/entities/Tank';
 import { ArrowLeft, Thermometer } from 'lucide-react';
 import { TankActiveSession } from './components/TankActiveSession';
@@ -162,37 +162,39 @@ export default function TankDetailPage() {
             {/* Modal */}
             <Modal
                 isOpen={isMaintenanceModalOpen}
-                onClose={() => setIsMaintenanceModalOpen(false)}
-                title="manutenção de peça"
+                onOpenChange={(open) => !open && setIsMaintenanceModalOpen(false)}
             >
-                <div>
-                    <div className={s.formGroup}>
-                        <label className={s.label}>novo id / serial</label>
-                        <input
-                            type="text"
-                            placeholder="ex: pump-2026-x9"
-                            value={maintenanceForm.newPartId}
-                            onChange={(e) => setMaintenanceForm(prev => ({ ...prev, newPartId: e.target.value }))}
-                            className={s.input}
-                        />
+                <Dialog className="outline-none">
+                    <h2 className={s.title} style={{ marginBottom: '1rem' }}>manutenção de peça</h2>
+                    <div>
+                        <div className={s.formGroup}>
+                            <label className={s.label}>novo id / serial</label>
+                            <input
+                                type="text"
+                                placeholder="ex: pump-2026-x9"
+                                value={maintenanceForm.newPartId}
+                                onChange={(e) => setMaintenanceForm(prev => ({ ...prev, newPartId: e.target.value }))}
+                                className={s.input}
+                            />
+                        </div>
+                        <div className={s.formGroup}>
+                            <label className={s.label}>técnico</label>
+                            <input
+                                type="text"
+                                placeholder="nome do responsável"
+                                value={maintenanceForm.technician}
+                                onChange={(e) => setMaintenanceForm(prev => ({ ...prev, technician: e.target.value }))}
+                                className={s.input}
+                            />
+                        </div>
+                        <div className={s.modalActions}>
+                            <Button color="tertiary" onClick={() => setIsMaintenanceModalOpen(false)}>cancelar</Button>
+                            <Button color="primary" onClick={handleConfirmMaintenance} disabled={!maintenanceForm.newPartId || !maintenanceForm.technician}>
+                                confirmar
+                            </Button>
+                        </div>
                     </div>
-                    <div className={s.formGroup}>
-                        <label className={s.label}>técnico</label>
-                        <input
-                            type="text"
-                            placeholder="nome do responsável"
-                            value={maintenanceForm.technician}
-                            onChange={(e) => setMaintenanceForm(prev => ({ ...prev, technician: e.target.value }))}
-                            className={s.input}
-                        />
-                    </div>
-                    <div className={s.modalActions}>
-                        <Button color="tertiary" onClick={() => setIsMaintenanceModalOpen(false)}>cancelar</Button>
-                        <Button color="primary" onClick={handleConfirmMaintenance} disabled={!maintenanceForm.newPartId || !maintenanceForm.technician}>
-                            confirmar
-                        </Button>
-                    </div>
-                </div>
+                </Dialog>
             </Modal>
         </div>
     );

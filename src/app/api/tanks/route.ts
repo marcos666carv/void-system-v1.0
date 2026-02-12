@@ -22,5 +22,12 @@ export const GET = withErrorHandler(async (request: Request) => {
 export const POST = withErrorHandler(async (request: Request) => {
     const body = await request.json();
     const input = createTankSchema.parse(body);
-    return NextResponse.json(await createTank.execute(input), { status: 201 });
+    return NextResponse.json(await createTank.execute({
+        ...input,
+        ledsOn: true,
+        musicOn: false,
+        heaterOn: true,
+        pumpOn: true,
+        maintenanceMode: false,
+    }), { status: 201 });
 });

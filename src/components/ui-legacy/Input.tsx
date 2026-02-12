@@ -6,7 +6,7 @@ import { HelpCircle, AlertCircle } from "lucide-react";
 import type { InputProps as AriaInputProps, TextFieldProps as AriaTextFieldProps, LabelProps as AriaLabelProps, TextProps as AriaTextProps } from "react-aria-components";
 import { Group as AriaGroup, Input as AriaInput, TextField as AriaTextField, Label as AriaLabel, Text as AriaText } from "react-aria-components";
 import { cn } from "@/lib/utils/cn";
-import { Tooltip } from "@/components/ui/Tooltip";
+import { Tooltip } from "@/components/ui/tooltip/tooltip";
 
 // --- HintText ---
 interface HintTextProps extends AriaTextProps {

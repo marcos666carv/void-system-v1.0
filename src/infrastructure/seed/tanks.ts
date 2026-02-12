@@ -13,6 +13,10 @@ export const seedTanks: TankProps[] = [
         phLevel: 7.2,
         uvLightOn: true,
         filtrationOn: true,
+        ledsOn: true,
+        musicOn: false,
+        heaterOn: true,
+        pumpOn: true,
         maintenanceMode: false,
         active: true,
         installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 365), // 1 year ago
@@ -22,7 +26,7 @@ export const seedTanks: TankProps[] = [
         energyConsumedKwh: 340,
         revenueGenerated: 355000,
         parts: [
-            { id: 'PUMP-01', name: 'Bomba de Circulação Magnética', serialNumber: 'SN-99887766', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 120) },
+            { id: 'PUMP-01', name: 'Bomba de Circulação Magnética', serialNumber: 'SN-99887766', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 120), lifespanHours: 5000, currentHours: 1200, status: 'ok' },
         ],
         sessionHistory: [
             { id: 'h1', clientName: 'Mariana Costa', clientCpf: '***.456.789-**', date: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 1), duration: 60, isGift: true }
@@ -40,6 +44,10 @@ export const seedTanks: TankProps[] = [
         phLevel: 7.1,
         uvLightOn: false,
         filtrationOn: false,
+        ledsOn: false,
+        musicOn: false,
+        heaterOn: true,
+        pumpOn: false,
         maintenanceMode: false,
         sessionTimeRemaining: 42,
         currentClient: {
@@ -58,7 +66,7 @@ export const seedTanks: TankProps[] = [
         energyConsumedKwh: 210,
         revenueGenerated: 212500,
         parts: [
-            { id: 'HEAT-02', name: 'Aquecedor de Titânio', serialNumber: 'HT-55443322', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 60) },
+            { id: 'HEAT-02', name: 'Aquecedor de Titânio', serialNumber: 'HT-55443322', lastReplacedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 60), lifespanHours: 3000, currentHours: 800, status: 'ok' },
         ],
         sessionHistory: [
             { id: 'h2', clientName: 'João Silva', clientCpf: '***.123.456-**', date: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 2), duration: 90 },
@@ -77,6 +85,10 @@ export const seedTanks: TankProps[] = [
         phLevel: 7.3,
         uvLightOn: true,
         filtrationOn: true,
+        ledsOn: true,
+        musicOn: true,
+        heaterOn: true,
+        pumpOn: true,
         maintenanceMode: false,
         cleaningTimeRemaining: 12,
         active: true,
@@ -94,6 +106,10 @@ export const seedTanks: TankProps[] = [
         phLevel: 7.0,
         uvLightOn: true,
         filtrationOn: true,
+        ledsOn: true,
+        musicOn: false,
+        heaterOn: true,
+        pumpOn: true,
         maintenanceMode: false,
         active: true,
         installedAt: new Date(now.getTime() - 1000 * 60 * 60 * 24 * 60), // 2 months ago

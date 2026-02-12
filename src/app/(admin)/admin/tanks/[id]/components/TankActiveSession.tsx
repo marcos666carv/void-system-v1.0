@@ -102,7 +102,7 @@ export const TankActiveSession: React.FC<TankActiveSessionProps> = ({ tank, onEn
                 </div>
 
                 <div className={s.footerAction}>
-                    <Button color="primary" fullWidth onClick={onEndSession} className={s.dangerButton}>
+                    <Button color="primary" onClick={onEndSession} className={`${s.dangerButton} w-full`}>
                         encerrar sessão
                     </Button>
                 </div>

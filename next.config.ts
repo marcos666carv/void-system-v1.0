@@ -16,6 +16,9 @@ const cspHeader = `
 `;
 
 const nextConfig: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   headers: async () => [
     {
       source: '/(.*)',

@@ -19,7 +19,8 @@ import {
     Home,
     Layers,
     MoreVertical as DotsVertical,
-    Users
+    Users,
+    ArrowRight
 } from 'lucide-react';
 
 // Export renamed icons to match Untitled UI imports
@@ -44,5 +45,9 @@ export {
     Home,
     Layers,
     DotsVertical,
-    Users
+    Users,
+    User as User01,
+    X as XClose,
+    Search as SearchLg,
+    ArrowRight
 };

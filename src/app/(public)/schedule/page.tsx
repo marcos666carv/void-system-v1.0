@@ -49,7 +49,7 @@ export default function SchedulePage() {
             </div>
 
             {/* Calendar */}
-            <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+            <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-5)' }}>
                     <h3 style={{ fontSize: 'var(--font-size-sm)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', opacity: 0.6 }}>
                         {currentMonth}
@@ -100,7 +100,7 @@ export default function SchedulePage() {
 
             {/* Time Slots */}
             {selectedDate && (
-                <Card  padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
+                <Card padding="lg" style={{ marginBottom: 'var(--space-5)' }}>
                     <h3 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-5)', opacity: 0.6 }}>
                         horários disponíveis
                     </h3>
@@ -137,7 +137,7 @@ export default function SchedulePage() {
 
             {/* Summary & CTA */}
             {selectedSlot && selectedDate && (
-                <Card  padding="lg">
+                <Card padding="lg">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-5)' }}>
                         <div>
                             <span style={{ fontWeight: 600, fontSize: 'var(--font-size-sm)' }}>sessão selecionada</span>
@@ -147,7 +147,7 @@ export default function SchedulePage() {
                         </div>
                     </div>
                     <Link href="/checkout">
-                        <Button color="primary" size="lg" fullWidth>continuar para checkout</Button>
+                        <Button color="primary" size="lg" className="w-full">continuar para checkout</Button>
                     </Link>
                 </Card>
             )}

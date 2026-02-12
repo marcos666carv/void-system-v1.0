@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Gravity } from '@/components/ui-legacy/Gravity';
 import { Button } from '@/components/ui';
 import { Card } from '@/components/ui';
-import { Modal } from '@/components/ui-legacy/Modal';
+import { Modal, Dialog } from '@/components/ui-legacy/Modal';
 import { ClubRegistrationModal } from '@/components/features/club/ClubRegistrationModal';
 
 export default function ClubPage() {
@@ -57,7 +57,7 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button fullWidth variant="secondary" onClick={() => handleSubscribe('Explorer')}>Assinar Explorer</Button>
+                            <Button className="w-full" color="secondary" onClick={() => handleSubscribe('Explorer')}>Assinar Explorer</Button>
                         </div>
                     </Card>
                 </Gravity>
@@ -90,7 +90,7 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button fullWidth variant="primary" onClick={() => handleSubscribe('Voyager')}>Assinar Voyager</Button>
+                            <Button className="w-full" color="primary" onClick={() => handleSubscribe('Voyager')}>Assinar Voyager</Button>
                         </div>
                     </Card>
                 </Gravity>
@@ -111,7 +111,7 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button fullWidth variant="secondary" onClick={() => handleSubscribe('Transcendent')}>Assinar Transcendent</Button>
+                            <Button className="w-full" color="secondary" onClick={() => handleSubscribe('Transcendent')}>Assinar Transcendent</Button>
                         </div>
                     </Card>
                 </Gravity>
@@ -119,16 +119,19 @@ export default function ClubPage() {
 
             <Modal
                 isOpen={!!selectedTier}
-                onClose={() => setSelectedTier(null)}
-                title="Join Void Club"
+                onOpenChange={(open) => !open && setSelectedTier(null)}
+                isDismissable
             >
-                {selectedTier && (
-                    <ClubRegistrationModal
-                        tier={selectedTier}
-                        onSuccess={handleSuccess}
-                        onCancel={() => setSelectedTier(null)}
-                    />
-                )}
+                <Dialog className="outline-none">
+                    <h2 className="text-xl font-bold mb-4 text-center">Join Void Club</h2>
+                    {selectedTier && (
+                        <ClubRegistrationModal
+                            tier={selectedTier}
+                            onSuccess={handleSuccess}
+                            onCancel={() => setSelectedTier(null)}
+                        />
+                    )}
+                </Dialog>
             </Modal>
         </div>
     );

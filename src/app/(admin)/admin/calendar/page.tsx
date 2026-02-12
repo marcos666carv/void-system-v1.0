@@ -135,7 +135,7 @@ export default function CalendarPage() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
                 {/* Operating Hours Form */}
-                <Card  padding="lg">
+                <Card padding="lg">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                         <h3 style={{ fontSize: '1rem', fontWeight: 800 }}>Horários de Funcionamento</h3>
                         <Button color="secondary" size="sm" onClick={() => setShowHoursForm(!showHoursForm)}>+ Definir</Button>
@@ -146,10 +146,10 @@ export default function CalendarPage() {
                                 {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
                             </select>
                             <div style={{ display: 'flex', gap: '0.5rem' }}>
-                                <Input type="time" value={hoursForm.openTime} onChange={e => setHoursForm({ ...hoursForm, openTime: e.target.value })} />
-                                <Input type="time" value={hoursForm.closeTime} onChange={e => setHoursForm({ ...hoursForm, closeTime: e.target.value })} />
+                                <Input type="time" value={hoursForm.openTime} onChange={value => setHoursForm({ ...hoursForm, openTime: value })} />
+                                <Input type="time" value={hoursForm.closeTime} onChange={value => setHoursForm({ ...hoursForm, closeTime: value })} />
                             </div>
-                            <Button color="success" size="sm" type="submit">Salvar</Button>
+                            <Button color="primary" size="sm" type="submit">Salvar</Button>
                         </form>
                     )}
                     <div style={{ display: 'grid', gap: '0.5rem' }}>
@@ -166,17 +166,17 @@ export default function CalendarPage() {
                 </Card>
 
                 {/* Blocked Slots Form */}
-                <Card  padding="lg">
+                <Card padding="lg">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                         <h3 style={{ fontSize: '1rem', fontWeight: 800 }}>Bloqueios</h3>
                         <Button color="secondary" size="sm" onClick={() => setShowBlockForm(!showBlockForm)}>+ Bloquear</Button>
                     </div>
                     {showBlockForm && (
                         <form onSubmit={handleBlockSubmit} style={{ display: 'grid', gap: '1rem' }}>
-                            <div><label style={{ fontSize: '0.7rem' }}>Início</label><Input type="datetime-local" value={blockForm.startTime} onChange={e => setBlockForm({ ...blockForm, startTime: e.target.value })} /></div>
-                            <div><label style={{ fontSize: '0.7rem' }}>Fim</label><Input type="datetime-local" value={blockForm.endTime} onChange={e => setBlockForm({ ...blockForm, endTime: e.target.value })} /></div>
-                            <Input placeholder="Motivo" value={blockForm.reason} onChange={e => setBlockForm({ ...blockForm, reason: e.target.value })} />
-                            <Button color="success" size="sm" type="submit">Bloquear</Button>
+                            <div><label style={{ fontSize: '0.7rem' }}>Início</label><Input type="datetime-local" value={blockForm.startTime} onChange={value => setBlockForm({ ...blockForm, startTime: value })} /></div>
+                            <div><label style={{ fontSize: '0.7rem' }}>Fim</label><Input type="datetime-local" value={blockForm.endTime} onChange={value => setBlockForm({ ...blockForm, endTime: value })} /></div>
+                            <Input placeholder="Motivo" value={blockForm.reason} onChange={value => setBlockForm({ ...blockForm, reason: value })} />
+                            <Button color="primary" size="sm" type="submit">Bloquear</Button>
                         </form>
                     )}
                     <div style={{ maxHeight: '300px', overflowY: 'auto' }}>

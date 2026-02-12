@@ -323,7 +323,11 @@ export default function CustomersPage() {
                                                     <Gift size={14} style={{ opacity: 0.7 }} />
                                                     <input
                                                         type="date"
-                                                        value={formData.birthDate ? new Date(formData.birthDate).toISOString().split('T')[0] : ''}
+                                                        value={
+                                                            formData.birthDate instanceof Date
+                                                                ? formData.birthDate.toISOString().split('T')[0]
+                                                                : (typeof formData.birthDate === 'string' ? formData.birthDate.split('T')[0] : '')
+                                                        }
                                                         onChange={e => setFormData({ ...formData, birthDate: e.target.value ? new Date(e.target.value) : undefined })}
                                                         style={{
                                                             background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',

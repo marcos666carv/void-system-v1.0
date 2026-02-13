@@ -9,6 +9,8 @@ export interface DashboardMetrics {
     todayAppointments: number;
     totalRevenue: number;
     averageNps: number;
+    averageTicket: number;
+    tankIdlePercentage: number;
 }
 
 export class GetDashboardMetrics {
@@ -34,12 +36,19 @@ export class GetDashboardMetrics {
             this.surveyRepo.averageNps(),
         ]);
 
+        const averageTicket = totalAppointments > 0 ? totalRevenue / totalAppointments : 0;
+
+        // Mock idle percentage for now (requires complex tank availability logic)
+        const tankIdlePercentage = 18; // Placeholder
+
         return {
             totalClients,
             totalAppointments,
             todayAppointments,
             totalRevenue,
             averageNps,
+            averageTicket,
+            tankIdlePercentage,
         };
     }
 }

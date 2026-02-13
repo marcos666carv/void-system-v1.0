@@ -117,8 +117,27 @@ export default function AdminDashboardPage() {
     const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
     useEffect(() => {
-        const timer = setTimeout(() => setStats(mockStats), 300);
-        return () => clearTimeout(timer);
+        async function fetchStats() {
+            try {
+                const res = await fetch('/api/dashboard');
+                if (res.ok) {
+                    const data = await res.json();
+                    setStats({
+                        totalRevenue: data.totalRevenue,
+                        totalSessions: data.totalAppointments,
+                        averageTicket: data.averageTicket,
+                        tankIdlePercentage: data.tankIdlePercentage,
+                    });
+                } else {
+                    // Fallback to mock in case of error
+                    setStats(mockStats);
+                }
+            } catch (error) {
+                console.error('Failed to fetch dashboard stats', error);
+                setStats(mockStats);
+            }
+        }
+        fetchStats();
     }, []);
 
     if (!stats) {

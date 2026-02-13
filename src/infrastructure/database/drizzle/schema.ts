@@ -66,3 +66,47 @@ export const appointments = pgTable('appointments', {
     createdAt: timestamp('created_at').notNull().defaultNow(),
     updatedAt: timestamp('updated_at').notNull().defaultNow(),
 });
+
+export const services = pgTable('services', {
+    id: text('id').primaryKey(),
+    name: text('name').notNull(),
+    description: text('description'),
+    duration: integer('duration').notNull(), // minutes
+    price: integer('price').notNull(), // cents
+    active: boolean('active').notNull().default(true),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const products = pgTable('products', {
+    id: text('id').primaryKey(),
+    name: text('name').notNull(),
+    description: text('description'),
+    price: integer('price').notNull(), // cents
+    category: text('category').notNull(),
+    stock: integer('stock').notNull().default(0),
+    active: boolean('active').notNull().default(true),
+    variations: jsonb('variations').$type<any[]>(),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const locations = pgTable('locations', {
+    id: text('id').primaryKey(),
+    name: text('name').notNull(),
+    address: text('address').notNull(),
+    city: text('city').notNull(),
+    active: boolean('active').notNull().default(true),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});
+
+export const tanks = pgTable('tanks', {
+    id: text('id').primaryKey(),
+    name: text('name').notNull(),
+    locationId: text('location_id').references(() => locations.id),
+    status: text('status').notNull().default('available'), // available, occupied, maintenance, cleaning
+    active: boolean('active').notNull().default(true),
+    createdAt: timestamp('created_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at').notNull().defaultNow(),
+});

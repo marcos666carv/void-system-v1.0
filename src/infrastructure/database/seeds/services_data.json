@@ -1,0 +1,34 @@
+[
+    {
+        "id": "srv_float_60",
+        "name": "Flutuação (60 min)",
+        "description": "Sessão de flutuação sensorial de 60 minutos.",
+        "duration": 60,
+        "price": 15000,
+        "active": true
+    },
+    {
+        "id": "srv_float_90",
+        "name": "Flutuação (90 min)",
+        "description": "Sessão de flutuação sensorial de 90 minutos.",
+        "duration": 90,
+        "price": 20000,
+        "active": true
+    },
+    {
+        "id": "srv_massage_60",
+        "name": "Massagem (60 min)",
+        "description": "Massagem relaxante ou terapêutica.",
+        "duration": 60,
+        "price": 18000,
+        "active": true
+    },
+    {
+        "id": "srv_combo_float_massage",
+        "name": "Combo Flutuação + Massagem",
+        "description": "Experiência completa de relaxamento.",
+        "duration": 120,
+        "price": 30000,
+        "active": true
+    }
+]

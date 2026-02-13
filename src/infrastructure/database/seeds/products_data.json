@@ -1,0 +1,20 @@
+[
+    {
+        "id": "prod_membership_standard",
+        "name": "Membro Void",
+        "description": "Assinatura mensal com 2 flutuações.",
+        "price": 25000,
+        "category": "void_club",
+        "stock": 999,
+        "active": true
+    },
+    {
+        "id": "prod_gift_card_150",
+        "name": "Gift Card R$ 150",
+        "description": "Vale presente.",
+        "price": 15000,
+        "category": "gift_card",
+        "stock": 999,
+        "active": true
+    }
+]

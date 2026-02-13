@@ -26,6 +26,7 @@ export interface ProductProps {
     creditType?: 'float' | 'massage';
     creditAmount?: number;
     variations?: Variation[];
+    stock: number;
     active: boolean;
     createdAt: Date;
     updatedAt: Date;

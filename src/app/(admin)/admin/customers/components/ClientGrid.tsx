@@ -1,23 +1,25 @@
 'use client';
 
 import { ClientProps } from '@/domain/entities/Client';
-import { VOID_LEVEL_CONFIG, VoidLevel } from '@/domain/value-objects/VoidLevel';
+import { VOID_LEVEL_CONFIG } from '@/domain/value-objects/VoidLevel';
 import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Calendar, DollarSign, Activity } from 'lucide-react';
 
 interface ClientGridProps {
     clients: ClientProps[];
-    selectedId?: string;
     onSelect: (client: ClientProps) => void;
     loading?: boolean;
 }
 
-export function ClientGrid({ clients, selectedId, onSelect, loading }: ClientGridProps) {
+const formatDate = (d: Date | string | undefined) => d ? new Date(d).toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' }) : '-';
+const formatCurrency = (v: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(v);
+
+export function ClientGrid({ clients, onSelect, loading }: ClientGridProps) {
     if (loading) {
         return (
-            <div className="grid grid-cols-1 gap-2 p-4">
-                {[...Array(5)].map((_, i) => (
-                    <div key={i} className="h-16 bg-white/5 animate-pulse rounded-lg" />
+            <div className="w-full space-y-2 p-4">
+                {[...Array(8)].map((_, i) => (
+                    <div key={i} className="h-16 bg-white/5 animate-pulse rounded-xl" />
                 ))}
             </div>
         );
@@ -25,65 +27,107 @@ export function ClientGrid({ clients, selectedId, onSelect, loading }: ClientGri
 
     if (clients.length === 0) {
         return (
-            <div className="flex flex-col items-center justify-center p-8 text-void-slate opacity-60">
+            <div className="flex flex-col items-center justify-center p-20 text-void-slate opacity-40">
                 <p>nenhum cliente encontrado</p>
             </div>
         );
     }
 
     return (
-        <div className="grid grid-cols-1 gap-2 p-2 overflow-y-auto h-full content-start">
-            {clients.map((client, index) => {
-                const config = VOID_LEVEL_CONFIG[client.level];
-                const isSelected = selectedId === client.id;
+        <div className="w-full">
+            {/* Header - Hidden on mobile, visible on desktop */}
+            <div className="hidden md:grid grid-cols-[3fr_1fr_1fr_1fr_1fr_50px] gap-4 px-6 py-3 text-[10px] uppercase font-bold tracking-widest text-white/30 sticky top-0 bg-void-deep-blue/95 backdrop-blur z-10 border-b border-white/5">
+                <div>Cliente</div>
+                <div>Status</div>
+                <div>Sessões</div>
+                <div>Gasto</div>
+                <div>Última Visita</div>
+                <div></div>
+            </div>
 
-                return (
-                    <motion.div
-                        key={client.id}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.05, duration: 0.3 }}
-                        onClick={() => onSelect(client)}
-                        className={`
-                            group relative flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all duration-200
-                            border border-transparent hover:border-white/10 hover:bg-white/5
-                            ${isSelected ? 'bg-white/10 border-void-vibrant-blue/20 shadow-sm' : ''}
-                        `}
-                    >
-                        {/* Avatar */}
-                        <div
-                            className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-inner"
-                            style={{
-                                backgroundColor: `${config.color}20`,
-                                color: config.color,
-                                boxShadow: isSelected ? `0 0 10px ${config.color}40` : 'none'
-                            }}
+            {/* Rows */}
+            <div className="divide-y divide-white/5">
+                {clients.map((client, index) => {
+                    const config = VOID_LEVEL_CONFIG[client.level];
+
+                    return (
+                        <motion.div
+                            key={client.id}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.03, duration: 0.2 }}
+                            onClick={() => onSelect(client)}
+                            className="
+                                group relative grid grid-cols-1 md:grid-cols-[3fr_1fr_1fr_1fr_1fr_50px] gap-4 px-6 py-4 items-center cursor-pointer
+                                hover:bg-white/[0.02] transition-colors
+                            "
                         >
-                            {client.fullName.substring(0, 2).toUpperCase()}
-                        </div>
+                            {/* Actions overlay for visual feedback */}
+                            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-void-vibrant-blue opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                        {/* Info */}
-                        <div className="flex-1 min-w-0">
-                            <div className="flex justify-between items-center mb-0.5">
-                                <h3 className={`text-sm font-medium truncate ${isSelected ? 'text-void-vibrant-blue' : 'text-void-deep-blue dark:text-void-ice'}`}>
-                                    {client.fullName.toLowerCase()}
-                                </h3>
-                                {isSelected && <ChevronRight size={14} className="text-void-vibrant-blue animate-pulse" />}
+                            {/* Client Identity */}
+                            <div className="flex items-center gap-4">
+                                <div
+                                    className="w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-transform group-hover:scale-105"
+                                    style={{
+                                        backgroundColor: `${config.color}15`,
+                                        color: config.color,
+                                    }}
+                                >
+                                    {client.fullName.substring(0, 2).toUpperCase()}
+                                </div>
+                                <div className="min-w-0">
+                                    <h3 className="text-white font-medium truncate group-hover:text-void-vibrant-blue transition-colors">
+                                        {client.fullName.toLowerCase()}
+                                    </h3>
+                                    <p className="text-xs text-white/40 truncate font-mono">{client.email}</p>
+                                </div>
                             </div>
-                            <p className="text-xs text-void-slate truncate">{client.email}</p>
-                        </div>
 
-                        {/* Level Indicator (Subtle) */}
-                        <div
-                            className="absolute right-0 top-0 bottom-0 w-1 rounded-r-xl transition-all duration-300"
-                            style={{
-                                backgroundColor: isSelected ? config.color : 'transparent',
-                                opacity: isSelected ? 1 : 0
-                            }}
-                        />
-                    </motion.div>
-                );
-            })}
+                            {/* Status Pill */}
+                            <div className="hidden md:block">
+                                <span className={`
+                                    inline-flex px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider
+                                    border border-white/10
+                                    ${client.lifeCycleStage === 'active' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : ''}
+                                    ${client.lifeCycleStage === 'new' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' : ''}
+                                    ${client.lifeCycleStage === 'churned' ? 'bg-red-500/10 text-red-400 border-red-500/20' : ''}
+                                    ${client.lifeCycleStage === 'vip' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : ''}
+                                    ${!client.lifeCycleStage ? 'bg-white/5 text-white/40' : ''}
+                                `}>
+                                    {client.lifeCycleStage || 'Active'}
+                                </span>
+                            </div>
+
+                            {/* Sessions */}
+                            <div className="hidden md:flex items-center gap-2">
+                                <div className="w-8 h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div
+                                        className="h-full bg-void-vibrant-blue"
+                                        style={{ width: `${Math.min(client.totalSessions * 5, 100)}%` }}
+                                    />
+                                </div>
+                                <span className="text-sm font-mono text-white/70">{client.totalSessions}</span>
+                            </div>
+
+                            {/* Spent */}
+                            <div className="hidden md:block">
+                                <span className="text-sm font-mono text-white/70">{formatCurrency(client.totalSpent)}</span>
+                            </div>
+
+                            {/* Last Visit */}
+                            <div className="hidden md:block">
+                                <span className="text-xs text-white/50">{formatDate(client.lastVisit)}</span>
+                            </div>
+
+                            {/* Action Arrow */}
+                            <div className="flex justify-end">
+                                <ChevronRight className="text-void-vibrant-blue opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" size={18} />
+                            </div>
+                        </motion.div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

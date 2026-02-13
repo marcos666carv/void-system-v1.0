@@ -1,0 +1,9 @@
+[
+    {
+        "id": "loc_void_lab",
+        "name": "Void Lab",
+        "address": "Rua da Paz, 123",
+        "city": "São Paulo",
+        "active": true
+    }
+]

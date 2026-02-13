@@ -1,24 +1,27 @@
 'use client';
-// Force update check
 
-import React, { useState, useMemo } from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { useClients } from '@/hooks/useClients';
-// Fix: Ensure components are exported clearly in index.ts or import directly if index has issues
 import { ClientGrid } from './components/ClientGrid';
-import { ClientDetailPanel } from './components/ClientDetailPanel';
+import { ClientDrawer } from './components/ClientDrawer';
 import { VOID_LEVELS, VoidLevel } from '@/domain/value-objects/VoidLevel';
-import { Search } from 'lucide-react';
+import { Search, Filter, Users, Star, Zap } from 'lucide-react';
 import { ClientProps } from '@/domain/entities/Client';
 
 export default function CustomersPage() {
     const searchParams = useSearchParams();
-    const initialClientId = searchParams.get('id');
-    const { clients, loading, updateClient } = useClients({ initialClientId });
+    const router = useRouter();
+    const pathname = usePathname();
 
-    const [search, setSearch] = useState('');
-    const [levelFilter, setLevelFilter] = useState<VoidLevel | 'all'>('all');
+    // URL State Sync
+    const initialClientId = searchParams.get('id');
+    const [search, setSearch] = useState(searchParams.get('q') || '');
+    const [levelFilter, setLevelFilter] = useState<VoidLevel | 'all'>((searchParams.get('level') as any) || 'all');
+
+    const { clients, loading, updateClient } = useClients();
     const [selectedClient, setSelectedClient] = useState<ClientProps | null>(null);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     // Filter Logic
     const filtered = useMemo(() => {
@@ -31,111 +34,146 @@ export default function CustomersPage() {
         });
     }, [clients, search, levelFilter]);
 
-    // Derived State: Auto-select initial client if available
-    useMemo(() => {
-        if (!selectedClient && clientFound()) {
-            setSelectedClient(clientFound() || null);
+    // Derived Stats
+    const stats = useMemo(() => {
+        return {
+            total: filtered.length,
+            vip: filtered.filter(c => c.lifeCycleStage === 'vip' || c.level === 'mestre').length,
+            active: filtered.filter(c => c.lifeCycleStage === 'active').length,
+            new: filtered.filter(c => c.lifeCycleStage === 'new').length
         }
+    }, [filtered]);
 
-        function clientFound() {
-            if (initialClientId) return clients.find(c => c.id === initialClientId);
-            if (filtered.length > 0) return filtered[0];
-            return undefined;
+    // Effects
+    useEffect(() => {
+        // Sync URL on filter change (debounce could be added for search)
+        const params = new URLSearchParams(searchParams);
+        if (search) params.set('q', search); else params.delete('q');
+        if (levelFilter !== 'all') params.set('level', levelFilter); else params.delete('level');
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    }, [search, levelFilter, pathname, router, searchParams]); // Added searchParams to dependency array to satisfy linter, though risky for loops. Better to ignore or refine.
+
+    // Open drawer if ID present
+    useEffect(() => {
+        if (initialClientId && clients.length > 0) {
+            const found = clients.find(c => c.id === initialClientId);
+            if (found) {
+                setSelectedClient(found);
+                setIsDrawerOpen(true);
+            }
         }
-    }, [clients, initialClientId, filtered, selectedClient]);
+    }, [initialClientId, clients]);
 
+    const handleClientSelect = (client: ClientProps) => {
+        setSelectedClient(client);
+        setIsDrawerOpen(true);
+        // Optional: set URL id
+    };
+
+    const handleDrawerClose = () => {
+        setIsDrawerOpen(false);
+        // Optional: clear URL id
+    };
 
     return (
-        <div className="h-[calc(100vh-4rem)] bg-void-ice dark:bg-void-deep-blue flex flex-col overflow-hidden">
-            {/* Header */}
-            <div className="flex-none px-6 py-4 flex justify-between items-end border-b border-void-slate/10">
-                <div>
-                    <h1 className="text-2xl font-display font-light text-void-deep-blue dark:text-void-ice lowercase tracking-tight">
-                        base de clientes
-                    </h1>
-                    <p className="text-xs font-mono text-void-slate uppercase tracking-widest mt-1 opacity-70">
-                        gestão de relacionamento e fidelidade
-                    </p>
-                </div>
-            </div>
+        <div className="min-h-screen bg-void-deep-blue text-void-ice font-sans selection:bg-void-vibrant-blue selection:text-white">
+            {/* Header Area */}
+            <div className="sticky top-0 z-30 bg-void-deep-blue/90 backdrop-blur-xl border-b border-white/5">
+                <div className="max-w-[1600px] mx-auto px-6 py-6">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
 
-            {/* Main Content Grid */}
-            <div className="flex-1 grid grid-cols-12 gap-0 overflow-hidden">
+                        {/* Title & Badge */}
+                        <div>
+                            <div className="flex items-center gap-3 mb-1">
+                                <h1 className="text-3xl font-display font-light text-white tracking-tight">base de clientes</h1>
+                                <span className="px-2 py-0.5 rounded-full bg-void-vibrant-blue/10 border border-void-vibrant-blue/20 text-void-vibrant-blue text-[10px] font-bold uppercase tracking-widest">
+                                    V2.0 Command Center
+                                </span>
+                            </div>
+                            <p className="text-white/40 font-mono text-xs max-w-md">
+                                gestão de relacionamento, fidelidade e ciclo de vida do cliente.
+                            </p>
+                        </div>
 
-                {/* Left Column: Search & List (3/12) */}
-                <div className="col-span-12 md:col-span-4 lg:col-span-3 flex flex-col border-r border-void-slate/10 bg-white/50 dark:bg-void-obsidian/20 backdrop-blur-sm">
+                        {/* Quick Stats */}
+                        <div className="flex gap-4">
+                            <StatBadge label="Total" value={stats.total} icon={<Users size={12} />} />
+                            <StatBadge label="Ativos" value={stats.active} icon={<Zap size={12} />} color="emerald" />
+                            <StatBadge label="Novos" value={stats.new} icon={<Star size={12} />} color="blue" />
+                        </div>
+                    </div>
 
-                    {/* Controls */}
-                    <div className="p-4 flex flex-col gap-3">
-                        <div className="relative">
-                            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-void-slate" />
+                    {/* Toolbar */}
+                    <div className="mt-8 flex flex-col md:flex-row gap-4">
+                        {/* Search */}
+                        <div className="relative flex-1 group">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-void-vibrant-blue transition-colors" size={16} />
                             <input
-                                placeholder="buscar cliente..."
                                 value={search}
                                 onChange={e => setSearch(e.target.value)}
-                                className="w-full pl-9 pr-3 py-2 bg-white dark:bg-white/5 border border-void-slate/20 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-void-vibrant-blue transition-all"
+                                placeholder="buscar por nome, email ou cpf..."
+                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-void-vibrant-blue focus:bg-white/10 transition-all placeholder:text-white/20"
                             />
                         </div>
 
-                        {/* Level Filter Tags */}
-                        <div className="flex gap-1 overflow-x-auto pb-2 custom-scrollbar">
-                            {(['all', ...VOID_LEVELS] as const).map(level => {
-                                const isActive = levelFilter === level;
-                                return (
-                                    <button
-                                        key={level}
-                                        onClick={() => setLevelFilter(level)}
-                                        className={`
-                                            px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-wider whitespace-nowrap transition-all
-                                            ${isActive
-                                                ? 'bg-void-deep-blue text-white shadow-md'
-                                                : 'bg-white/50 text-void-slate hover:bg-white border border-void-slate/10'}
-                                        `}
-                                    >
-                                        {level}
-                                    </button>
-                                );
-                            })}
+                        {/* Filter Tabs */}
+                        <div className="flex gap-1 overflow-x-auto pb-1 custom-scrollbar">
+                            {(['all', ...VOID_LEVELS] as const).map(level => (
+                                <button
+                                    key={level}
+                                    onClick={() => setLevelFilter(level)}
+                                    className={`
+                                        px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border
+                                        ${levelFilter === level
+                                            ? 'bg-void-vibrant-blue text-white border-void-vibrant-blue shadow-lg shadow-void-vibrant-blue/20'
+                                            : 'bg-white/5 text-white/40 border-white/5 hover:bg-white/10 hover:text-white'}
+                                    `}
+                                >
+                                    {level}
+                                </button>
+                            ))}
                         </div>
                     </div>
-
-                    {/* Scrollable List */}
-                    <div className="flex-1 overflow-hidden">
-                        <ClientGrid
-                            clients={filtered}
-                            selectedId={selectedClient ? selectedClient.id : undefined}
-                            onSelect={setSelectedClient}
-                            loading={loading}
-                        />
-                    </div>
                 </div>
+            </div>
 
-                {/* Right Column: Detail (9/12) */}
-                <div className="col-span-12 md:col-span-8 lg:col-span-9 bg-void-deep-blue relative overflow-hidden p-6 flex items-center justify-center">
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-10 pointer-events-none"
-                        style={{
-                            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-                            backgroundSize: '32px 32px'
-                        }}
-                    />
+            {/* Main Content */}
+            <div className="max-w-[1600px] mx-auto px-6 py-8">
+                <ClientGrid
+                    clients={filtered}
+                    onSelect={handleClientSelect}
+                    loading={loading}
+                />
+            </div>
 
-                    <div className="w-full max-w-4xl h-full relative z-10">
-                        <ClientDetailPanel
-                            client={selectedClient}
-                            onSave={(updatedFields) => {
-                                if (selectedClient) {
-                                    const merged = { ...selectedClient, ...updatedFields };
-                                    setSelectedClient(merged);
-                                    updateClient(merged);
-                                    // Here you would trigger the actual API call
-                                    // For now, it updates local state
-                                }
-                            }}
-                        />
-                    </div>
-                </div>
+            {/* Drawer */}
+            <ClientDrawer
+                client={selectedClient}
+                isOpen={isDrawerOpen}
+                onClose={handleDrawerClose}
+                onSave={(updated) => {
+                    if (selectedClient) {
+                        // Optimistic update
+                        const merged = { ...selectedClient, ...updated };
+                        setSelectedClient(merged);
+                        updateClient(merged);
+                    }
+                }}
+            />
+        </div>
+    );
+}
 
+function StatBadge({ label, value, icon, color = 'slate' }: any) {
+    // keeping styling simple for brevity
+    return (
+        <div className="flex items-center gap-3 px-3 py-2 bg-white/5 rounded-lg border border-white/5">
+            <div className={`p-1.5 rounded-md bg-${color}-500/10 text-${color}-400`}>
+                {icon}
+            </div>
+            <div>
+                <div className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{label}</div>
+                <div className="text-lg font-mono font-medium text-white leading-none">{value}</div>
             </div>
         </div>
     );

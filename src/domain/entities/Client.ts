@@ -56,6 +56,19 @@ export interface ClientProps {
     interactionHistory?: ClientInteraction[];
     usageTags?: string[];
     preferredWeekDays?: string[];
+
+
+
+    // V2 Fields
+    lifeCycleStage?: 'new' | 'active' | 'churned' | 'vip';
+    // totalSessions is already defined above at line 47, removing duplicate if present or ensuring it matches
+    // totalSessions: number; // Already present
+    // lastVisit is already defined above at line 49
+
+    // Stats
+    sessionsFloat?: number;
+    sessionsMassage?: number;
+    sessionsCombo?: number;
 }
 
 export class Client {

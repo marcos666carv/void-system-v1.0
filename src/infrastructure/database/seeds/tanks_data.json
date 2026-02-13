@@ -1,0 +1,20 @@
+[
+    {
+        "id": "tank_alpha",
+        "name": "Tanque Alpha",
+        "locationId": "loc_void_lab",
+        "status": "available"
+    },
+    {
+        "id": "tank_beta",
+        "name": "Tanque Beta",
+        "locationId": "loc_void_lab",
+        "status": "available"
+    },
+    {
+        "id": "tank_gamma",
+        "name": "Tanque Gamma",
+        "locationId": "loc_void_lab",
+        "status": "available"
+    }
+]

@@ -27,6 +27,7 @@ const createProductSchema = z.object({
         promoPrice: z.number().positive().optional(),
         sessions: z.number().int().positive().optional()
     })).optional(),
+    stock: z.number().int().nonnegative().default(0),
     active: z.boolean().default(true),
 });
 

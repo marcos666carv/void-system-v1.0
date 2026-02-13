@@ -1,7 +1,8 @@
 import React from 'react';
 import { TankProps, TankStatus } from '@/domain/entities/Tank';
-import { Button } from '@/components/ui';
-import { Users, AlertCircle, Play, Power, Moon, Droplets, Thermometer, Volume2, Lightbulb, Waves } from 'lucide-react';
+import { Button, Badge, Avatar } from '@/components/ui';
+import { Users, Play, Power, Droplets, Thermometer, Waves } from 'lucide-react';
+import { cn } from '@/lib/utils/cn';
 
 interface TankCardProps {
     tank: TankProps;
@@ -14,22 +15,13 @@ interface TankCardProps {
     onViewDetails: () => void;
 }
 
-const statusColors: Record<TankStatus, string> = {
-    ready: '#10B981', // Green
-    in_use: '#EF4444', // Red
-    cleaning: '#F59E0B', // Amber
-    maintenance: '#DC2626', // Red
-    offline: '#64748B', // Slate
-    night_mode: '#8B5CF6' // Purple
-};
-
-const statusBg: Record<TankStatus, string> = {
-    ready: '#DCFCE7',
-    in_use: '#FEE2E2',
-    cleaning: '#FEF3C7',
-    maintenance: '#FEE2E2',
-    offline: '#F1F5F9',
-    night_mode: '#F3E8FF'
+const statusBadgeIntent: Record<TankStatus, "success" | "error" | "warning" | "gray" | "brand"> = {
+    ready: 'success',
+    in_use: 'error',
+    cleaning: 'warning',
+    maintenance: 'error',
+    offline: 'gray',
+    night_mode: 'brand'
 };
 
 const statusLabels: Record<TankStatus, string> = {
@@ -47,28 +39,25 @@ export const TankCard: React.FC<TankCardProps> = ({
     onStopSession,
     onStartCleaning,
     onStopCleaning,
-    onToggleNightMode,
     onToggleDevice,
     onViewDetails
 }) => {
     // Helper to render device toggle
     const renderToggle = (label: string, isOn: boolean, device: 'leds' | 'music' | 'heater' | 'pump', disabled: boolean = false) => (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.03)', padding: '8px 12px', borderRadius: '8px' }}>
-            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748B' }}>{label}</span>
+        <div className="flex justify-between items-center bg-bg-secondary/50 px-3 py-2 rounded-lg border border-border-secondary">
+            <span className="text-xs font-semibold text-fg-secondary">{label}</span>
             <button
                 onClick={(e) => { e.stopPropagation(); if (!disabled) onToggleDevice(device); }}
-                style={{
-                    width: '36px', height: '20px', borderRadius: '100px',
-                    backgroundColor: isOn ? '#0F172A' : '#E2E8F0',
-                    position: 'relative', cursor: disabled ? 'not-allowed' : 'pointer', border: 'none',
-                    opacity: disabled ? 0.5 : 1, transition: 'all 0.2s'
-                }}
+                className={cn(
+                    "w-9 h-5 rounded-full relative transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-1",
+                    isOn ? "bg-bg-brand-solid" : "bg-bg-tertiary",
+                    disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+                )}
             >
-                <div style={{
-                    width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'white',
-                    position: 'absolute', top: '2px', left: isOn ? '18px' : '2px', transition: 'all 0.2s',
-                    boxShadow: '0 1px 2px rgba(0,0,0,0.2)'
-                }} />
+                <div className={cn(
+                    "w-4 h-4 rounded-full bg-white absolute top-0.5 shadow-sm transition-all duration-200",
+                    isOn ? "left-[18px]" : "left-0.5"
+                )} />
             </button>
         </div>
     );
@@ -78,110 +67,111 @@ export const TankCard: React.FC<TankCardProps> = ({
     const isReady = tank.status === 'ready';
     const isNight = tank.status === 'night_mode';
 
-    const cardBorderColor = isSession ? '#FCA5A5' : isReady ? '#86EFAC' : isCleaning ? '#FCD34D' : '#E2E8F0';
+    const cardBorderClass = isSession ? 'border-border-error' :
+        isReady ? 'border-border-success' :
+            isCleaning ? 'border-border-warning' :
+                isNight ? 'border-border-brand' :
+                    'border-border-secondary';
 
     return (
-        <div style={{
-            backgroundColor: 'white',
-            borderRadius: '16px',
-            border: `2px solid ${cardBorderColor}`,
-            padding: '20px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '20px',
-            height: '100%',
-            position: 'relative',
-            transition: 'all 0.2s ease'
-        }}>
+        <div className={cn(
+            "bg-surface rounded-xl border-2 p-5 flex flex-col gap-5 h-full relative transition-all duration-200 hover:shadow-md",
+            cardBorderClass
+        )}>
             {/* Header */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <div style={{ padding: '6px', borderRadius: '8px', backgroundColor: statusBg[tank.status], color: statusColors[tank.status] }}>
+            <div className="flex justify-between items-start">
+                <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
+                        <div className={cn(
+                            "p-1.5 rounded-lg",
+                            isSession ? "bg-bg-error-secondary text-fg-error-primary" :
+                                isReady ? "bg-bg-success-secondary text-fg-success-primary" :
+                                    isCleaning ? "bg-bg-warning-secondary text-fg-warning-primary" :
+                                        isNight ? "bg-bg-brand-secondary text-fg-brand-primary" :
+                                            "bg-bg-secondary text-fg-secondary"
+                        )}>
                             <Waves size={18} />
                         </div>
-                        <h3 style={{ fontSize: '1.125rem', fontWeight: 700, color: '#0F172A' }}>{tank.name}</h3>
+                        <h3 className="text-lg font-bold text-fg-primary font-display">{tank.name}</h3>
                     </div>
-                    <span style={{
-                        fontSize: '0.75rem', fontWeight: 600, color: statusColors[tank.status],
-                        backgroundColor: statusBg[tank.status], padding: '2px 8px', borderRadius: '4px',
-                        alignSelf: 'flex-start', marginLeft: '40px'
-                    }}>
-                        {statusLabels[tank.status]}
-                    </span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', backgroundColor: '#F1F5F9', padding: '4px 8px', borderRadius: '6px' }}>
-                    <Thermometer size={14} color="#64748B" />
-                    <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#0F172A' }}>{tank.temperature}°C</span>
+                <div className="flex items-center gap-1.5 bg-bg-secondary px-2 py-1 rounded-md border border-border-secondary">
+                    <Thermometer size={14} className="text-fg-tertiary" />
+                    <span className="text-sm font-bold text-fg-primary">{tank.temperature?.toFixed(1) || '--'}°C</span>
                 </div>
             </div>
 
+            <div className="flex items-center justify-between">
+                <Badge intent={statusBadgeIntent[tank.status]} size="md">
+                    {statusLabels[tank.status]}
+                </Badge>
+                {/* Optional: Add connection status dot if needed */}
+            </div>
+
             {/* Content Body */}
-            <div style={{ flex: 1 }}>
+            <div className="flex-1">
                 {isSession ? (
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div className="flex flex-col gap-4">
                         {/* Client Info */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px', backgroundColor: '#F8FAFC', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
-                            <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#E2E8F0', overflow: 'hidden', flexShrink: 0 }}>
-                                {tank.currentClient?.photoUrl ? (
-                                    <img src={tank.currentClient.photoUrl} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                ) : <Users size={20} className="m-auto mt-2.5 opacity-40" />}
-                            </div>
+                        <div className="flex items-center gap-3 p-3 bg-bg-secondary rounded-xl border border-border-secondary">
+                            <Avatar
+                                src={tank.currentClient?.photoUrl}
+                                fallback={tank.currentClient?.name?.slice(0, 2).toUpperCase() || 'CL'}
+                                size="md"
+                            />
                             <div>
-                                <p style={{ fontSize: '0.875rem', fontWeight: 700, color: '#0F172A' }}>{tank.currentClient?.name || 'Cliente'}</p>
-                                <p style={{ fontSize: '0.75rem', color: '#64748B' }}>{tank.totalSessions || 0} flutuações</p>
+                                <p className="text-sm font-bold text-fg-primary">{tank.currentClient?.name || 'Cliente'}</p>
+                                <p className="text-xs text-fg-tertiary">{tank.totalSessions || 0} flutuações</p>
                             </div>
                         </div>
                         {/* Timer */}
-                        <div style={{ backgroundColor: '#FEF2F2', borderRadius: '12px', padding: '16px', textAlign: 'center', border: '1px solid #FECACA' }}>
-                            <p style={{ fontSize: '0.75rem', color: '#7F1D1D', fontWeight: 600, marginBottom: '4px' }}>Tempo restante</p>
-                            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '4px' }}>
-                                <span style={{ fontSize: '1.75rem', fontWeight: 800, color: '#DC2626' }}>{tank.sessionTimeRemaining}</span>
-                                <span style={{ fontSize: '1rem', fontWeight: 600, color: '#DC2626' }}>min</span>
+                        <div className="bg-bg-error-secondary rounded-xl p-4 text-center border border-border-error-secondary">
+                            <p className="text-xs text-fg-error-primary font-semibold mb-1">Tempo restante</p>
+                            <div className="flex items-baseline justify-center gap-1">
+                                <span className="text-2xl font-bold text-fg-error-primary font-display">{tank.sessionTimeRemaining}</span>
+                                <span className="text-sm font-semibold text-fg-error-primary">min</span>
                             </div>
                         </div>
                     </div>
                 ) : isCleaning ? (
-                    <div style={{ backgroundColor: '#FFFBEB', borderRadius: '12px', padding: '20px', textAlign: 'center', border: '1px solid #FDE68A', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-                        <p style={{ fontSize: '0.875rem', color: '#92400E', fontWeight: 600 }}>Limpeza em andamento</p>
-                        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '4px', marginTop: '8px' }}>
-                            <span style={{ fontSize: '2rem', fontWeight: 800, color: '#D97706' }}>{tank.cleaningTimeRemaining}</span>
-                            <span style={{ fontSize: '1rem', fontWeight: 600, color: '#D97706' }}>min</span>
+                    <div className="bg-bg-warning-secondary rounded-xl p-5 text-center border border-border-warning-secondary flex flex-col justify-center h-full">
+                        <p className="text-sm text-fg-warning-primary font-semibold">Limpeza em andamento</p>
+                        <div className="flex items-baseline justify-center gap-1 mt-2">
+                            <span className="text-2xl font-bold text-fg-warning-primary font-display">{tank.cleaningTimeRemaining}</span>
+                            <span className="text-sm font-semibold text-fg-warning-primary">min</span>
                         </div>
                     </div>
                 ) : (
-                    <div style={{ height: '100%', minHeight: '120px' }} />
+                    <div className="h-full min-h-[120px] flex items-center justify-center text-center p-4 rounded-xl border border-dashed border-border-secondary bg-bg-secondary/20">
+                        <p className="text-sm text-fg-tertiary">Tanque pronto para uso</p>
+                    </div>
                 )}
             </div>
 
             {/* Device Controls */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            <div className="grid grid-cols-2 gap-2">
                 {renderToggle('LEDs', tank.ledsOn, 'leds')}
                 {renderToggle('Som', tank.musicOn, 'music')}
-                {renderToggle('Bomba', tank.pumpOn, 'pump', isSession)} {/* Pump locked during session */}
+                {renderToggle('Bomba', tank.pumpOn, 'pump', isSession)}
                 {renderToggle('Aquecedor', tank.heaterOn, 'heater')}
             </div>
 
             {/* Actions */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
+            <div className="flex flex-col gap-2 mt-auto pt-4 border-t border-border-secondary">
                 <button
                     onClick={onViewDetails}
-                    style={{
-                        width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #E2E8F0',
-                        backgroundColor: 'transparent', color: '#475569', fontSize: '0.875rem', fontWeight: 600, cursor: 'pointer',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
-                    }}
+                    className="w-full py-2.5 rounded-lg border border-border-secondary bg-transparent text-fg-secondary text-sm font-semibold hover:bg-bg-secondary transition-colors flex items-center justify-center gap-2"
                 >
-                    <Play size={14} /> Ver mais detalhes
+                    <Play size={14} /> Ver detalhes
                 </button>
 
-                {isReady && (
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-                        <Button color="primary" onClick={onStartSession} style={{ justifyContent: 'center' }}>
-                            <Play size={16} style={{ marginRight: '8px' }} /> Iniciar Sessão
+                {(isReady || isNight) && (
+                    <div className="grid grid-cols-2 gap-2">
+                        <Button intent="primary" onClick={onStartSession} className="justify-center w-full">
+                            <Play size={16} className="mr-2" /> Iniciar
                         </Button>
-                        <Button color="secondary" onClick={onStartCleaning} style={{ justifyContent: 'center' }}>
-                            <Droplets size={16} style={{ marginRight: '8px' }} /> Ciclo Limpeza
+                        <Button intent="secondary" onClick={onStartCleaning} className="justify-center w-full">
+                            <Droplets size={16} className="mr-2" /> Limpeza
                         </Button>
                     </div>
                 )}
@@ -189,29 +179,20 @@ export const TankCard: React.FC<TankCardProps> = ({
                 {isSession && (
                     <Button
                         onClick={onStopSession}
-                        style={{ backgroundColor: '#DC2626', color: 'white', justifyContent: 'center', border: 'none' }}
+                        intent="primary"
+                        className="justify-center bg-bg-error-solid hover:bg-bg-error-solid_hover border-border-error-solid text-white w-full"
                     >
-                        <Power size={16} style={{ marginRight: '8px' }} /> Encerrar Sessão
+                        <Power size={16} className="mr-2" /> Encerrar Sessão
                     </Button>
                 )}
 
                 {isCleaning && (
-                    <Button color="secondary" onClick={onStopCleaning} style={{ justifyContent: 'center' }}>
-                        <Power size={16} style={{ marginRight: '8px' }} /> Finalizar Limpeza
+                    <Button intent="secondary" onClick={onStopCleaning} className="justify-center w-full">
+                        <Power size={16} className="mr-2" /> Finalizar Limpeza
                     </Button>
-                )}
-
-                {isNight && (
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-                        <Button color="primary" onClick={onStartSession} style={{ justifyContent: 'center' }}>
-                            <Play size={16} style={{ marginRight: '8px' }} /> Iniciar Sessão
-                        </Button>
-                        <Button color="secondary" onClick={onStartCleaning} style={{ justifyContent: 'center' }}>
-                            <Droplets size={16} style={{ marginRight: '8px' }} /> Ciclo Limpeza
-                        </Button>
-                    </div>
                 )}
             </div>
         </div>
     );
 };
+

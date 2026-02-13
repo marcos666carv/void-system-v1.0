@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '@/components/ui';
 import { VOID_LEVELS, VOID_LEVEL_CONFIG, VoidLevel } from '@/domain/value-objects/VoidLevel';
 import { ClientProps } from '@/domain/entities/Client';
+import { cn } from '@/lib/utils/cn';
+import { ArrowDown, CheckCircle2 } from 'lucide-react';
 
 interface LevelStats {
     level: VoidLevel;
@@ -55,94 +57,99 @@ export default function LifecyclePage() {
 
     const formatCurrency = (v: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(v);
 
-    if (loading) return <div style={{ padding: 'var(--space-5)' }}><p style={{ opacity: 0.5 }}>carregando lifecycle...</p></div>;
+    if (loading) return (
+        <div className="p-10 flex items-center justify-center">
+            <p className="text-fg-tertiary animate-pulse">carregando lifecycle...</p>
+        </div>
+    );
 
     return (
-        <div>
-            <div style={{ marginBottom: 'var(--space-3)' }}>
-                <h1 style={{ fontSize: 'var(--font-size-2xl)', fontFamily: 'var(--font-display)', fontWeight: 600 }}>lifecycle do cliente</h1>
-                <p style={{ opacity: 0.5, marginTop: 'var(--space-1)', fontSize: 'var(--font-size-sm)' }}>funil de evolução e automações CRM por nível void</p>
+        <div className="max-w-[1600px] mx-auto pb-10 flex flex-col gap-6">
+            <div className="mb-2">
+                <h1 className="text-2xl font-bold font-display text-fg-primary tracking-tight">lifecycle do cliente</h1>
+                <p className="text-sm text-fg-tertiary font-medium">funil de evolução e automações CRM por nível void</p>
             </div>
 
             {/* KPI Summary */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                     { label: 'total clientes', value: totalClients },
                     { label: 'taxa retenção', value: `${totalClients > 0 ? Math.round(((totalClients - levelStats[0].count) / totalClients) * 100) : 0}%` },
                     { label: 'ltv médio', value: formatCurrency(totalClients > 0 ? Math.round(clients.reduce((s, c) => s + c.totalSpent, 0) / totalClients) : 0) },
                     { label: 'nps médio', value: (() => { const scored = clients.filter(c => c.npsScore); return scored.length > 0 ? (scored.reduce((s, c) => s + (c.npsScore ?? 0), 0) / scored.length).toFixed(1) : '—'; })() },
                 ].map((kpi, i) => (
-                    <Card key={i}  padding="md">
-                        <span style={{ fontSize: 'var(--font-size-xs)', fontWeight: 500, opacity: 0.5, letterSpacing: '0.04em' }}>{kpi.label}</span>
-                        <div style={{ marginTop: 'var(--space-1)' }}>
-                            <span style={{ fontSize: 'var(--font-size-xl)', fontWeight: 600, fontFamily: 'var(--font-display)' }}>{kpi.value}</span>
+                    <Card key={i} className="p-4 border-border-secondary">
+                        <span className="text-xs font-semibold text-fg-tertiary uppercase tracking-wider">{kpi.label}</span>
+                        <div className="mt-1">
+                            <span className="text-2xl font-bold font-display text-fg-primary tracking-tight">{kpi.value}</span>
                         </div>
                     </Card>
                 ))}
             </div>
 
             {/* Funnel Visualization */}
-            <Card  padding="md" style={{ marginBottom: 'var(--space-4)' }}>
-                <h3 style={{ fontSize: 'var(--font-size-sm)', fontWeight: 600, letterSpacing: '0.02em', marginBottom: 'var(--space-4)' }}>
+            <Card className="p-6 border-border-secondary overflow-hidden">
+                <h3 className="text-sm font-bold text-fg-primary uppercase tracking-wider mb-6">
                     funil de evolução
                 </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+                <div className="flex flex-col gap-4">
                     {levelStats.map((stat, i) => {
                         const config = VOID_LEVEL_CONFIG[stat.level];
                         const maxCount = Math.max(...levelStats.map(s => s.count), 1);
                         const width = Math.max((stat.count / maxCount) * 100, 8);
                         return (
                             <div key={stat.level}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
+                                <div className="flex items-center gap-4">
                                     {/* Level badge */}
-                                    <div style={{
-                                        width: '100px', flexShrink: 0,
-                                        display: 'flex', alignItems: 'center', gap: 'var(--space-2)',
-                                    }}>
-                                        <div style={{ width: '10px', height: '10px', borderRadius: 'var(--radius-full)', backgroundColor: config.color }} />
-                                        <span style={{ fontSize: 'var(--font-size-sm)', fontWeight: 600 }}>{config.label.toLowerCase()}</span>
+                                    <div className="w-[100px] shrink-0 flex items-center gap-2">
+                                        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: config.color }} />
+                                        <span className="text-sm font-bold text-fg-primary lowercase">{config.label.toLowerCase()}</span>
                                     </div>
 
                                     {/* Bar */}
-                                    <div style={{ flex: 1, height: '32px', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border)', position: 'relative' }}>
-                                        <div style={{
-                                            height: '100%', width: `${width}%`,
-                                            backgroundColor: `${config.color}20`,
-                                            borderRight: `3px solid ${config.color}`,
-                                            transition: 'width 0.8s var(--ease-antigravity)',
-                                            display: 'flex', alignItems: 'center', paddingLeft: 'var(--space-3)',
-                                        }}>
-                                            <span style={{ fontSize: 'var(--font-size-sm)', fontWeight: 600, fontFamily: 'var(--font-display)', color: config.color }}>
-                                                {stat.count} ({stat.percentage}%)
+                                    <div className="flex-1 h-9 bg-bg-secondary rounded-lg overflow-hidden border border-border-secondary relative">
+                                        <div
+                                            className="h-full flex items-center pl-3 transition-all duration-700 ease-out border-r-2"
+                                            style={{
+                                                width: `${width}%`,
+                                                backgroundColor: `${config.color}20`,
+                                                borderColor: config.color,
+                                            }}
+                                        >
+                                            <span
+                                                className="text-sm font-bold font-display"
+                                                style={{ color: config.color }}
+                                            >
+                                                {stat.count} <span className="text-xs opacity-70 ml-1">({stat.percentage}%)</span>
                                             </span>
                                         </div>
                                     </div>
 
                                     {/* Stats */}
-                                    <div style={{ display: 'flex', gap: 'var(--space-4)', flexShrink: 0, minWidth: '180px' }}>
-                                        <div style={{ textAlign: 'right' }}>
-                                            <p style={{ fontSize: 'var(--font-size-xs)', opacity: 0.4 }}>avg sessões</p>
-                                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-display)' }}>{stat.avgSessions}</span>
+                                    <div className="flex gap-6 shrink-0 min-w-[180px] justify-end">
+                                        <div className="text-right">
+                                            <p className="text-[10px] font-bold text-fg-quaternary uppercase">avg sessões</p>
+                                            <span className="text-sm font-bold text-fg-primary font-display tabular-nums">{stat.avgSessions}</span>
                                         </div>
-                                        <div style={{ textAlign: 'right' }}>
-                                            <p style={{ fontSize: 'var(--font-size-xs)', opacity: 0.4 }}>avg gasto</p>
-                                            <span style={{ fontWeight: 600, fontFamily: 'var(--font-display)' }}>{formatCurrency(stat.avgSpent)}</span>
+                                        <div className="text-right">
+                                            <p className="text-[10px] font-bold text-fg-quaternary uppercase">avg gasto</p>
+                                            <span className="text-sm font-bold text-fg-primary font-display tabular-nums">{formatCurrency(stat.avgSpent)}</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Conversion Rate Arrow */}
                                 {i < conversionRates.length && (
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', paddingLeft: '104px', marginTop: 'var(--space-2)' }}>
-                                        <span style={{ fontSize: 'var(--font-size-xs)', opacity: 0.3 }}>↓</span>
-                                        <span style={{
-                                            fontSize: '0.65rem', fontWeight: 600,
-                                            padding: 'var(--space-1) var(--space-3)',
-                                            borderRadius: 'var(--radius-full)',
-                                            backgroundColor: conversionRates[i].rate > 50 ? 'rgba(16,185,129,0.08)' : 'rgba(239,68,68,0.08)',
-                                            color: conversionRates[i].rate > 50 ? 'var(--void-success)' : 'var(--void-error)',
-                                            border: `1px solid ${conversionRates[i].rate > 50 ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'}`,
-                                        }}>
+                                    <div className="flex items-center gap-3 pl-[104px] mt-2 mb-2">
+                                        <ArrowDown size={14} className="text-fg-tertiary/50" />
+                                        <span
+                                            className={cn(
+                                                "text-[10px] font-bold px-2 py-0.5 rounded-full border",
+                                                conversionRates[i].rate > 50
+                                                    ? "bg-bg-success-secondary/50 text-fg-success-primary border-bg-success-secondary"
+                                                    : "bg-bg-error-secondary/50 text-fg-error-primary border-bg-error-secondary"
+                                            )}
+                                        >
                                             {conversionRates[i].rate}% conversão
                                         </span>
                                     </div>
@@ -154,30 +161,32 @@ export default function LifecyclePage() {
             </Card>
 
             {/* CRM Automations per Level */}
-            <h3 style={{ fontSize: 'var(--font-size-sm)', fontWeight: 600, letterSpacing: '0.02em', marginBottom: 'var(--space-4)' }}>
-                automações crm por nível
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 'var(--space-3)' }}>
-                {VOID_LEVELS.map(level => {
-                    const config = VOID_LEVEL_CONFIG[level];
-                    return (
-                        <Card key={level}  padding="md" style={{ borderTop: `3px solid ${config.color}` }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-3)' }}>
-                                <div style={{ width: '10px', height: '10px', borderRadius: 'var(--radius-full)', backgroundColor: config.color }} />
-                                <span style={{ fontWeight: 600, fontSize: 'var(--font-size-sm)' }}>{config.label.toLowerCase()}</span>
-                            </div>
-                            <p style={{ fontSize: 'var(--font-size-xs)', opacity: 0.4, marginBottom: 'var(--space-3)' }}>{config.description}</p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                                {automationDescriptions[level].map((action, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: 'var(--font-size-xs)', padding: 'var(--space-2) var(--space-3)', backgroundColor: 'var(--surface)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)' }}>
-                                        <span style={{ color: config.color, fontWeight: 600 }}>→</span>
-                                        <span>{action}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </Card>
-                    );
-                })}
+            <div>
+                <h3 className="text-sm font-bold text-fg-primary uppercase tracking-wider mb-4 ml-1">
+                    automações crm por nível
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                    {VOID_LEVELS.map(level => {
+                        const config = VOID_LEVEL_CONFIG[level];
+                        return (
+                            <Card key={level} className="p-5 border-border-secondary border-t-[3px] h-full" style={{ borderTopColor: config.color }}>
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: config.color }} />
+                                    <span className="font-bold text-sm text-fg-primary lowercase">{config.label.toLowerCase()}</span>
+                                </div>
+                                <p className="text-xs text-fg-tertiary mb-3 min-h-[32px]">{config.description}</p>
+                                <div className="flex flex-col gap-2">
+                                    {automationDescriptions[level].map((action, i) => (
+                                        <div key={i} className="flex items-start gap-2 text-xs p-2 bg-bg-secondary/50 rounded-lg border border-border-secondary/50">
+                                            <CheckCircle2 size={12} className="mt-0.5 shrink-0" style={{ color: config.color }} />
+                                            <span className="text-fg-secondary font-medium">{action}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Card>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

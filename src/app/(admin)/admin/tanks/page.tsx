@@ -2,15 +2,12 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Card } from '@/components/ui';
 import { Button } from '@/components/ui';
 import { TankProps, TankStatus } from '@/domain/entities/Tank';
 import { LocationProps } from '@/domain/entities/Location';
 import { TankCard } from './TankCard';
-import { Users, Clock, AlertCircle } from 'lucide-react';
-import Link from 'next/link';
-
-// ... (keep existing statusColors/Labels if still needed for summary, but moving logic to Card)
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils/cn';
 
 interface SessionConfig {
     duration: number;
@@ -90,8 +87,7 @@ export default function TanksPage() {
             ...t,
             status: 'ready' as TankStatus,
             cleaningTimeRemaining: undefined,
-            pumpOn: false // Or keep enabled based on preference? Usually filtration runs often. Let's keep true if default.
-            // Actually, usually pump runs for filtration. Let's leave it as is state-wise.
+            pumpOn: false
         } : t));
     };
 
@@ -126,26 +122,29 @@ export default function TanksPage() {
         night: filteredTanks.filter(t => t.status === 'night_mode').length
     };
 
-    if (loading) return <div style={{ padding: 'var(--space-5)' }}><p style={{ opacity: 0.5 }}>carregando tanques...</p></div>;
+    if (loading) return (
+        <div className="p-8 flex items-center justify-center">
+            <p className="text-fg-tertiary animate-pulse">carregando tanques...</p>
+        </div>
+    );
 
     return (
-        <div style={{ maxWidth: '1600px', margin: '0 auto', paddingBottom: '40px' }}>
+        <div className="max-w-[1600px] mx-auto pb-10">
             {/* Header Compacto */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--space-5)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
-                    <h1 style={{ fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1 }}>controle de tanques</h1>
+            <div className="flex justify-between items-center mb-6">
+                <div className="flex items-center gap-4">
+                    <h1 className="text-xl font-bold tracking-tight text-fg-primary font-display">controle de tanques</h1>
 
                     {/* Compact Filters */}
-                    <div style={{ display: 'flex', gap: '8px', padding: '4px', backgroundColor: 'var(--surface)', borderRadius: '100px', border: '1px solid var(--border)' }}>
+                    <div className="flex gap-1 p-1 bg-surface rounded-full border border-border-secondary">
                         <button
                             onClick={() => setSelectedLocation('all')}
-                            style={{
-                                padding: '4px 12px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 600,
-                                backgroundColor: selectedLocation === 'all' ? 'var(--foreground)' : 'transparent',
-                                color: selectedLocation === 'all' ? 'var(--background)' : 'var(--foreground)',
-                                opacity: selectedLocation === 'all' ? 1 : 0.6,
-                                transition: 'all 0.2s'
-                            }}
+                            className={cn(
+                                "px-3 py-1 rounded-full text-xs font-semibold transition-all",
+                                selectedLocation === 'all'
+                                    ? "bg-bg-primary text-fg-primary shadow-sm"
+                                    : "text-fg-tertiary hover:text-fg-primary hover:bg-bg-secondary"
+                            )}
                         >
                             todas
                         </button>
@@ -153,13 +152,12 @@ export default function TanksPage() {
                             <button
                                 key={loc.id}
                                 onClick={() => setSelectedLocation(loc.id)}
-                                style={{
-                                    padding: '4px 12px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 600,
-                                    backgroundColor: selectedLocation === loc.id ? 'var(--foreground)' : 'transparent',
-                                    color: selectedLocation === loc.id ? 'var(--background)' : 'var(--foreground)',
-                                    opacity: selectedLocation === loc.id ? 1 : 0.6,
-                                    transition: 'all 0.2s'
-                                }}
+                                className={cn(
+                                    "px-3 py-1 rounded-full text-xs font-semibold transition-all",
+                                    selectedLocation === loc.id
+                                        ? "bg-bg-primary text-fg-primary shadow-sm"
+                                        : "text-fg-tertiary hover:text-fg-primary hover:bg-bg-secondary"
+                                )}
                             >
                                 {loc.city.toLowerCase()}
                             </button>
@@ -168,24 +166,26 @@ export default function TanksPage() {
                 </div>
 
                 {/* Status Summary - Pills */}
-                <div style={{ display: 'flex', gap: '8px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', backgroundColor: 'white', borderRadius: '100px', border: '1px solid var(--border)', fontSize: '0.75rem', fontWeight: 600 }}>
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10B981' }} />
-                        <span style={{ color: '#10B981', opacity: 1 }}>{counts.in_use} ativos</span>
+                <div className="flex gap-2">
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-border-secondary text-xs font-semibold">
+                        <div className="w-1.5 h-1.5 rounded-full bg-fg-success-primary" />
+                        <span className="text-fg-success-primary">{counts.in_use} ativos</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', backgroundColor: 'white', borderRadius: '100px', border: '1px solid var(--border)', fontSize: '0.75rem', fontWeight: 600 }}>
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#94A3B8' }} />
-                        <span style={{ opacity: 0.6 }}>{counts.ready} livres</span>
+                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-border-secondary text-xs font-semibold">
+                        <div className="w-1.5 h-1.5 rounded-full bg-fg-tertiary" />
+                        <span className="text-fg-tertiary">{counts.ready} livres</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', backgroundColor: 'white', borderRadius: '100px', border: '1px solid var(--border)', fontSize: '0.75rem', fontWeight: 600 }}>
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
-                        <span style={{ opacity: 0.6 }}>{counts.issue} atenção</span>
-                    </div>
+                    {(counts.issue > 0) && (
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 bg-surface rounded-full border border-border-secondary text-xs font-semibold">
+                            <div className="w-1.5 h-1.5 rounded-full bg-fg-warning-primary" />
+                            <span className="text-fg-warning-primary">{counts.issue} atenção</span>
+                        </div>
+                    )}
                 </div>
             </div>
 
             {/* Denser Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 'var(--space-4)' }}>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-4">
                 {filteredTanks.map(tank => (
                     <TankCard
                         key={tank.id}
@@ -203,16 +203,16 @@ export default function TanksPage() {
 
             {/* Session Dialog */}
             {sessionDialog && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-                    <div className="outline-none max-w-md w-full p-6 bg-white dark:bg-void-obsidian rounded-xl shadow-2xl relative">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+                    <div className="w-full max-w-md bg-surface rounded-xl shadow-2xl relative border border-border-secondary p-6 animate-in zoom-in-95 duration-200">
                         <button
                             onClick={() => setSessionDialog(null)}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            className="absolute top-4 right-4 text-fg-tertiary hover:text-fg-primary transition-colors"
                         >
-                            ✕
+                            <X size={20} />
                         </button>
-                        <h2 className="text-xl font-bold mb-4">configurar sessão</h2>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+                        <h2 className="text-xl font-bold mb-6 font-display text-fg-primary">configurar sessão</h2>
+                        <div className="flex flex-col gap-5">
                             {[
                                 { label: 'duração (min)', value: config.duration, key: 'duration' as const, min: 30, max: 120, step: 15 },
                                 { label: 'música (min)', value: config.musicDuration, key: 'musicDuration' as const, min: 0, max: 30, step: 5 },
@@ -220,9 +220,9 @@ export default function TanksPage() {
                                 { label: 'atraso início (min)', value: config.delayStart, key: 'delayStart' as const, min: 0, max: 15, step: 1 },
                             ].map(field => (
                                 <div key={field.key}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                                        <label style={{ fontSize: '0.75rem', fontWeight: 600 }}>{field.label}</label>
-                                        <span style={{ fontSize: '0.875rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>{field.value}</span>
+                                    <div className="flex justify-between mb-2">
+                                        <label className="text-xs font-bold text-fg-secondary uppercase tracking-wider">{field.label}</label>
+                                        <span className="text-sm font-mono font-bold text-fg-primary">{field.value}</span>
                                     </div>
                                     <input
                                         type="range"
@@ -231,12 +231,12 @@ export default function TanksPage() {
                                         step={field.step}
                                         value={field.value}
                                         onChange={e => setConfig(prev => ({ ...prev, [field.key]: Number(e.target.value) }))}
-                                        style={{ width: '100%', accentColor: 'var(--primary)' }}
+                                        className="w-full accent-bg-brand-solid h-2 bg-bg-secondary rounded-lg appearance-none cursor-pointer"
                                     />
                                 </div>
                             ))}
-                            <div style={{ marginTop: 'var(--space-2)' }}>
-                                <Button intent="primary" className="w-full" onClick={() => sessionDialog && handleStartSession(sessionDialog)}>
+                            <div className="mt-4">
+                                <Button intent="primary" className="w-full justify-center" onClick={() => sessionDialog && handleStartSession(sessionDialog)}>
                                     iniciar sessão
                                 </Button>
                             </div>
@@ -247,5 +247,6 @@ export default function TanksPage() {
         </div>
     );
 }
+
 
 

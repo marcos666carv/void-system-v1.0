@@ -1,25 +1,24 @@
 'use client';
 
-import s from './AdminTankDetail.module.css';
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Button } from '@/components/ui';
+import { Button, Badge } from '@/components/ui';
 import { TankProps, TankStatus } from '@/domain/entities/Tank';
-import { ArrowLeft, Thermometer } from 'lucide-react';
+import { ArrowLeft, Thermometer, X } from 'lucide-react';
 import { TankActiveSession } from './components/TankActiveSession';
 import { TankKPIs } from './components/TankKPIs';
 import { TankMaintenance } from './components/TankMaintenance';
 import { TankHistory } from './components/TankHistory';
+import { cn } from '@/lib/utils/cn';
 
 // Status Config
-const statusConfig: Record<TankStatus, { label: string; color: string }> = {
-    ready: { label: 'livre', color: '#94A3B8' },
-    in_use: { label: 'em sessão', color: '#10B981' },
-    cleaning: { label: 'limpeza', color: '#EF4444' },
-    maintenance: { label: 'manutenção', color: '#DC2626' },
-    offline: { label: 'offline', color: '#64748B' },
-    night_mode: { label: 'modo noturno', color: '#8B5CF6' }
+const statusConfig: Record<TankStatus, { label: string; intent: "success" | "error" | "warning" | "gray" | "brand" }> = {
+    ready: { label: 'livre', intent: 'success' },
+    in_use: { label: 'em sessão', intent: 'error' },
+    cleaning: { label: 'limpeza', intent: 'warning' },
+    maintenance: { label: 'manutenção', intent: 'error' },
+    offline: { label: 'offline', intent: 'gray' },
+    night_mode: { label: 'modo noturno', intent: 'brand' }
 };
 
 export default function TankDetailPage() {
@@ -111,87 +110,91 @@ export default function TankDetailPage() {
         }
     };
 
-    if (loading) return <div style={{ padding: '40px' }}>carregando...</div>;
-    if (!tank) return <div style={{ padding: '40px' }}>não encontrado</div>;
+    if (loading) return (
+        <div className="p-10 flex items-center justify-center">
+            <p className="text-fg-tertiary animate-pulse">carregando...</p>
+        </div>
+    );
+    if (!tank) return <div className="p-10 text-fg-error-primary">não encontrado</div>;
 
     const status = statusConfig[tank.status] || statusConfig.offline;
 
     return (
-        <div className={s.container}>
+        <div className="max-w-[1600px] mx-auto pb-10 flex flex-col gap-6">
             {/* Header */}
-            <div className={s.header}>
-                <div className={s.headerLeft}>
-                    <Button color="tertiary" onClick={() => router.push('/admin/tanks')} className={s.backButton}>
+            <div className="flex justify-between items-start">
+                <div className="flex items-center gap-4">
+                    <Button intent="secondary" onClick={() => router.push('/admin/tanks')} className="rounded-full w-10 h-10 p-0 flex items-center justify-center">
                         <ArrowLeft size={18} />
                     </Button>
-                    <div className={s.titleContainer}>
-                        <h1 className={s.title}>{tank.name?.toLowerCase() || 'tanque sem nome'}</h1>
-                        <p className={s.subtitle}>
+                    <div>
+                        <h1 className="text-2xl font-bold font-display text-fg-primary tracking-tight">{tank.name?.toLowerCase() || 'tanque sem nome'}</h1>
+                        <p className="text-sm text-fg-tertiary font-medium">
                             {tank.locationId === 'loc_curitiba' ? 'curitiba' : 'campo largo'} · {tank.installedAt ? new Date(tank.installedAt).getFullYear() : '2023'}
                         </p>
                     </div>
                 </div>
-                <div className={s.headerRight}>
-                    <div className={s.statusBadge} style={{ borderColor: status.color + '40' }}>
-                        <div className={s.statusDot} style={{ backgroundColor: status.color }} />
-                        <span className={s.statusText}>{status.label}</span>
-                    </div>
-                    <div className={s.temperatureBadge}>
-                        <Thermometer size={16} className="text-blue-500" />
-                        <span className={s.temperatureValue}>{tank.temperature?.toFixed(1) || '35.5'}°c</span>
+                <div className="flex items-center gap-3">
+                    <Badge intent={status.intent} size="md" className="px-3 py-1">
+                        {status.label}
+                    </Badge>
+                    <div className="flex items-center gap-1.5 bg-surface px-3 py-1.5 rounded-full border border-border-secondary shadow-sm">
+                        <Thermometer size={16} className="text-fg-brand-primary" />
+                        <span className="text-sm font-bold text-fg-primary">{tank.temperature?.toFixed(1) || '35.5'}°c</span>
                     </div>
                 </div>
             </div>
 
             {/* Layout Grid */}
-            <div className={s.grid}>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6">
                 {/* Main Column */}
-                <div className={s.mainColumn}>
+                <div className="flex flex-col gap-6">
                     <TankActiveSession tank={tank} onEndSession={handleEndSession} />
                     <TankKPIs tank={tank} />
                     <TankMaintenance parts={tank.parts || []} onIntervene={handleOpenMaintenance} />
                 </div>
 
                 {/* Sidebar Column */}
-                <div className={s.sidebarColumn}>
+                <div className="flex flex-col gap-6 h-full">
                     <TankHistory history={tank.sessionHistory} />
                 </div>
             </div>
 
             {/* Modal */}
             {isMaintenanceModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-                    <div className="outline-none max-w-md w-full p-6 bg-white dark:bg-void-obsidian rounded-xl shadow-2xl relative">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+                    <div className="w-full max-w-md bg-surface rounded-xl shadow-2xl relative border border-border-secondary p-6 animate-in zoom-in-95 duration-200">
                         <button
                             onClick={() => setIsMaintenanceModalOpen(false)}
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            className="absolute top-4 right-4 text-fg-tertiary hover:text-fg-primary transition-colors"
                         >
-                            ✕
+                            <X size={20} />
                         </button>
-                        <h2 className={s.title} style={{ marginBottom: '1rem' }}>manutenção de peça</h2>
-                        <div>
-                            <div className={s.formGroup}>
-                                <label className={s.label}>novo id / serial</label>
+                        <h2 className="text-xl font-bold mb-4 font-display text-fg-primary">manutenção de peça</h2>
+
+                        <div className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-1.5">
+                                <label className="text-xs font-bold text-fg-secondary uppercase tracking-wider">novo id / serial</label>
                                 <input
                                     type="text"
                                     placeholder="ex: pump-2026-x9"
                                     value={maintenanceForm.newPartId}
                                     onChange={(e) => setMaintenanceForm(prev => ({ ...prev, newPartId: e.target.value }))}
-                                    className={s.input}
+                                    className="w-full px-4 py-2 bg-bg-secondary rounded-lg border border-border-secondary focus:ring-2 focus:ring-focus-ring outline-none transition-all placeholder:text-fg-quaternary text-sm text-fg-primary"
                                 />
                             </div>
-                            <div className={s.formGroup}>
-                                <label className={s.label}>técnico</label>
+                            <div className="flex flex-col gap-1.5">
+                                <label className="text-xs font-bold text-fg-secondary uppercase tracking-wider">técnico</label>
                                 <input
                                     type="text"
                                     placeholder="nome do responsável"
                                     value={maintenanceForm.technician}
                                     onChange={(e) => setMaintenanceForm(prev => ({ ...prev, technician: e.target.value }))}
-                                    className={s.input}
+                                    className="w-full px-4 py-2 bg-bg-secondary rounded-lg border border-border-secondary focus:ring-2 focus:ring-focus-ring outline-none transition-all placeholder:text-fg-quaternary text-sm text-fg-primary"
                                 />
                             </div>
-                            <div className={s.modalActions}>
-                                <Button intent="tertiary" onClick={() => setIsMaintenanceModalOpen(false)}>cancelar</Button>
+                            <div className="flex justify-end gap-3 mt-4">
+                                <Button intent="secondary" onClick={() => setIsMaintenanceModalOpen(false)}>cancelar</Button>
                                 <Button intent="primary" onClick={handleConfirmMaintenance} disabled={!maintenanceForm.newPartId || !maintenanceForm.technician}>
                                     confirmar
                                 </Button>

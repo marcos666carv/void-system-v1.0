@@ -15,6 +15,25 @@ export const GET = withSecurity(withErrorHandler(async (request: Request) => {
 export const POST = withSecurity(withErrorHandler(async (request: Request) => {
     const body = await request.json();
     const input = createClientSchema.parse(body);
-    const client = await createClient.execute(input);
-    return created(client);
+
+    try {
+        const client = await createClient.execute(input);
+        return created(client);
+    } catch (error: any) {
+        if (error.constructor.name === 'ConflictError' || error.message.includes('already exists')) {
+            // MVP Strategy: For Guest Checkout, if client exists, return it to allow booking.
+            // TODO: Replace with proper Auth flow (Login/Magic Link)
+            const existing = await listClients.execute({
+                search: input.email,
+                page: 1,
+                limit: 1,
+                sort: 'email',
+                order: 'asc'
+            });
+            if (existing.data.length > 0) {
+                return success(existing.data[0]);
+            }
+        }
+        throw error;
+    }
 }));

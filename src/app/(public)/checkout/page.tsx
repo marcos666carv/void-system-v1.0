@@ -13,18 +13,10 @@ interface ServiceOption {
     description: string;
 }
 
-const services: ServiceOption[] = [
-    { id: 'float-60', name: 'Flutuação 60min', duration: '60 min', price: 150, description: 'Sessão clássica de flutuação sensorial' },
-    { id: 'float-90', name: 'Flutuação 90min', duration: '90 min', price: 250, description: 'Sessão estendida para imersão profunda' },
-    { id: 'float-massage', name: 'Massagem + Float', duration: '120 min', price: 450, description: 'Massagem relaxante + flutuação 60min' },
-    { id: 'voyager', name: 'Plano Voyager', duration: '4 sessões', price: 349, description: 'Pacote mensal com 4 sessões de 60min' },
-];
-
-const timeSlots = ['08:00', '09:30', '11:00', '13:00', '14:30', '16:00', '17:30', '19:00'];
-
 const formatCurrency = (v: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0 }).format(v);
 
 export default function CheckoutPage() {
+    const [services, setServices] = useState<ServiceOption[]>([]);
     const [step, setStep] = useState(1);
     const [selectedService, setSelectedService] = useState<string | null>(null);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -32,8 +24,108 @@ export default function CheckoutPage() {
     const [paymentMethod, setPaymentMethod] = useState<'pix' | 'credit_card'>('pix');
     const [contactForm, setContactForm] = useState({ name: '', phone: '', email: '' });
 
+    // API State
+    const [slots, setSlots] = useState<{ time: string, available: boolean }[]>([]);
+    const [isLoadingSlots, setIsLoadingSlots] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const steps = ['experiência', 'agendamento', 'dados pessoais', 'pagamento'];
     const service = services.find(s => s.id === selectedService);
+
+    // Fetch Services
+    React.useEffect(() => {
+        async function fetchServices() {
+            try {
+                const res = await fetch('/api/services');
+                if (res.ok) {
+                    const data = await res.json();
+                    setServices(data.map((s: any) => ({
+                        id: s.id,
+                        name: s.name,
+                        duration: `${s.duration} min`,
+                        price: s.price,
+                        description: s.description || 'Sessão de flutuação'
+                    })));
+                }
+            } catch (error) {
+                console.error('Failed to fetch services', error);
+            }
+        }
+        fetchServices();
+    }, []);
+
+    // Fetch Availability
+    React.useEffect(() => {
+        if (!selectedDate || !selectedService) return;
+
+        async function fetchAvailability() {
+            setIsLoadingSlots(true);
+            try {
+                const res = await fetch(`/api/availability?date=${selectedDate}&serviceId=${selectedService}`);
+                if (res.ok) {
+                    const data = await res.json();
+                    setSlots(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch availability', error);
+            } finally {
+                setIsLoadingSlots(false);
+            }
+        }
+        fetchAvailability();
+    }, [selectedDate, selectedService]);
+
+    const handleBooking = async () => {
+        if (!selectedService || !selectedDate || !selectedTime) return;
+        setIsSubmitting(true);
+
+        try {
+            // 1. Create or Get Client
+            const clientRes = await fetch('/api/clients', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    fullName: contactForm.name,
+                    email: contactForm.email,
+                    phone: contactForm.phone,
+                })
+            });
+
+            if (!clientRes.ok) throw new Error('Failed to create/fetch client');
+            const clientData = await clientRes.json();
+            const clientId = clientData.data ? clientData.data.id : clientData.id; // Handle wrapped or direct response
+
+            // 2. Create Appointment
+            // Calculate end time based on duration
+            const svc = services.find(s => s.id === selectedService);
+            const durationMinutes = svc ? parseInt(svc.duration) : 60;
+            const startTime = new Date(`${selectedDate}T${selectedTime}`);
+            const endTime = new Date(startTime.getTime() + durationMinutes * 60000);
+
+            const appointmentRes = await fetch('/api/appointments', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    clientId,
+                    serviceId: selectedService,
+                    startTime: startTime.toISOString(),
+                    endTime: endTime.toISOString(),
+                    notes: `Booked via Checkout. Method: ${paymentMethod}`
+                })
+            });
+
+            if (!appointmentRes.ok) throw new Error('Failed to create appointment');
+
+            alert('Agendamento realizado com sucesso!');
+            window.location.href = '/'; // Redirect to home or success page
+
+        } catch (error) {
+            console.error('Booking failed', error);
+            alert('Erro ao realizar agendamento. Tente novamente.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     const generateDates = () => {
         const dates: { label: string; value: string; weekday: string }[] = [];
@@ -163,28 +255,34 @@ export default function CheckoutPage() {
                     {selectedDate && (
                         <div>
                             <h4 style={{ fontSize: 'var(--font-size-xs)', fontWeight: 600, textTransform: 'uppercase', opacity: 0.5, letterSpacing: '0.08em', marginBottom: 'var(--space-4)' }}>horário</h4>
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-3)' }}>
-                                {timeSlots.map(slot => {
-                                    const isSelected = selectedTime === slot;
-                                    const available = Math.random() > 0.25;
-                                    return (
-                                        <button key={slot} onClick={() => available && setSelectedTime(slot)} disabled={!available} style={{
-                                            padding: 'var(--space-3)',
-                                            borderRadius: 'var(--radius-lg)',
-                                            border: isSelected ? '2px solid var(--primary)' : '1px solid var(--border)',
-                                            backgroundColor: isSelected ? 'rgba(0,102,255,0.06)' : !available ? 'var(--border)' : 'var(--surface)',
-                                            cursor: available ? 'pointer' : 'not-allowed',
-                                            opacity: available ? 1 : 0.3,
-                                            fontWeight: 600,
-                                            fontSize: 'var(--font-size-sm)',
-                                            color: isSelected ? 'var(--primary)' : 'var(--foreground)',
-                                            transition: 'all var(--duration-fast)',
-                                        }}>
-                                            {slot}
-                                        </button>
-                                    );
-                                })}
-                            </div>
+                            {isLoadingSlots ? (
+                                <div style={{ opacity: 0.5 }}>Carregando horários...</div>
+                            ) : (
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 'var(--space-3)' }}>
+                                    {slots.length > 0 ? slots.map(slot => {
+                                        const isSelected = selectedTime === slot.time;
+                                        const available = slot.available;
+                                        return (
+                                            <button key={slot.time} onClick={() => available && setSelectedTime(slot.time)} disabled={!available} style={{
+                                                padding: 'var(--space-3)',
+                                                borderRadius: 'var(--radius-lg)',
+                                                border: isSelected ? '2px solid var(--primary)' : '1px solid var(--border)',
+                                                backgroundColor: isSelected ? 'rgba(0,102,255,0.06)' : !available ? 'var(--border)' : 'var(--surface)',
+                                                cursor: available ? 'pointer' : 'not-allowed',
+                                                opacity: available ? 1 : 0.3,
+                                                fontWeight: 600,
+                                                fontSize: 'var(--font-size-sm)',
+                                                color: isSelected ? 'var(--primary)' : 'var(--foreground)',
+                                                transition: 'all var(--duration-fast)',
+                                            }}>
+                                                {slot.time}
+                                            </button>
+                                        );
+                                    }) : (
+                                        <div style={{ opacity: 0.5 }}>Nenhum horário disponível.</div>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
@@ -285,7 +383,7 @@ export default function CheckoutPage() {
             {/* Navigation */}
             <div style={{ display: 'flex', gap: 'var(--space-4)', marginTop: 'var(--space-6)' }}>
                 {step > 1 && (
-                    <Button color="secondary" size="lg" onClick={() => setStep(step - 1)}>voltar</Button>
+                    <Button color="secondary" size="lg" onClick={() => setStep(step - 1)} isDisabled={isSubmitting}>voltar</Button>
                 )}
                 <div style={{ flex: 1 }}>
                     {step < 4 ? (
@@ -293,8 +391,14 @@ export default function CheckoutPage() {
                             continuar
                         </Button>
                     ) : (
-                        <Button color="primary" size="lg" className="w-full" onClick={() => alert('Pagamento confirmado!')}>
-                            confirmar pagamento — {service && formatCurrency(service.price)}
+                        <Button
+                            color="primary"
+                            size="lg"
+                            className="w-full"
+                            onClick={handleBooking}
+                            isDisabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'processando...' : `confirmar pagamento — ${service && formatCurrency(service.price)}`}
                         </Button>
                     )}
                 </div>

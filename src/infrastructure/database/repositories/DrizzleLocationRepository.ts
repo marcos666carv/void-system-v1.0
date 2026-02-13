@@ -1,9 +1,9 @@
-import { LocationRepository } from '@/domain/ports/LocationRepository';
+import { LocationRepository, LocationFilters } from '@/domain/ports/LocationRepository';
 import { LocationProps } from '@/domain/entities/Location';
+import { PaginatedResult, PaginationParams, paginate } from '@/domain/shared/pagination';
 import { db } from '../drizzle/db';
 import { locations } from '../drizzle/schema';
-import { eq, count, and } from 'drizzle-orm';
-import { LocationFilters } from '@/domain/ports/LocationRepository'; // Also needed filters import adjustment if not present
+import { eq, and } from 'drizzle-orm';
 
 export class DrizzleLocationRepository implements LocationRepository {
     async findById(id: string): Promise<LocationProps | null> {
@@ -29,8 +29,28 @@ export class DrizzleLocationRepository implements LocationRepository {
         return this.findById(id);
     }
 
-    // Adding method to handle missing implementation in port if necessary, 
-    // assuming port matches InMemoryLocationRepository structure.
+    async findMany(filters: LocationFilters, pagination: PaginationParams): Promise<PaginatedResult<LocationProps>> {
+        const conditions = [];
+        if (filters.city) conditions.push(eq(locations.city, filters.city));
+        if (filters.active !== undefined) conditions.push(eq(locations.active, filters.active));
+
+        let rows;
+        if (conditions.length > 0) {
+            rows = await db.select().from(locations).where(and(...conditions));
+        } else {
+            rows = await db.select().from(locations);
+        }
+
+        const entities = rows.map(row => this.mapToEntity(row));
+        return paginate(entities, pagination);
+    }
+
+    async delete(id: string): Promise<boolean> {
+        const deleted = await db.delete(locations)
+            .where(eq(locations.id, id))
+            .returning({ id: locations.id });
+        return deleted.length > 0;
+    }
 
     private mapToEntity(row: typeof locations.$inferSelect): LocationProps {
         return {

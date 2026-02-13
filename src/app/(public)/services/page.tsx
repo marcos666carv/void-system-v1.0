@@ -1,6 +1,6 @@
 'use client';
 
-import { Gravity, Button, Card } from '@/components/ui';
+import { Button, Card } from '@/components/ui';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -70,7 +70,7 @@ export default function ServicesPage() {
                 gap: 'var(--space-5)'
             }}>
                 {services.map((service) => (
-                    <Gravity key={service.id} strength={0.1} radius={200}>
+                    <div key={service.id}>
                         <Card style={{ height: '100%', display: 'grid', gridTemplateRows: '1fr auto', gap: 'var(--space-5)', padding: 'var(--space-6)' }}>
                             <div style={{ display: 'grid', gap: 'var(--space-4)' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -112,10 +112,10 @@ export default function ServicesPage() {
                                 </div>
                             </div>
                             <Link href="/book" className="w-full">
-                                <Button className="w-full" color="secondary">agendar</Button>
+                                <Button className="w-full" intent="secondary">agendar</Button>
                             </Link>
                         </Card>
-                    </Gravity>
+                    </div>
                 ))}
             </div>
         </div>

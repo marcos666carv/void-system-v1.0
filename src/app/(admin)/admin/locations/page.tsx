@@ -74,9 +74,9 @@ export default function LocationsPage() {
                         {editingLocation ? 'Editar Filial' : 'Nova Filial'}
                     </h3>
                     <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Nome</label><Input value={form.name} onChange={val => setForm({ ...form, name: val })} isRequired /></div>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Cidade</label><Input value={form.city} onChange={val => setForm({ ...form, city: val })} isRequired /></div>
-                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Endereço</label><Input value={form.address} onChange={val => setForm({ ...form, address: val })} isRequired /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Nome</label><Input value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Cidade</label><Input value={form.city} onChange={e => setForm({ ...form, city: e.target.value })} required /></div>
+                        <div><label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase' }}>Endereço</label><Input value={form.address} onChange={e => setForm({ ...form, address: e.target.value })} required /></div>
                         <div style={{ gridColumn: '1 / -1', display: 'flex', gap: '1rem', justifyContent: 'flex-end', marginTop: '1rem' }}>
                             <Button color="secondary" size="md" type="button" onClick={resetForm}>Cancelar</Button>
                             <Button color="primary" size="md" type="submit">{editingLocation ? 'Salvar' : 'Criar'}</Button>

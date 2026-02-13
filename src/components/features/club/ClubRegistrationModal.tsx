@@ -40,9 +40,9 @@ export const ClubRegistrationModal: React.FC<ClubRegistrationModalProps> = ({ ti
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Full Name</label>
                 <Input
                     type="text"
-                    isRequired
+                    required
                     value={formData.name}
-                    onChange={val => setFormData({ ...formData, name: val })}
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Enter your full name"
                 />
             </div>
@@ -51,9 +51,9 @@ export const ClubRegistrationModal: React.FC<ClubRegistrationModalProps> = ({ ti
                 <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Email Address</label>
                 <Input
                     type="email"
-                    isRequired
+                    required
                     value={formData.email}
-                    onChange={val => setFormData({ ...formData, email: val })}
+                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                     placeholder="Enter your email"
                 />
             </div>
@@ -63,7 +63,7 @@ export const ClubRegistrationModal: React.FC<ClubRegistrationModalProps> = ({ ti
                 <Input
                     type="tel"
                     value={formData.phone}
-                    onChange={val => setFormData({ ...formData, phone: val })}
+                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="(XX) XXXXX-XXXX"
                 />
             </div>

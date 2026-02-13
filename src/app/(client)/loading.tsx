@@ -1,12 +1,12 @@
-import { Skeleton } from '@/components/ui-legacy/Skeleton';
+import { Skeleton } from '@/components/ui';
 
 export default function ClientLoading() {
     return (
         <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', maxWidth: '800px', margin: '0 auto' }}>
-            <Skeleton height="2rem" width="40%" />
-            <Skeleton height="1rem" width="80%" />
-            <Skeleton height="1rem" width="60%" />
-            <Skeleton height="300px" width="100%" />
+            <Skeleton className="h-8 w-2/5" />
+            <Skeleton className="h-4 w-4/5" />
+            <Skeleton className="h-4 w-3/5" />
+            <Skeleton className="h-[300px] w-full" />
         </div>
     );
 }

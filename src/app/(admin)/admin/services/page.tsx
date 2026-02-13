@@ -196,7 +196,7 @@ export default function ServicesPage() {
                     <h1 className="text-display-sm font-semibold text-fg-primary tracking-tight font-display">catálogo de serviços</h1>
                     <p className="text-sm text-fg-tertiary mt-1">gerencie preços, variações e metadados</p>
                 </div>
-                <Button color="primary" size="sm" onClick={() => { resetForm(); setShowForm(true); }}>
+                <Button intent="primary" size="sm" onClick={() => { resetForm(); setShowForm(true); }}>
                     <Plus className="mr-2 size-4" /> novo serviço
                 </Button>
             </div>
@@ -210,7 +210,7 @@ export default function ServicesPage() {
                                 {editingProduct ? <Edit2 size={18} /> : <Plus size={18} />}
                                 {editingProduct ? 'editar serviço' : 'novo serviço'}
                             </h3>
-                            <Button color="secondary" size="sm" onClick={resetForm}><X size={18} /></Button>
+                            <Button intent="secondary" size="sm" onClick={resetForm}><X size={18} /></Button>
                         </div>
 
                         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -220,8 +220,8 @@ export default function ServicesPage() {
                                     <Input
                                         label="nome do serviço"
                                         value={form.name}
-                                        onChange={val => setForm({ ...form, name: val })}
-                                        isRequired
+                                        onChange={e => setForm({ ...form, name: e.target.value })}
+                                        required
                                         placeholder="ex: flutuação avulsa"
                                     />
                                 </div>
@@ -247,10 +247,10 @@ export default function ServicesPage() {
                                     label="preço base (r$)"
                                     type="number"
                                     value={form.price}
-                                    onChange={val => setForm({ ...form, price: val })}
-                                    isRequired
+                                    onChange={e => setForm({ ...form, price: e.target.value })}
+                                    required
                                     placeholder="0.00"
-                                    hint="se houver variações, este é o preço 'a partir de'"
+                                    helperText="se houver variações, este é o preço 'a partir de'"
                                 />
                             </div>
 
@@ -259,7 +259,7 @@ export default function ServicesPage() {
                                     label="duração (min)"
                                     type="number"
                                     value={form.durationMinutes}
-                                    onChange={val => setForm({ ...form, durationMinutes: val })}
+                                    onChange={e => setForm({ ...form, durationMinutes: e.target.value })}
                                     placeholder="opcional"
                                 />
                             </div>
@@ -271,7 +271,7 @@ export default function ServicesPage() {
                                         <Layers size={16} className="text-fg-tertiary" />
                                         <span className="text-sm font-semibold text-fg-primary">variações</span>
                                     </div>
-                                    <Button type="button" color="secondary" size="sm" onClick={addVariation}>
+                                    <Button type="button" intent="secondary" size="sm" onClick={addVariation}>
                                         <Plus className="mr-1 size-3.5" /> adicionar variação
                                     </Button>
                                 </div>
@@ -283,12 +283,12 @@ export default function ServicesPage() {
                                 <div className="grid gap-3">
                                     {variations.map((v, idx) => (
                                         <div key={idx} className="grid grid-cols-[1.5fr_2fr_1fr_0.8fr_1fr_auto] gap-2 items-end p-3 bg-bg-secondary rounded-lg border border-border-secondary">
-                                            <Input label="nome" value={v.name} onChange={val => updateVariation(idx, 'name', val)} placeholder="ex: 3 sessões" />
-                                            <Input label="descrição" value={v.description || ''} onChange={val => updateVariation(idx, 'description', val)} placeholder="detalhes" />
+                                            <Input label="nome" value={v.name} onChange={e => updateVariation(idx, 'name', e.target.value)} placeholder="ex: 3 sessões" />
+                                            <Input label="descrição" value={v.description || ''} onChange={e => updateVariation(idx, 'description', e.target.value)} placeholder="detalhes" />
                                             <Input label="preço" type="number" value={String(v.price ?? '')} onChange={val => updateVariation(idx, 'price', Number(val))} />
                                             <Input label="sessões" type="number" value={String(v.sessions ?? '')} onChange={val => updateVariation(idx, 'sessions', Number(val))} placeholder="1" />
                                             <Input label="promo" type="number" value={String(v.promoPrice ?? '')} onChange={val => updateVariation(idx, 'promoPrice', val ? Number(val) : undefined)} placeholder="opcional" />
-                                            <Button type="button" color="tertiary" size="sm" onClick={() => removeVariation(idx)} className="text-fg-error-primary hover:text-fg-error-primary_hover h-8 w-8 p-0">
+                                            <Button type="button" intent="tertiary" size="sm" onClick={() => removeVariation(idx)} className="text-fg-error-primary hover:text-fg-error-primary_hover h-8 w-8 p-0">
                                                 <Trash2 size={14} />
                                             </Button>
                                         </div>
@@ -303,15 +303,15 @@ export default function ServicesPage() {
                                     <span className="text-sm font-semibold text-fg-primary">promoção geral</span>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                    <Input label="etiqueta" value={form.promoLabel} onChange={val => setForm({ ...form, promoLabel: val })} placeholder="ex: 20% OFF" />
-                                    <Input label="início" type="date" value={form.promoStartDate} onChange={val => setForm({ ...form, promoStartDate: val })} />
-                                    <Input label="fim" type="date" value={form.promoEndDate} onChange={val => setForm({ ...form, promoEndDate: val })} />
+                                    <Input label="etiqueta" value={form.promoLabel} onChange={e => setForm({ ...form, promoLabel: e.target.value })} placeholder="ex: 20% OFF" />
+                                    <Input label="início" type="date" value={form.promoStartDate} onChange={e => setForm({ ...form, promoStartDate: e.target.value })} />
+                                    <Input label="fim" type="date" value={form.promoEndDate} onChange={e => setForm({ ...form, promoEndDate: e.target.value })} />
                                 </div>
                             </div>
 
                             <div className="col-span-1 md:col-span-2 flex gap-3 justify-end mt-4">
-                                <Button color="secondary" size="md" type="button" onClick={resetForm}>cancelar</Button>
-                                <Button color="primary" size="md" type="submit">{editingProduct ? 'salvar alterações' : 'criar serviço'}</Button>
+                                <Button intent="secondary" size="md" type="button" onClick={resetForm}>cancelar</Button>
+                                <Button intent="primary" size="md" type="submit">{editingProduct ? 'salvar alterações' : 'criar serviço'}</Button>
                             </div>
                         </form>
                     </Card>
@@ -322,10 +322,10 @@ export default function ServicesPage() {
             <div className="max-w-[400px]">
                 <Input
                     placeholder="buscar serviço..."
-                    icon={Search}
+                    leftIcon={<Search size={16} />}
                     value={search}
-                    onChange={val => setSearch(val)}
-                    inputClassName="bg-bg-primary"
+                    onChange={e => setSearch(e.target.value)}
+                    className="bg-bg-primary"
                 />
             </div>
 
@@ -349,7 +349,7 @@ export default function ServicesPage() {
                                     {getIcon(p.category)}
                                 </div>
                                 {p.variations && p.variations.length > 0 && (
-                                    <Badge size="sm" color="gray" type="pill-color" className="rounded-full">
+                                    <Badge size="sm" intent="gray" className="rounded-full">
                                         {p.variations.length} variações
                                     </Badge>
                                 )}
@@ -371,10 +371,10 @@ export default function ServicesPage() {
                         </div>
 
                         <div className="border-t border-border-secondary px-4 py-3 flex justify-between bg-bg-secondary/50">
-                            <Button color="secondary" size="sm" onClick={() => openEdit(p)} className="h-8 text-xs">
+                            <Button intent="secondary" size="sm" onClick={() => openEdit(p)} className="h-8 text-xs">
                                 <Edit2 className="mr-1.5 size-3.5" /> editar
                             </Button>
-                            <Button color="tertiary" size="sm" onClick={() => handleDelete(p.id)} className="h-8 text-xs text-fg-error-primary hover:text-fg-error-primary_hover">
+                            <Button intent="tertiary" size="sm" onClick={() => handleDelete(p.id)} className="h-8 text-xs text-fg-error-primary hover:text-fg-error-primary_hover">
                                 <Trash2 className="mr-1.5 size-3.5" /> remover
                             </Button>
                         </div>

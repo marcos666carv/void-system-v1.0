@@ -139,17 +139,17 @@ export function PurchaseForm() {
                                     type="number"
                                     min="1"
                                     value={String(item.quantity)}
-                                    onChange={(value) => updateItem(index, 'quantity', parseInt(value))}
-                                    isRequired
+                                    onChange={(e) => updateItem(index, 'quantity', parseInt(e.target.value))}
+                                    required
                                     aria-label={`Quantidade do item ${index + 1}`}
                                 />
                             </div>
-                            <Button color="tertiary" type="button" onClick={() => removeItem(index)} disabled={cart.length === 1}>
+                            <Button intent="tertiary" type="button" onClick={() => removeItem(index)} disabled={cart.length === 1}>
                                 X
                             </Button>
                         </div>
                     ))}
-                    <Button color="secondary" type="button" onClick={addItem} size="sm">
+                    <Button intent="secondary" type="button" onClick={addItem} size="sm">
                         + Adicionar Item
                     </Button>
                 </div>
@@ -177,8 +177,8 @@ export function PurchaseForm() {
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '1rem' }}>
-                    <Button color="tertiary" type="button" onClick={() => router.back()}>Cancelar</Button>
-                    <Button color="primary" type="submit" disabled={loading}>
+                    <Button intent="tertiary" type="button" onClick={() => router.back()}>Cancelar</Button>
+                    <Button intent="primary" type="submit" disabled={loading}>
                         {loading ? 'Processando...' : 'Finalizar Venda'}
                     </Button>
                 </div>

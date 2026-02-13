@@ -1,4 +1,4 @@
-import { SkeletonCard } from '@/components/ui-legacy/Skeleton';
+import { SkeletonCard } from '@/components/ui';
 
 export default function AdminLoading() {
     return (

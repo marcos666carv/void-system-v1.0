@@ -1,6 +1,8 @@
 import React from 'react';
-import { Card } from '@/components/ui';
+import { Card, Button } from '@/components/ui';
+import { ChevronLeft, ChevronRight, Calendar as CalendarIcon } from 'lucide-react';
 import type { AppointmentProps } from '@/domain/entities/Appointment';
+import { cn } from '@/lib/utils/cn';
 
 export interface CalendarBlockedSlot {
     id: string;
@@ -17,7 +19,7 @@ export interface CalendarOperatingHours {
 }
 
 interface CalendarViewProps {
-    appointments: AppointmentProps[];
+    appointments: (AppointmentProps & { clientName?: string })[];
     blockedSlots?: CalendarBlockedSlot[];
     operatingHours?: CalendarOperatingHours[];
     currentDate: Date;
@@ -83,32 +85,54 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
     };
 
     return (
-        <Card>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', alignItems: 'center' }}>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>
+        <Card padding="none" className="overflow-hidden border border-gray-200 shadow-sm relative z-0">
+            <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-white">
+                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                    <CalendarIcon className="w-5 h-5 text-gray-500" />
                     {startOfWeek.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })}
                 </h2>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
-                    <button onClick={() => onNavigate('prev')} style={{ padding: '0.5rem', cursor: 'pointer', background: 'transparent', border: '1px solid #333', color: 'white', borderRadius: '4px' }}>&lt;</button>
-                    <button onClick={() => onNavigate('today')} style={{ padding: '0.5rem 1rem', cursor: 'pointer', background: 'transparent', border: '1px solid #333', color: 'white', borderRadius: '4px' }}>hoje</button>
-                    <button onClick={() => onNavigate('next')} style={{ padding: '0.5rem', cursor: 'pointer', background: 'transparent', border: '1px solid #333', color: 'white', borderRadius: '4px' }}>&gt;</button>
+                <div className="flex gap-2">
+                    <Button onClick={() => onNavigate('prev')} intent="secondary" size="sm" leftIcon={<ChevronLeft size={16} />}>
+                        Anterior
+                    </Button>
+                    <Button onClick={() => onNavigate('today')} intent="secondary" size="sm">
+                        Hoje
+                    </Button>
+                    <Button onClick={() => onNavigate('next')} intent="secondary" size="sm" rightIcon={<ChevronRight size={16} />}>
+                        Próxima
+                    </Button>
                 </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '50px repeat(7, 1fr)', gap: '1px', background: '#333', border: '1px solid #333' }}>
-                <div style={{ background: '#08283B' }}></div>
-                {weekDays.map(day => (
-                    <div key={day.toISOString()} style={{ padding: '0.5rem', textAlign: 'center', background: '#08283B', fontWeight: 600 }}>
-                        {day.toLocaleDateString('pt-BR', { weekday: 'short' })} <br />
-                        <span style={{ fontSize: '0.875rem', opacity: 0.7 }}>{day.getDate()}</span>
-                    </div>
-                ))}
+            <div className="grid grid-cols-[60px_repeat(7,1fr)] bg-gray-200 gap-[1px] text-sm">
+                {/* Header Row */}
+                <div className="bg-gray-50"></div>
+                {weekDays.map(day => {
+                    const isToday = new Date().toDateString() === day.toDateString();
+                    return (
+                        <div key={day.toISOString()} className={cn(
+                            "p-3 text-center font-medium bg-gray-50 flex flex-col items-center justify-center border-b border-gray-200",
+                            isToday && "bg-brand-50"
+                        )}>
+                            <span className={cn("text-xs uppercase tracking-wider", isToday ? "text-brand-700 font-bold" : "text-gray-500")}>
+                                {day.toLocaleDateString('pt-BR', { weekday: 'short' })}
+                            </span>
+                            <span className={cn("text-lg leading-none mt-1", isToday ? "text-brand-700 font-bold" : "text-gray-900")}>
+                                {day.getDate()}
+                            </span>
+                        </div>
+                    );
+                })}
 
+                {/* Time Slots */}
                 {hours.map(hour => (
                     <React.Fragment key={hour}>
-                        <div style={{ padding: '0.5rem', textAlign: 'right', fontSize: '0.75rem', opacity: 0.6, background: '#051a26', borderTop: '1px solid #1a1a1a' }}>
+                        {/* Time Label */}
+                        <div className="bg-white p-2 text-right text-xs text-gray-400 font-medium relative -top-3">
                             {hour}:00
                         </div>
+
+                        {/* Days Columns */}
                         {weekDays.map(day => {
                             const isOpen = isOperating(day, hour);
                             const appt = getAppointmentInSlot(day, hour);
@@ -116,11 +140,15 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                             const slotDate = new Date(day);
                             slotDate.setHours(hour);
 
-                            let background = isOpen ? '#051a26' : 'rgba(0,0,0,0.5)';
-                            let cursor = isOpen ? 'pointer' : 'default';
+                            let cellClass = "bg-white hover:bg-gray-50 cursor-pointer relative transition-colors h-16 border-gray-100";
 
-                            if (appt) cursor = 'pointer';
-                            if (block) cursor = 'pointer';
+                            if (!isOpen) {
+                                cellClass = "bg-gray-50/50 cursor-not-allowed pattern-dots pattern-gray-200 pattern-bg-transparent pattern-size-2 pattern-opacity-20";
+                            }
+
+                            if (appt || block) {
+                                cellClass = "bg-white cursor-pointer p-1";
+                            }
 
                             return (
                                 <div
@@ -130,37 +158,24 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
                                         else if (block && onBlockClick) onBlockClick(block);
                                         else if (isOpen && !appt && !block) onSlotClick(slotDate);
                                     }}
-                                    style={{
-                                        background,
-                                        borderTop: '1px solid #1a1a1a',
-                                        borderLeft: '1px solid #1a1a1a',
-                                        minHeight: '60px',
-                                        cursor,
-                                        position: 'relative',
-                                        transition: 'background 0.2s',
-                                        opacity: isOpen ? 1 : 0.5
-                                    }}
-                                    onMouseEnter={(e) => !appt && !block && isOpen && (e.currentTarget.style.background = '#0a2e42')}
-                                    onMouseLeave={(e) => !appt && !block && isOpen && (e.currentTarget.style.background = background)}
+                                    className={cellClass}
                                 >
                                     {block && (
-                                        <div style={{
-                                            position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                                            background: 'repeating-linear-gradient(45deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.1) 10px, rgba(239, 68, 68, 0.2) 10px, rgba(239, 68, 68, 0.2) 20px)',
-                                            display: 'grid', placeItems: 'center',
-                                            fontSize: '0.65rem', fontWeight: 800, color: 'var(--void-blaze-orange)', textTransform: 'uppercase', letterSpacing: '0.05em'
-                                        }}>
-                                            Bloqueado
+                                        <div className="w-full h-full rounded bg-error-50 border-l-4 border-error-500 p-1 flex items-center justify-center">
+                                            <span className="text-[10px] font-bold text-error-700 uppercase tracking-wider truncate px-1">
+                                                Bloqueado
+                                            </span>
                                         </div>
                                     )}
                                     {appt && (
-                                        <div style={{
-                                            position: 'absolute', top: 2, left: 2, right: 2, bottom: 2,
-                                            background: appt.status === 'confirmed' ? 'rgba(74, 222, 128, 0.2)' : 'rgba(204, 176, 240, 0.2)',
-                                            borderLeft: `3px solid ${appt.status === 'confirmed' ? '#4ade80' : '#CCB0F0'}`,
-                                            padding: '4px', fontSize: '0.75rem', overflow: 'hidden', color: 'white', zIndex: 2
-                                        }}>
-                                            <strong>{appt.serviceId}</strong>
+                                        <div className={cn(
+                                            "w-full h-full rounded border-l-4 p-1.5 shadow-sm text-xs overflow-hidden flex flex-col",
+                                            appt.status === 'confirmed'
+                                                ? "bg-success-50 border-success-500 text-success-800"
+                                                : "bg-brand-50 border-brand-500 text-brand-800"
+                                        )}>
+                                            <strong className="truncate font-semibold">{appt.clientName || 'Cliente'}</strong>
+                                            <span className="truncate opacity-80">{appt.serviceId}</span>
                                         </div>
                                     )}
                                 </div>

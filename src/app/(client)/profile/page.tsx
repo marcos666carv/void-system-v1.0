@@ -202,12 +202,12 @@ export default function ProfilePage() {
                         <Input
                             label="notas de claustrofobia"
                             defaultValue={prefs.claustrophobiaNotes}
-                            onChange={val => setPrefs({ ...prefs, claustrophobiaNotes: val })}
+                            onChange={e => setPrefs({ ...prefs, claustrophobiaNotes: e.target.value })}
                         />
                         <Input
                             label="notas de dor física"
                             defaultValue={prefs.physicalPainNotes}
-                            onChange={val => setPrefs({ ...prefs, physicalPainNotes: val })}
+                            onChange={e => setPrefs({ ...prefs, physicalPainNotes: e.target.value })}
                         />
                         <Button color="primary" size="md" className="w-full" onClick={() => setEditingPrefs(false)}>
                             salvar preferências

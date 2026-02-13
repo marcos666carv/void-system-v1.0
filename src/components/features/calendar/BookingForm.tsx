@@ -114,8 +114,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({ date, onSuccess, onCan
                 <Input
                     type="datetime-local"
                     value={formData.startTime}
-                    onChange={val => setFormData({ ...formData, startTime: val })}
-                    isRequired
+                    onChange={e => setFormData({ ...formData, startTime: e.target.value })}
+                    required
                 />
             </div>
 

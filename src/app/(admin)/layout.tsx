@@ -1,4 +1,4 @@
-import { Sidebar } from '@/components/layout/Sidebar';
+import DashboardLayout from '@/components/layout/DashboardLayout';
 
 export default function AdminLayout({
     children,
@@ -6,11 +6,8 @@ export default function AdminLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: 'var(--void-obsidian)' }}>
-            <Sidebar />
-            <main style={{ flex: 1, marginLeft: '200px', padding: 'var(--space-4)', backgroundColor: 'var(--background)' }}>
-                {children}
-            </main>
-        </div>
+        <DashboardLayout>
+            {children}
+        </DashboardLayout>
     );
 }

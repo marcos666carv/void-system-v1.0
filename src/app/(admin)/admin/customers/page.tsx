@@ -6,8 +6,10 @@ import { useClients } from '@/hooks/useClients';
 import { ClientGrid } from './components/ClientGrid';
 import { ClientDrawer } from './components/ClientDrawer';
 import { VOID_LEVELS, VoidLevel } from '@/domain/value-objects/VoidLevel';
-import { Search, Filter, Users, Star, Zap } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { ClientProps } from '@/domain/entities/Client';
+import { Search, Plus } from 'lucide-react';
 
 export default function CustomersPage() {
     const searchParams = useSearchParams();
@@ -34,24 +36,13 @@ export default function CustomersPage() {
         });
     }, [clients, search, levelFilter]);
 
-    // Derived Stats
-    const stats = useMemo(() => {
-        return {
-            total: filtered.length,
-            vip: filtered.filter(c => c.lifeCycleStage === 'vip' || c.level === 'mestre').length,
-            active: filtered.filter(c => c.lifeCycleStage === 'active').length,
-            new: filtered.filter(c => c.lifeCycleStage === 'new').length
-        }
-    }, [filtered]);
-
     // Effects
     useEffect(() => {
-        // Sync URL on filter change (debounce could be added for search)
         const params = new URLSearchParams(searchParams);
         if (search) params.set('q', search); else params.delete('q');
         if (levelFilter !== 'all') params.set('level', levelFilter); else params.delete('level');
         router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-    }, [search, levelFilter, pathname, router, searchParams]); // Added searchParams to dependency array to satisfy linter, though risky for loops. Better to ignore or refine.
+    }, [search, levelFilter, pathname, router, searchParams]);
 
     // Open drawer if ID present
     useEffect(() => {
@@ -67,93 +58,73 @@ export default function CustomersPage() {
     const handleClientSelect = (client: ClientProps) => {
         setSelectedClient(client);
         setIsDrawerOpen(true);
-        // Optional: set URL id
     };
 
     const handleDrawerClose = () => {
         setIsDrawerOpen(false);
-        // Optional: clear URL id
     };
 
     return (
-        <div className="min-h-screen bg-void-deep-blue text-void-ice font-sans selection:bg-void-vibrant-blue selection:text-white">
-            {/* Header Area */}
-            <div className="sticky top-0 z-30 bg-void-deep-blue/90 backdrop-blur-xl border-b border-white/5">
-                <div className="max-w-[1600px] mx-auto px-6 py-6">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-
-                        {/* Title & Badge */}
-                        <div>
-                            <div className="flex items-center gap-3 mb-1">
-                                <h1 className="text-3xl font-display font-light text-white tracking-tight">base de clientes</h1>
-                                <span className="px-2 py-0.5 rounded-full bg-void-vibrant-blue/10 border border-void-vibrant-blue/20 text-void-vibrant-blue text-[10px] font-bold uppercase tracking-widest">
-                                    V2.0 Command Center
-                                </span>
-                            </div>
-                            <p className="text-white/40 font-mono text-xs max-w-md">
-                                gestão de relacionamento, fidelidade e ciclo de vida do cliente.
-                            </p>
-                        </div>
-
-                        {/* Quick Stats */}
-                        <div className="flex gap-4">
-                            <StatBadge label="Total" value={stats.total} icon={<Users size={12} />} />
-                            <StatBadge label="Ativos" value={stats.active} icon={<Zap size={12} />} color="emerald" />
-                            <StatBadge label="Novos" value={stats.new} icon={<Star size={12} />} color="blue" />
-                        </div>
-                    </div>
-
-                    {/* Toolbar */}
-                    <div className="mt-8 flex flex-col md:flex-row gap-4">
-                        {/* Search */}
-                        <div className="relative flex-1 group">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-void-vibrant-blue transition-colors" size={16} />
-                            <input
-                                value={search}
-                                onChange={e => setSearch(e.target.value)}
-                                placeholder="buscar por nome, email ou cpf..."
-                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:ring-1 focus:ring-void-vibrant-blue focus:bg-white/10 transition-all placeholder:text-white/20"
-                            />
-                        </div>
-
-                        {/* Filter Tabs */}
-                        <div className="flex gap-1 overflow-x-auto pb-1 custom-scrollbar">
-                            {(['all', ...VOID_LEVELS] as const).map(level => (
-                                <button
-                                    key={level}
-                                    onClick={() => setLevelFilter(level)}
-                                    className={`
-                                        px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border
-                                        ${levelFilter === level
-                                            ? 'bg-void-vibrant-blue text-white border-void-vibrant-blue shadow-lg shadow-void-vibrant-blue/20'
-                                            : 'bg-white/5 text-white/40 border-white/5 hover:bg-white/10 hover:text-white'}
-                                    `}
-                                >
-                                    {level}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
+        <div className="space-y-6">
+            {/* Page Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-900 font-display">Clients</h1>
+                    <p className="text-sm text-gray-500">Manage your recurring customers and loyalty program.</p>
+                </div>
+                <div className="flex gap-3">
+                    <Button intent="secondary" leftIcon={<span className="text-lg">☁️</span>}>Import</Button>
+                    <Button intent="primary" leftIcon={<Plus size={18} />}>Add Client</Button>
                 </div>
             </div>
 
-            {/* Main Content */}
-            <div className="max-w-[1600px] mx-auto px-6 py-8">
-                <ClientGrid
-                    clients={filtered}
-                    onSelect={handleClientSelect}
-                    loading={loading}
-                />
+            {/* Filters Toolbar */}
+            <div className="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                <div className="flex-1 max-w-md">
+                    <Input
+                        placeholder="Search by name or email..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        leftIcon={<Search size={18} />}
+                    />
+                </div>
+                <div className="flex gap-2 overflow-x-auto pb-1 md:pb-0">
+                    <Button
+                        size="sm"
+                        intent={levelFilter === 'all' ? 'secondary' : 'tertiary'}
+                        onClick={() => setLevelFilter('all')}
+                        className={levelFilter === 'all' ? 'bg-gray-100' : ''}
+                    >
+                        All
+                    </Button>
+                    {VOID_LEVELS.map(level => (
+                        <Button
+                            key={level}
+                            size="sm"
+                            intent={levelFilter === level ? 'secondary' : 'tertiary'}
+                            onClick={() => setLevelFilter(level)}
+                            className={levelFilter === level ? 'bg-gray-100 capitalize' : 'capitalize'}
+                        >
+                            {level}
+                        </Button>
+                    ))}
+                </div>
             </div>
 
-            {/* Drawer */}
+            {/* Data Grid */}
+            <ClientGrid
+                clients={filtered}
+                onSelect={handleClientSelect}
+                loading={loading}
+            />
+
+            {/* Detail Drawer */}
             <ClientDrawer
                 client={selectedClient}
                 isOpen={isDrawerOpen}
                 onClose={handleDrawerClose}
                 onSave={(updated) => {
                     if (selectedClient) {
-                        // Optimistic update
                         const merged = { ...selectedClient, ...updated };
                         setSelectedClient(merged);
                         updateClient(merged);
@@ -165,16 +136,5 @@ export default function CustomersPage() {
 }
 
 function StatBadge({ label, value, icon, color = 'slate' }: any) {
-    // keeping styling simple for brevity
-    return (
-        <div className="flex items-center gap-3 px-3 py-2 bg-white/5 rounded-lg border border-white/5">
-            <div className={`p-1.5 rounded-md bg-${color}-500/10 text-${color}-400`}>
-                {icon}
-            </div>
-            <div>
-                <div className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{label}</div>
-                <div className="text-lg font-mono font-medium text-white leading-none">{value}</div>
-            </div>
-        </div>
-    );
+    return null; // Deprecated in V2
 }

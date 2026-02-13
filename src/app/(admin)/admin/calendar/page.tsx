@@ -1,18 +1,18 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
-import { Card } from '@/components/ui';
-import { Button } from '@/components/ui';
-import { Input } from '@/components/ui';
+import { Card, Button, Input } from '@/components/ui';
 import { CalendarView, CalendarBlockedSlot, CalendarOperatingHours } from '@/components/features/calendar/CalendarView';
 import type { AppointmentProps } from '@/domain/entities/Appointment';
+import { Plus, X, Clock, AlertCircle } from 'lucide-react';
+import { Badge } from '@/components/ui';
 
 interface Location {
     id: string;
     name: string;
 }
 
-const DAYS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const DAYS = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
 export default function CalendarPage() {
     const [locations, setLocations] = useState<Location[]>([]);
@@ -107,21 +107,32 @@ export default function CalendarPage() {
     };
 
     return (
-        <div>
-            <div style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div className="space-y-6">
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 style={{ fontSize: '2rem', fontFamily: 'var(--font-display)', fontWeight: 900, textTransform: 'uppercase' }}>Gestão de Calendário</h1>
-                    <p style={{ opacity: 0.5 }}>Bloqueios e horários de funcionamento.</p>
+                    <h1 className="text-2xl font-bold text-gray-900 font-display uppercase tracking-tight">Calendar</h1>
+                    <p className="text-sm text-gray-500">Manage schedules, blocks, and operating hours.</p>
                 </div>
-                <div style={{ width: '250px' }}>
-                    <label style={{ fontSize: '0.7rem', opacity: 0.5, textTransform: 'uppercase', display: 'block', marginBottom: '0.5rem' }}>Filial</label>
-                    <select value={selectedLocation} onChange={e => setSelectedLocation(e.target.value)} style={{ width: '100%', padding: '0.75rem', background: 'rgba(255,255,255,0.03)', border: 'var(--border-thin)', color: 'inherit', borderRadius: '4px' }}>
-                        {locations.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
-                    </select>
+                <div className="w-full sm:w-64">
+                    <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Location</label>
+                    <div className="relative">
+                        <select
+                            value={selectedLocation}
+                            onChange={e => setSelectedLocation(e.target.value)}
+                            className="w-full appearance-none bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block p-2.5 pr-8 shadow-sm"
+                        >
+                            {locations.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div style={{ marginBottom: '3rem' }}>
+            {/* Calendar View */}
+            <div>
                 <CalendarView
                     currentDate={currentDate}
                     onNavigate={handleNavigate}
@@ -133,32 +144,54 @@ export default function CalendarPage() {
                 />
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            {/* Management Panels */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Operating Hours Form */}
                 <Card padding="lg">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                        <h3 style={{ fontSize: '1rem', fontWeight: 800 }}>Horários de Funcionamento</h3>
-                        <Button color="secondary" size="sm" onClick={() => setShowHoursForm(!showHoursForm)}>+ Definir</Button>
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="flex items-center gap-2">
+                            <Clock className="text-brand-600" size={20} />
+                            <h3 className="text-lg font-semibold text-gray-900">Operating Hours</h3>
+                        </div>
+                        <Button intent="secondary" size="sm" onClick={() => setShowHoursForm(!showHoursForm)} leftIcon={<Plus size={16} />}>
+                            Add
+                        </Button>
                     </div>
+
                     {showHoursForm && (
-                        <form onSubmit={handleHoursSubmit} style={{ display: 'grid', gap: '1rem', marginBottom: '1rem' }}>
-                            <select value={hoursForm.dayOfWeek} onChange={e => setHoursForm({ ...hoursForm, dayOfWeek: Number(e.target.value) })} style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.05)', border: 'none', color: 'white' }}>
-                                {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
-                            </select>
-                            <div style={{ display: 'flex', gap: '0.5rem' }}>
-                                <Input type="time" value={hoursForm.openTime} onChange={value => setHoursForm({ ...hoursForm, openTime: value })} />
-                                <Input type="time" value={hoursForm.closeTime} onChange={value => setHoursForm({ ...hoursForm, closeTime: value })} />
+                        <form onSubmit={handleHoursSubmit} className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4 space-y-4">
+                            <div>
+                                <label className="block text-xs font-medium text-gray-700 mb-1">Day of Week</label>
+                                <select
+                                    value={hoursForm.dayOfWeek}
+                                    onChange={e => setHoursForm({ ...hoursForm, dayOfWeek: Number(e.target.value) })}
+                                    className="w-full bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 p-2.5"
+                                >
+                                    {DAYS.map((d, i) => <option key={i} value={i}>{d}</option>)}
+                                </select>
                             </div>
-                            <Button color="primary" size="sm" type="submit">Salvar</Button>
+                            <div className="grid grid-cols-2 gap-4">
+                                <Input label="Open" type="time" value={hoursForm.openTime} onChange={e => setHoursForm({ ...hoursForm, openTime: e.target.value })} />
+                                <Input label="Close" type="time" value={hoursForm.closeTime} onChange={e => setHoursForm({ ...hoursForm, closeTime: e.target.value })} />
+                            </div>
+                            <div className="flex justify-end gap-2">
+                                <Button intent="tertiary" size="sm" onClick={() => setShowHoursForm(false)}>Cancel</Button>
+                                <Button intent="primary" size="sm" type="submit">Save Hours</Button>
+                            </div>
                         </form>
                     )}
-                    <div style={{ display: 'grid', gap: '0.5rem' }}>
+
+                    <div className="space-y-2">
                         {DAYS.map((day, idx) => {
                             const hours = operatingHours.find(h => h.dayOfWeek === idx);
                             return (
-                                <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', opacity: hours ? 1 : 0.4 }}>
-                                    <span>{day}</span>
-                                    <span>{hours ? `${hours.openTime} - ${hours.closeTime}` : 'Fechado'}</span>
+                                <div key={idx} className="flex justify-between items-center py-2 border-b border-gray-50 last:border-0">
+                                    <span className="text-sm font-medium text-gray-700">{day}</span>
+                                    {hours ? (
+                                        <Badge intent="success">{hours.openTime} - {hours.closeTime}</Badge>
+                                    ) : (
+                                        <Badge intent="gray">Closed</Badge>
+                                    )}
                                 </div>
                             );
                         })}
@@ -167,27 +200,47 @@ export default function CalendarPage() {
 
                 {/* Blocked Slots Form */}
                 <Card padding="lg">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                        <h3 style={{ fontSize: '1rem', fontWeight: 800 }}>Bloqueios</h3>
-                        <Button color="secondary" size="sm" onClick={() => setShowBlockForm(!showBlockForm)}>+ Bloquear</Button>
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="flex items-center gap-2">
+                            <AlertCircle className="text-error-600" size={20} />
+                            <h3 className="text-lg font-semibold text-gray-900">Blocked Slots</h3>
+                        </div>
+                        <Button intent="secondary" size="sm" onClick={() => setShowBlockForm(!showBlockForm)} leftIcon={<Plus size={16} />}>
+                            Block
+                        </Button>
                     </div>
+
                     {showBlockForm && (
-                        <form onSubmit={handleBlockSubmit} style={{ display: 'grid', gap: '1rem' }}>
-                            <div><label style={{ fontSize: '0.7rem' }}>Início</label><Input type="datetime-local" value={blockForm.startTime} onChange={value => setBlockForm({ ...blockForm, startTime: value })} /></div>
-                            <div><label style={{ fontSize: '0.7rem' }}>Fim</label><Input type="datetime-local" value={blockForm.endTime} onChange={value => setBlockForm({ ...blockForm, endTime: value })} /></div>
-                            <Input placeholder="Motivo" value={blockForm.reason} onChange={value => setBlockForm({ ...blockForm, reason: value })} />
-                            <Button color="primary" size="sm" type="submit">Bloquear</Button>
+                        <form onSubmit={handleBlockSubmit} className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4 space-y-4">
+                            <div className="grid grid-cols-2 gap-4">
+                                <Input label="Start" type="datetime-local" value={blockForm.startTime} onChange={e => setBlockForm({ ...blockForm, startTime: e.target.value })} />
+                                <Input label="End" type="datetime-local" value={blockForm.endTime} onChange={e => setBlockForm({ ...blockForm, endTime: e.target.value })} />
+                            </div>
+                            <Input label="Reason" placeholder="e.g. Maintenance" value={blockForm.reason} onChange={e => setBlockForm({ ...blockForm, reason: e.target.value })} />
+                            <div className="flex justify-end gap-2">
+                                <Button intent="tertiary" size="sm" onClick={() => setShowBlockForm(false)}>Cancel</Button>
+                                <Button intent="primary" size="sm" type="submit">Confirm Block</Button>
+                            </div>
                         </form>
                     )}
-                    <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+
+                    <div className="max-h-[400px] overflow-y-auto space-y-3 custom-scrollbar pr-2">
+                        {blockedSlots.length === 0 && (
+                            <div className="text-center py-8 text-gray-400 text-sm">No blocking rules active.</div>
+                        )}
                         {blockedSlots.map(slot => (
-                            <div key={slot.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', fontSize: '0.8rem' }}>
+                            <div key={slot.id} className="flex justify-between items-start p-3 bg-gray-50 rounded-lg border border-gray-100 group hover:border-error-200 transition-colors">
                                 <div>
-                                    <div style={{ fontWeight: 700 }}>{new Date(slot.startTime).toLocaleDateString()}</div>
-                                    <div style={{ opacity: 0.7 }}>{new Date(slot.startTime).toLocaleTimeString()} - {new Date(slot.endTime).toLocaleTimeString()}</div>
-                                    <div style={{ color: 'var(--void-blaze-orange)' }}>{slot.reason}</div>
+                                    <div className="font-semibold text-gray-900 text-sm">{new Date(slot.startTime).toLocaleDateString()}</div>
+                                    <div className="text-xs text-gray-500 mb-1">{new Date(slot.startTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - {new Date(slot.endTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                                    <div className="text-xs text-error-600 font-medium">{slot.reason}</div>
                                 </div>
-                                <Button color="secondary" size="sm" onClick={() => handleDeleteBlock(slot.id)}>×</Button>
+                                <button
+                                    onClick={() => handleDeleteBlock(slot.id)}
+                                    className="p-1 text-gray-400 hover:text-error-600 rounded-md hover:bg-error-50 transition-colors"
+                                >
+                                    <X size={16} />
+                                </button>
                             </div>
                         ))}
                     </div>

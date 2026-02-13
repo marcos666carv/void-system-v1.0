@@ -1,10 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Gravity } from '@/components/ui-legacy/Gravity';
 import { Button } from '@/components/ui';
 import { Card } from '@/components/ui';
-import { Modal, Dialog } from '@/components/ui-legacy/Modal';
 import { ClubRegistrationModal } from '@/components/features/club/ClubRegistrationModal';
 
 export default function ClubPage() {
@@ -43,7 +41,7 @@ export default function ClubPage() {
                 gap: '2rem'
             }}>
                 {/* Standard Tier */}
-                <Gravity strength={0.2} radius={200}>
+                <div className="h-full">
                     <Card className="h-full flex flex-col justify-between" style={{ height: '100%', borderColor: 'rgba(227,227,217,0.2)' }}>
                         <div>
                             <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Explorer</h2>
@@ -57,13 +55,13 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button className="w-full" color="secondary" onClick={() => handleSubscribe('Explorer')}>Assinar Explorer</Button>
+                            <Button className="w-full" intent="secondary" onClick={() => handleSubscribe('Explorer')}>Assinar Explorer</Button>
                         </div>
                     </Card>
-                </Gravity>
+                </div>
 
                 {/* Premium Tier */}
-                <Gravity strength={0.2} radius={200}>
+                <div className="h-full">
                     <Card className="h-full flex flex-col justify-between" style={{ height: '100%', borderColor: '#CCB0F0', backgroundColor: 'rgba(204,176,240,0.05)' }}>
                         <div>
                             <div style={{
@@ -90,13 +88,13 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button className="w-full" color="primary" onClick={() => handleSubscribe('Voyager')}>Assinar Voyager</Button>
+                            <Button className="w-full" intent="primary" onClick={() => handleSubscribe('Voyager')}>Assinar Voyager</Button>
                         </div>
                     </Card>
-                </Gravity>
+                </div>
 
                 {/* VIP Tier */}
-                <Gravity strength={0.2} radius={200}>
+                <div className="h-full">
                     <Card className="h-full flex flex-col justify-between" style={{ height: '100%', borderColor: 'rgba(227,227,217,0.2)' }}>
                         <div>
                             <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Transcendent</h2>
@@ -111,28 +109,30 @@ export default function ClubPage() {
                             </ul>
                         </div>
                         <div style={{ marginTop: '2rem' }}>
-                            <Button className="w-full" color="secondary" onClick={() => handleSubscribe('Transcendent')}>Assinar Transcendent</Button>
+                            <Button className="w-full" intent="secondary" onClick={() => handleSubscribe('Transcendent')}>Assinar Transcendent</Button>
                         </div>
                     </Card>
-                </Gravity>
+                </div>
             </div>
 
-            <Modal
-                isOpen={!!selectedTier}
-                onOpenChange={(open) => !open && setSelectedTier(null)}
-                isDismissable
-            >
-                <Dialog className="outline-none">
-                    <h2 className="text-xl font-bold mb-4 text-center">Join Void Club</h2>
-                    {selectedTier && (
+            {selectedTier && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+                    <div className="outline-none max-w-md w-full p-6 bg-white dark:bg-void-obsidian rounded-xl shadow-2xl relative">
+                        <button
+                            onClick={() => setSelectedTier(null)}
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                        >
+                            ✕
+                        </button>
+                        <h2 className="text-xl font-bold mb-4 text-center">Join Void Club</h2>
                         <ClubRegistrationModal
                             tier={selectedTier}
                             onSuccess={handleSuccess}
                             onCancel={() => setSelectedTier(null)}
                         />
-                    )}
-                </Dialog>
-            </Modal>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

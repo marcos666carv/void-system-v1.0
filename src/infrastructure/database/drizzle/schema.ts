@@ -43,6 +43,12 @@ export const clients = pgTable('clients', {
     interactionHistory: jsonb('interaction_history').$type<any[]>(),
     usageTags: jsonb('usage_tags').$type<string[]>(),
     preferredWeekDays: jsonb('preferred_week_days').$type<string[]>(),
+
+    // Future utilization data
+    sessionsFloat: integer('sessions_float').notNull().default(0),
+    sessionsMassage: integer('sessions_massage').notNull().default(0),
+    sessionsCombo: integer('sessions_combo').notNull().default(0),
+    lifeCycleStage: text('life_cycle_stage').notNull().default('new'), // new, active, drifting, churned, loyal, vip
 });
 
 export const appointmentStatusEnum = pgEnum('appointment_status', ['pending', 'confirmed', 'completed', 'cancelled', 'no_show']);
